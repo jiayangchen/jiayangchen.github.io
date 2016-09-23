@@ -1,10 +1,12 @@
 ---
 layout: post
-title: Android在一个app程序中，打开另一个app的方法
+title: "Android在一个app程序中，打开另一个app的方法"
+subtitle: "暑期大作业自学android技术分享"
 date: 2016-07-21
-categories: blog
-tags: [Android]
-description: 
+author: "ChenJY"
+catalog:    true
+tags:
+    - Android
 ---
 
 暑期大作业里，碰到了需要调用外部第三方App的情况，那么如何在你自己开发的这个app中启动手机里装好的另一个app呢？我一开始查找的方法中，我一直以为包名应该是build.gradle文件中的application id，那实际上却不一定。
