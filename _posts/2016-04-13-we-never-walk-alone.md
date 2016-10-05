@@ -4,6 +4,7 @@ title: "You’ll Never Walk Alone"
 subtitle: "但你不知道的是，如果有机会，我只愿挥舞着满场五星红旗，大声助威你…"
 date: 2016-4-13
 author: "ChenJY"
+header-img: "img/football.jpg"
 catalog: true
 tags: 
     - 动态

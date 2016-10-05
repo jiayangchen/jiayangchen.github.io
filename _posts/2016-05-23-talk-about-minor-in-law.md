@@ -4,6 +4,7 @@ title: "谈谈法学二专（一）"
 subtitle: "这就是法律的力量，无视人地位、财富之高低，而仅仅代表了人类追求平等幸福的权利，无论谁妄图破坏，都不被允许"
 date: 2016-5-23
 author: "ChenJY"
+header-img: "img/law.jpg"
 catalog: true
 tags: 
     - 日志
