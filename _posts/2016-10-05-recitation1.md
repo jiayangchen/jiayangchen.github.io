@@ -4,6 +4,7 @@ title: "Recitation 1 ———— Worse is Better "
 subtitle: "论文阅读笔记 | Notes when reading papers"
 date: 2016-10-05
 author: "ChenJY"
+header-img: "img/recitation.jpg"
 catalog:    true
 tags:
     - 论文阅读
