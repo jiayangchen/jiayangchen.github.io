@@ -4,6 +4,7 @@ title: "大鱼海棠——无题"
 subtitle: "网上关于《大鱼海棠》的影评我也看了很多，为黑而黑的人也很多，总的来说看了还行，消费画面和配乐好了，这钱我觉得送的比《独立日2》好。。。"
 date: 2016-07-09
 author: "ChenJY"
+header-img: "img/movie_dayuhaitang.jpg"
 catalog: true
 tags: 
     - 电影

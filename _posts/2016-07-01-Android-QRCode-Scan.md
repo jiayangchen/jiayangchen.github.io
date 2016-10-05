@@ -4,6 +4,7 @@ title: "暑期大作业Android相关技术整理"
 subtitle: "用以记录在大二暑期大作业中使用到的一些android开发小技术"
 date: 2016-07-01
 author: "ChenJY"
+header-img: "img/android.jpg"
 catalog: true
 tags: 
     - Android
