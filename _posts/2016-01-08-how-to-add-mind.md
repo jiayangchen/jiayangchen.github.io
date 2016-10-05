@@ -1,10 +1,13 @@
 ---
 layout: post
-title: 如何培养和丰富自己的精神世界？
+title: "如何培养和丰富自己的精神世界？"
+subtitle: "我想表达的就是，书只要让你有思考就有意义，腹有诗书气自华是有道理的"
 date: 2016-1-08
-categories: blog
-tags: [日志]
-description: 
+author: "ChenJY"
+catalog: true
+tags: 
+    - 回答
+    - 读书 
 ---
 
 　　还在考试周挣扎，抽空刷到这个问题，想答一答。
