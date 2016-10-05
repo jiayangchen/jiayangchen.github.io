@@ -1,10 +1,14 @@
 ---
 layout: post
-title: 这样的她，璀璨明亮
+title: "这样的她，璀璨明亮"
+subtitle: "虽然冬天快过去，但那个甜筒却成了冬日记忆里的阳光……这样的她，不论将来走到哪里都应该璀璨明亮吧！"
 date: 2016-3-04
-categories: blog
-tags: [日志]
-description: 
+author: "ChenJY"
+catalog: true
+tags: 
+    - 日志
+    - 学姐
+    - 回忆 
 ---
 
 2016年2月15号，全国各地陆续开放考研成绩查询入口。

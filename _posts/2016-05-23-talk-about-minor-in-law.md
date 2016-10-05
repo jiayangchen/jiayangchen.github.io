@@ -1,10 +1,14 @@
 ---
 layout: post
-title: 谈谈法学二专（一）
+title: "谈谈法学二专（一）"
+subtitle: "这就是法律的力量，无视人地位、财富之高低，而仅仅代表了人类追求平等幸福的权利，无论谁妄图破坏，都不被允许"
 date: 2016-5-23
-categories: blog
-tags: [日志]
-description: 
+author: "ChenJY"
+catalog: true
+tags: 
+    - 日志
+    - 法学
+    - 二专 
 ---
 
 　　这学期正式开始上法学二专的课程，主要是法理学、民法和宪法，一周四次课全都安排在晚上，导致了我周二周四早八到晚八，累趴。

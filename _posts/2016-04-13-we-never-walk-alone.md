@@ -1,10 +1,14 @@
 ---
 layout: post
-title: You’ll Never Walk Alone
+title: "You’ll Never Walk Alone"
+subtitle: "但你不知道的是，如果有机会，我只愿挥舞着满场五星红旗，大声助威你…"
 date: 2016-4-13
-categories: blog
-tags: [日志]
-description: 
+author: "ChenJY"
+catalog: true
+tags: 
+    - 动态
+    - 心情
+    - 国足 
 ---
 
 　　昨天国足12强赛抽签结束，我和舍友正好在上大学化学，抽韩国or日本的时候，舍友捂上眼睛都不敢看，他和我说但愿碰日本，我也知道理性上最好是碰日本，日本这种技术流的球队其实很怕国足这种踢得很糙的队伍，国足不是没有机会。但要是国足对上韩国，心里坎迈不迈的过去还是问题，但说实话，我心里希望碰韩国，结果还真被我说中了，就碰韩国！

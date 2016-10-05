@@ -1,10 +1,15 @@
 ---
 layout: post
-title: 【转载】有没有一张图片让你瞬间明白了什么叫「气质」
+title: "【转载】有没有一张图片让你瞬间明白了什么叫「气质」"
+subtitle: "转自清华南都 文/猫里奥 侵删"
 date: 2016-07-13
-categories: blog
-tags: [转载]
-description: 
+author: "猫里奥"
+catalog: true
+tags: 
+    - 转载
+    - 气质
+    - 转载
+    - 郑念 
 ---
 
 > 转自清华南都 文/猫里奥 侵删
