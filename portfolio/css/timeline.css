@@ -11,8 +11,7 @@ body, html {
 }
 
 .main a{
-	/*color:#0085a1;*/
-    background: url("../images/intern-alitrip.jpg");
+	color:#0085a1;
 }
 .main a:hover {
 	/*color: #000;*/
@@ -112,7 +111,8 @@ body, html {
 	-webkit-font-smoothing: antialiased;
 	position: absolute;
 	color: #fff;
-	background: #46a4da;
+	/*background: #46a4da;*/
+    background: url("../images/intern-alitrip.jpg");
 	border-radius: 50%;
 	box-shadow: 0 0 0 8px #afdcf8;
 	text-align: center;
