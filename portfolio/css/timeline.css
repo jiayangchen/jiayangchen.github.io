@@ -182,6 +182,15 @@ body, html {
 	background-size: 22px;
 }
 
+.android:before {
+	content: "";
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url("../images/androidtag.png") 50% 50% no-repeat;
+	background-size: 22px;
+}
+
 /******* Hux Branch *****/
 html{
 	font-size: 90%;
