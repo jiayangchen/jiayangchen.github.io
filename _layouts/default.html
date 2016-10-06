@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<style type="text/css">
-.comment{
-    width: 1500px;
-    margin:0 auto;
-}
-</style>
+
 {% include head.html %}
 
 <!-- hack iOS CSS :active style -->
@@ -15,7 +10,6 @@
 
     {{ content }}
    
-    <div id="comment" class="comment">
     <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
                     <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
                     <script>
@@ -28,7 +22,6 @@
                         var yunManualLoad = true;
                         Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
                     </script>
-    </div>
     {% include footer.html %}
 
 
