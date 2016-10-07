@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "暑期大作业Android相关技术整理"
-subtitle: "用以记录在大二暑期大作业中使用到的一些android开发小技术"
+subtitle: "一、技术篇"
 date: 2016-07-01
 author: "ChenJY"
 header-img: "img/android.jpg"
@@ -159,3 +159,65 @@ PS: setColorScheme()已经弃用，使用setColorSchemeResources()来设置颜�
 
 ```
 
+### Android：利用SharedPreferences实现自动登录
+* http://www.cnblogs.com/tinyphp/p/3998444.html
+
+### 最强 Android Studio 使用小技巧和快捷键
+* http://www.open-open.com/lib/view/open1458715872710.html
+
+### android:怎么实现一个控件与另一个指定控件左对齐
+* https://segmentfault.com/q/1010000003905460?_ea=425861
+
+### 最详细的 Android Toolbar 开发实践总结
+* http://www.codeceo.com/article/android-toolbar-develop.html
+
+### 最详细的 NavigationDrawer 开发实践总结
+* https://github.com/D-clock/AndroidSystemUiTraining/blob/master/note/02_AndroidSystemUI%EF%BC%9ANavigationDrawe%E7%89%B9%E6%80%A7%E7%9A%84%E4%BD%BF%E7%94%A8.md
+
+### Android .9.png图片的制作与使用
+* http://blog.csdn.net/leeccncdl/article/details/7303635
+
+### Android开发中 ic_launcher 尺寸
+* http://blog.csdn.net/never_cxb/article/details/47184241
+
+### Android studio统计代码行数插件-->statistic
+* http://blog.csdn.net/qq_23547831/article/details/50774941
+
+### toolbar显示返回箭头
+* http://blog.csdn.net/u014631944/article/details/51347117
+
+### Android学习——百度地图开发定位与显示Demo
+* http://blog.csdn.net/zhshulin/article/details/37495575#
+
+### android应用中去掉标题栏的方法
+* http://blog.csdn.net/liuzhidong123/article/details/7818531
+
+### Android开发之高德地图实现定位
+* http://www.jianshu.com/p/c3dc0cea0a2d
+
+### Material Design Icons
+* https://github.com/google/material-design-icons/releases/tag/1.0.0
+
+### 各种Android Dialog创建及其监听事件实现
+* http://blog.sina.com.cn/s/blog_4a0238270101jr0q.html
+
+### Android学习笔记30：列表ListView控件的使用
+* http://www.cnblogs.com/menlsh/archive/2013/03/15/2962350.html
+
+### android开发教程之listview使用方法
+* http://www.jb51.net/article/46652.htm
+
+### Windows下AndroidStudio 中使用Git(AndroidStudio项目于GitHub关联)
+* http://www.mamicode.com/info-detail-512945.html
+
+### LayoutInflater的使用 和getSystemService系统服务
+* http://blog.csdn.net/psuaije/article/details/7423353
+
+### 一个千万量级的APP使用的一些第三方库
+* http://www.jianshu.com/p/dc8c05cf693d
+
+### Android项目重构之路:架构篇
+* http://keeganlee.me/post/android/20150605
+
+### 运用RUP 4+1视图方法进行软件架构设计
+* http://www.uml.org.cn/zjjs/201412262.asp
