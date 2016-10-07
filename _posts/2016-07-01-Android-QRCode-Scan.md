@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "暑期大作业Android相关技术整理"
+title: "暑期大作业Android相关整理"
 subtitle: "一、技术篇"
 date: 2016-07-01
 author: "ChenJY"
