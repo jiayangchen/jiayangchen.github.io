@@ -191,6 +191,24 @@ body, html {
 	background-size: 22px;
 }
 
+.unity:before {
+	content: "";
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url("../images/unity.png") 50% 50% no-repeat;
+	background-size: 22px;
+}
+
+.pc:before {
+	content: "";
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url("../images/pc.png") 50% 50% no-repeat;
+	background-size: 22px;
+}
+
 /******* Hux Branch *****/
 html{
 	font-size: 90%;
