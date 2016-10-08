@@ -212,7 +212,7 @@ body, html {
 .echarts:before {
 	content: "";
 	display: block;
-	width: 175px;
+	width: 40x;
 	height: 40px;
 	background: url("../images/echarts.png") 50% 50% no-repeat;
 	background-size: 22px;
