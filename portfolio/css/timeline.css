@@ -209,6 +209,15 @@ body, html {
 	background-size: 22px;
 }
 
+.echarts:before {
+	content: "";
+	display: block;
+	width: 175px;
+	height: 40px;
+	background: url("../images/echarts.png") 50% 50% no-repeat;
+	background-size: 22px;
+}
+
 /******* Hux Branch *****/
 html{
 	font-size: 90%;
