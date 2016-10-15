@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "陌生人的故事"
-subtitle: ""
+subtitle: "我能知道的是，这座城市就像一顶帽子，我们都活在帽檐边沿，改变自己的不是周遭的一切，只有自己的本心"
 date: 2016-10-15
 author: "ChenJY"
 header-img: "img/android.jpg"
