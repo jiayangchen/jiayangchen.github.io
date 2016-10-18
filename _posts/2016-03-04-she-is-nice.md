@@ -4,7 +4,7 @@ title: "这样的她，璀璨明亮"
 subtitle: "虽然冬天快过去，但那个甜筒却成了冬日记忆里的阳光……这样的她，不论将来走到哪里都应该璀璨明亮吧！"
 date: 2016-3-04
 author: "ChenJY"
-header-img: "img/independenceday.jpg"
+header-img: "img/her.jpg"
 catalog: true
 tags: 
     - 日志
