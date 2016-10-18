@@ -3,6 +3,7 @@ layout: post
 title: "【转载】有没有一张图片让你瞬间明白了什么叫「气质」"
 subtitle: "转自清华南都 文/猫里奥 侵删"
 date: 2016-07-13
+header-img: "img/qizhi.jpg"
 author: "猫里奥"
 catalog: true
 tags: 
