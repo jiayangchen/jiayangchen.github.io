@@ -4,6 +4,7 @@ title: "如何看待2016年猴年春晚没有邀请六小龄童先生导致的�
 subtitle: "往小了说，这是一代人的童年记忆，值得珍惜；往大了说，在中国，这是为数不多的依旧具有鲜活生命力的传统文化符号，是一种饱满的情怀。"
 date: 2016-1-28
 author: "ChenJY"
+header-img: "img/monkey.jpg"
 catalog: true
 tags: 
     - 日志
