@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Recitation 1 ———— Worse is Better "
+title: "Recitation 1 Worse is Better "
 subtitle: "论文阅读笔记 | Notes when reading papers"
 date: 2016-09-25
 author: "ChenJY"
