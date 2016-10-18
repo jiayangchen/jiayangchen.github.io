@@ -31,7 +31,7 @@ and it reports races only after an initialized variable
 has become writeshared
 by more than one thread.
 
-### * Question2：Under what conditions does Eraser report a false ...
+### Question2：Under what conditions does Eraser report a false ...
 
 * False Positive: The Eraser will do a good job only if the test case causes enough shared variable reads
 to follow the corresponding writes.
