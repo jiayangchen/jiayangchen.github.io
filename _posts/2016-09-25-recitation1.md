@@ -26,6 +26,7 @@ important; and it can work both well in small machines and large ones; finally
 acceptance first due to people's recognition to the "worse software" rather than "the right things"
 
 ### Question2:Which contexts does "wore is better” suitable for? Which contexts doesn’t ? Please give at least two cases for each situation.
+
 * "Worse is better" is suitable for the conditon like that if you want your software quickly occupy the
 market or if you want your software can be widespread userd. The example are Unix/C and XMLRPC.
 However, it is not suitable for that if your sotfware needs to be totally strong and complete which means
@@ -33,6 +34,7 @@ that you cannot just emphasis on its simlpicity of use and implementation.The ex
 bank security software.
 
 ### Question3:Please describe one of your own projects, and think whether “worse is better” is suitable for it.
+
 * My summer vocation homwork is to design and implement an automatic car app named "Autoer", i firstly
 managered three iteration plan, in my first plan, i focused on the main fundamental functions i needed to
 implement. So after the first period, i could probably use the app for most situations. Then in the second
