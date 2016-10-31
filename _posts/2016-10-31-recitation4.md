@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Recitation 3 Eraser: A Dynamic Data Race Detector for Multithreaded Programs "
+title: "Recitation-4: MapReduce"
 subtitle: "论文阅读笔记 | Notes when reading papers"
-date: 2016-10-18
+date: 2016-10-31
 author: "ChenJY"
 header-img: "img/recitation.jpg"
 catalog:    true
