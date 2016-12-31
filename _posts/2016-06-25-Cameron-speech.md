@@ -4,7 +4,7 @@ title: "英国公投脱欧 卡梅伦辞职演说全稿"
 subtitle: "这篇文章意在分享英国首相卡梅伦当地时间24日在唐宁街10号首相官邸发表的英文演说全稿，ps：对学习英文的人来说这类演说稿很适合大声朗读和模仿！"
 date: 2016-6-25
 author: "ChenJY"
-header-img: "img/england.jpg"
+header-img: "img/england.png"
 catalog: true
 tags: 
     - 日志
