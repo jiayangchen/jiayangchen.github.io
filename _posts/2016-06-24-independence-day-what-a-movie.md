@@ -4,7 +4,7 @@ title: "独立日：没想到你是这样的电影"
 subtitle: "想浪的时候做决定永远不经过脑子，待两个小时电影结束之后我在碧江躺尸，看着天边悠悠白云，想着我勤工助学挣的血汗钱就献给了这种电影OMG"
 date: 2016-6-24
 author: "ChenJY"
-header-img: "img/independenceday.jpg"
+header-img: "img/Independenceday.jpg"
 catalog: true
 tags: 
     - 电影
