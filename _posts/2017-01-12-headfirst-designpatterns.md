@@ -42,7 +42,7 @@ public class Singleton {
 }
 ```
 
-Singleton通过将构造方法限定为private避免了类在外部被实例化，在同一个虚拟机范围内，Singleton的唯一实例只能通过getInstance()方法访问。
+<b>Singleton</b> 通过将构造方法限定为 <b>private</b> 避免了类在外部被实例化，在同一个虚拟机范围内，<b>Singleton</b> 的唯一实例只能通过 getInstance() 方法访问。
 
 但是以上懒汉式单例的实现没有考虑线程安全问题，它是线程不安全的，并发环境下很可能出现多个Singleton实例，如果现在存在着线程A和B，代码执行情况是这个样子的，线程A执行到了 <b>If(singleton == null)</b> ，线程B执行到了 <b>Singleton = new Singleton()</b> ;线程B虽然实例化了一个 Singleton，但是对于线程A来说判断singleton还是未初始化的，所以线程A还会对singleton进行初始化。
 
