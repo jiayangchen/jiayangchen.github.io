@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "深入理解java虚拟机 —— java 内存模型"
-subtitle: "填坑进行时..."
-date: 2017-07-11
+subtitle: "最近在看周志明的《深入理解Java虚拟机》，将其中的内容总结下来写几篇总结好了。"
+date: 2017-04-14
 author: "ChenJY"
 header-img: "img/drive.jpg"
 catalog: true
@@ -55,6 +55,6 @@ Java堆是GC主要负责的区域，可分为新生代、老年代；更仔细�
 ![image](http://img.blog.csdn.net/20141116180738062?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvT3lhbmdZdWp1bg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 两种方式各有优势，局并访问方式最大的好处是reference中存放的是稳定的句柄地址，在对象被移动时，只会改变句柄中的实例数据指针，而reference本身不需要被修改。而指针访问的最大优势是速度快，它节省了一次指针定位的开销，由于对象访问在Java中非常频繁，一次这类开销积少成多后也是一项非常可观的成本。具体的访问方式都是有虚拟机指定的，虚拟机Sun HotSpot使用的是直接指针方式，不过从整个软件开发的范围来看，各种语言和框架使用句柄访问方式的情况十分常见。
-        
+
 ### 参考资料
 * 《深入理解Java虚拟机》 周志明著
