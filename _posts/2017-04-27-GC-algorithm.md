@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "深入理解java虚拟机 —— Java GC算法"
-subtitle: "填坑进行时..."
-date: 2017-07-12
+subtitle: "进一步了解GC中的各种算法"
+date: 2017-04-27
 author: "ChenJY"
 header-img: "img/drive.jpg"
 catalog: true
@@ -30,3 +30,6 @@ S1 Survivor空间 （存在时间更长的实例将会从S0 Survivor空间移动
 永久代（Permanent Generation）包含类、方法等细节的元信息
 
 根据对象的存活周期不同将内存划分成不同的快，一般有新生代和老年代，新生代使用复制，老年代使用标记整理
+
+### 参考资料
+* 《深入理解Java虚拟机》 周志明著
