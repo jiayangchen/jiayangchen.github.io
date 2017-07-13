@@ -7,10 +7,7 @@ author: "ChenJY"
 header-img: "img/design_patterns.jpg"
 catalog: true
 tags: 
-    - 阅读
-    - reading
     - 设计模式
-    - Design Patterns
 ---
 
 ### 概念：
