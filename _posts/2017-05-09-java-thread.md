@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "深入理解java虚拟机 —— 线程"
+title: "深入理解java虚拟机 —— Java 线程"
 subtitle: ""
 date: 2017-05-09
 author: "ChenJY"
