@@ -4,7 +4,7 @@ title: "深入理解java虚拟机 —— Java 线程"
 subtitle: "进程是cpu资源分配的最小单位，线程是cpu调度的最小单位。以前进程既是资源分配也是调度的最小单位，后来为了更合理的使用cpu(实际上是cpu性能越来越好)，才将资源分配和调度分开，就有了线程。线程是建立在进程的基础上的一次程序运行单位。"
 date: 2017-05-09
 author: "ChenJY"
-header-img: "img/drive.jpg"
+header-img: "img/java.jpg"
 catalog: true
 tags: 
     - 深入理解Java虚拟机

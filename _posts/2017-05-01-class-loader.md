@@ -4,7 +4,7 @@ title: "深入理解java虚拟机 —— 类加载器"
 subtitle: "虚拟机团队把类加载阶段中的“通过一个类的全限定名来获取描述此类的二进制字节流”这个动作放到Java虚拟机外部去实现，以便让应用程序自己去决定如何获取所需要的类，实现这个动作的代码模块称为“类加载器”。"
 date: 2017-05-01
 author: "ChenJY"
-header-img: "img/drive.jpg"
+header-img: "img/java.jpg"
 catalog: true
 tags: 
     - 深入理解Java虚拟机

@@ -4,7 +4,7 @@ title: "深入理解java虚拟机 —— Java内存模型和volatile关键字"
 subtitle: "定义Java内存模型并不是一件容易的事情，这个模型必须定义得足够严谨，才能让Java的并发操作不会产生歧义；但是，也必须得足够宽松，使得虚拟机的实现能有足够的自由空间去利用硬件的各种特性（寄存器、高速缓存等）来获取更好的执行速度。经过长时间的验证和修补，在JDK1.5发布后，Java内存模型就已经成熟和完善起来了。"
 date: 2017-05-04
 author: "ChenJY"
-header-img: "img/drive.jpg"
+header-img: "img/java.jpg"
 catalog: true
 tags: 
     - 深入理解Java虚拟机

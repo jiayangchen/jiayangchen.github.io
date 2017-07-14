@@ -4,7 +4,7 @@ title: "深入理解java虚拟机 —— Java GC算法"
 subtitle: "进一步了解GC中的各种算法"
 date: 2017-04-27
 author: "ChenJY"
-header-img: "img/drive.jpg"
+header-img: "img/java.jpg"
 catalog: true
 tags: 
     - 深入理解Java虚拟机

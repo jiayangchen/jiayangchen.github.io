@@ -4,7 +4,7 @@ title: "深入理解java虚拟机 —— Java 线程安全"
 subtitle: ""
 date: 2017-05-13
 author: "ChenJY"
-header-img: "img/drive.jpg"
+header-img: "img/java.jpg"
 catalog: true
 tags: 
     - 深入理解Java虚拟机

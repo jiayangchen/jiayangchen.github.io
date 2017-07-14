@@ -4,7 +4,7 @@ title: "深入理解java虚拟机 —— 类加载机制"
 subtitle: "类从被加载到虚拟机内存中开始，到卸载出内存为止，它的整个生命周期包括：加载、验证、准备、解析、初始化、使用和卸载七个阶段。"
 date: 2017-04-28
 author: "ChenJY"
-header-img: "img/drive.jpg"
+header-img: "img/java.jpg"
 catalog: true
 tags: 
     - 深入理解Java虚拟机

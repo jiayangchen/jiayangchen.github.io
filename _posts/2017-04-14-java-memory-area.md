@@ -4,7 +4,7 @@ title: "深入理解java虚拟机 —— java 内存模型"
 subtitle: "最近在看周志明的《深入理解Java虚拟机》，将其中的内容总结下来写几篇总结好了。"
 date: 2017-04-14
 author: "ChenJY"
-header-img: "img/drive.jpg"
+header-img: "img/java.jpg"
 catalog: true
 tags: 
     - 深入理解Java虚拟机
