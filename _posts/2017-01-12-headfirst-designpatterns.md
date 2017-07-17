@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "设计模式一 —— 单例模式"
-subtitle: "开始为秋招做准备啦"
-date: 2017-07-11
+subtitle: ""
+date: 2017-01-12
 author: "ChenJY"
 header-img: "img/design_patterns.jpg"
 catalog: true
