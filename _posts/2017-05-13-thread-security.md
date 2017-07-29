@@ -10,12 +10,14 @@ tags:
     - 深入理解Java虚拟机
 ---
 
+<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px;" href="https://unsplash.com/@emilep?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Émile Perron"><span style="display:inline-block;padding:2px 3px;"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-1px;fill:white;" viewBox="0 0 32 32"><title></title><path d="M20.8 18.1c0 2.7-2.2 4.8-4.8 4.8s-4.8-2.1-4.8-4.8c0-2.7 2.2-4.8 4.8-4.8 2.7.1 4.8 2.2 4.8 4.8zm11.2-7.4v14.9c0 2.3-1.9 4.3-4.3 4.3h-23.4c-2.4 0-4.3-1.9-4.3-4.3v-15c0-2.3 1.9-4.3 4.3-4.3h3.7l.8-2.3c.4-1.1 1.7-2 2.9-2h8.6c1.2 0 2.5.9 2.9 2l.8 2.4h3.7c2.4 0 4.3 1.9 4.3 4.3zm-8.6 7.5c0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5s3.3 7.5 7.5 7.5c4.2-.1 7.5-3.4 7.5-7.5z"></path></svg></span><span style="display:inline-block;padding:2px 3px;">Émile Perron</span></a>
+
 ### 线程安全的实现方法
 #### 互斥同步
 同步是指在多个线程并发访问共享数据时，保证共享数据在同一个时刻只被一个线程使用，而互斥是实现同步的一种手段，临界区、互斥量、信号量都是主要的互斥实现手段。
 
 #### 第一种方法：Synchronized 关键字
-在Java中，最基本的互斥同步手段就是 Synchronized 关键字，Synchronized 关键字经过编译之后会在同步块的前后分别生成 monitorenter 和 monitorexit 这两个字节码指令，这两个字节码都需要一个reference类型的参数来指明要锁定和解锁的对象。如果Java程序中的 Synchronized 明确指定了对象参数，那就是这个对象的reference，如果没有指定，就根据 Synchronized 修饰的实例方法还是类方法，去取对应的对象实例或者Class对象来作为锁对象。
+在Java中，最基本的互斥同步手段就是 Synchronized 关键字，Synchronized 关键字如果是修饰代码块的话，经过编译之后会在同步块的前后分别生成 monitorenter 和 monitorexit 这两个字节码指令，这两个字节码都需要一个reference类型的参数来指明要锁定和解锁的对象。如果Java程序中的 Synchronized 明确指定了对象参数，那就是这个对象的reference，如果没有指定，就根据 Synchronized 修饰的实例方法还是类方法，去取对应的对象实例或者Class对象来作为锁对象。如果是修饰方法的话，方法的同步并没有通过指令monitorenter和monitorexit来完成（理论上其实也可以通过这两条指令来实现），不过相对于普通方法，其常量池中多了ACC_SYNCHRONIZED标示符。JVM就是根据该标示符来实现方法的同步的：当方法调用时，调用指令将会检查方法的 ACC_SYNCHRONIZED 访问标志是否被设置，如果设置了，执行线程将先获取monitor，获取成功之后才能执行方法体，方法执行完后再释放monitor。在方法执行期间，其他任何线程都无法再获得同一个monitor对象。 其实本质上没有区别，只是方法的同步是一种隐式的方式来实现，无需通过字节码来完成。
 
 在执行monitorenter指令时，首先尝试获取对象的锁，如果这个对象没被锁定，或者当前线程已经拥有了那个对象的锁，就把锁的计数器加一；相应的执行monitorexit时将计数器减一，当计数器为0时，锁就被释放。如果获取对象锁失败，那么当前线程就需要阻塞等待，直到对象锁被另一个线程释放为止。
 
