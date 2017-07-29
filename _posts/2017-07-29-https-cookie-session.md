@@ -38,8 +38,6 @@ tags:
 * 503 Server Unavailable  //服务器当前不能处理客户端的请求，一段时间后可能恢复正常
 
 #### HTTPS 工作原理
-![image](http://pic002.cnblogs.com/images/2012/339704/2012071410212142.gif)
-客户端在使用HTTPS方式与Web服务器通信时有以下几个步骤，如图所示。
 
 1. 客户使用 https 的 URL 访问 Web 服务器，要求与 Web 服务器建立 SSL 连接，连接到 Server 的 443 端口。
 
@@ -54,7 +52,7 @@ tags:
 6. Web 服务器利用会话密钥加密与客户端之间的通信。
 
 ### Session 和 Cookie
-> [原文链接]()https://www.zhihu.com/question/19786827，来自知乎,作者：[轩辕志远](https://www.zhihu.com/people/xuanyuanzhiyuan/answers)
+> [原文链接](https://www.zhihu.com/question/19786827)，来自知乎,作者：[轩辕志远](https://www.zhihu.com/people/xuanyuanzhiyuan/answers)
 
 1. 由于 HTTP 协议是<b>无状态的协议</b>，所以服务端需要记录用户的状态时，就需要用某种机制<b>来识具体的用户</b>，这个机制就是 Session.典型的场景比如购物车，当你点击下单按钮时，由于 HTTP 协议无状态，所以并不知道是哪个用户操作的，所以服务端要为特定的用户创建了特定的 Session，用用于标识这个用户，并且跟踪用户，这样才知道购物车里面有几本书。这个 Session 是<b>保存在服务端的，有一个唯一标识</b>。在服务端保存 Session 的方法很多，内存、数据库、文件都有。集群的时候也要考虑 Session 的转移，在大型的网站，一般会有专门的Session服务器集群，用来保存用户会话，这个时候 Session 信息都是放在内存的，使用一些缓存服务比如 Memcached 之类的来放 Session。
 
