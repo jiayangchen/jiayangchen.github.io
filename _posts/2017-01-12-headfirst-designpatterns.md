@@ -97,6 +97,22 @@ public class Singleton {
 }  
 ```
 
+```java
+//枚举单例实现
+public class Singleton {
+    private static enum Singleton {
+        INSTANCE;
+        private Singleton single;
+        private Singleton(){
+            single = new Singleton();
+        }
+        private Singleton getInstance(){
+            return single;
+        }
+    }
+}
+```
+
 ### 饿汉式单例
 ```java
 //饿汉式单例先自己new一个实例，在你需要的时候直接返给你
