@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "【转载】Java中的 读/写 锁"
-subtitle: "相比Java中的锁(Locks in Java)里Lock实现，读写锁更复杂一些。假设你的程序中涉及到对一些共享资源的读和写操作，且写操作没有读操作那么频繁。
+subtitle: "相比Java中的锁(Locks in Java)里Lock实现，读写锁更复杂一些。假设你的程序中涉及到对一些共享资源的读和写操作，且写操作没有读操作那么频繁。"
 date: 2017-08-25
 author: "Jakob Jenkov"
 header-img: "img/db.jpg"
