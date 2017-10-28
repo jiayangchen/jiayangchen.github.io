@@ -21,7 +21,7 @@ github_username:    jiayangchen
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 highlighter: rouge
 permalink: pretty
-paginate: 10
+paginate: 15
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
@@ -63,7 +63,7 @@ ba_track_id: 779b23bb226c42cd5279e2a42cdaf967
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "从来不求时间为我搁浅..."
-sidebar-avatar: /img/avatar-chen.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
