@@ -7,8 +7,8 @@ author: "ChenJY"
 header-img: "img/recitation.jpg"
 catalog:    true
 tags:
-    - 论文阅读
-    - Paper Reading
+    - 论文笔记
+    - CSE
 ---
 
 >Read the Eraser paper, and think about the following questions as you read the paper:

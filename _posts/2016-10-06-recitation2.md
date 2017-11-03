@@ -7,8 +7,8 @@ author: "ChenJY"
 header-img: "img/recitation.jpg"
 catalog:    true
 tags:
-    - 论文阅读
-    - Paper Reading
+    - 论文笔记
+    - CSE
 ---
 
 >Please read Fast File System (PDF), and answer following questions:

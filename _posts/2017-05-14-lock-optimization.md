@@ -7,6 +7,7 @@ author: "ChenJY"
 header-img: "img/java.jpg"
 catalog: true
 tags: 
+    - 读书笔记
     - 深入理解Java虚拟机
     - 面试
 ---
@@ -32,3 +33,6 @@ JDK1.6中引入自旋锁并不意味着自旋的时间不在固定，而是由�
 使用CAS更新对象的Mark World
 
 ### 偏向锁
+
+### 参考资料
+* 《深入理解Java虚拟机》 周志明著
