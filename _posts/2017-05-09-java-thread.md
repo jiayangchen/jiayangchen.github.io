@@ -56,3 +56,7 @@ java语言定义了5中线程状态，任何一个时间点，一个线程只能
 
 ### 参考资料
 * 《深入理解Java虚拟机》 周志明著
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

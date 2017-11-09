@@ -42,3 +42,7 @@ tags:
 >“今天瑞姐我请客，见者有份！”
 
 虽然冬天快过去，但那个甜筒却成了冬日记忆里的阳光……这样的她，不论将来走到哪里都应该璀璨明亮吧！
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

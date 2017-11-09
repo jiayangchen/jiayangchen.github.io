@@ -26,3 +26,7 @@ tags:
 
 ### Android webView打不开网页的解决办法
 * [http://www.cnblogs.com/yejiurui/p/4936618.html](http://www.cnblogs.com/yejiurui/p/4936618.html)
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

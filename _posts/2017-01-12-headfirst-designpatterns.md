@@ -126,3 +126,7 @@ public class Singleton{
 ```
 * 优点是：写起来比较简单，而且不存在多线程同步问题，避免了 <b>Synchronized</b> 所造成的性能问题；
 * 缺点是：当类 <b>SingletonTest</b> 被加载的时候，会初始化 static 的 instance，静态变量被创建并分配内存空间，从这以后，这个static的instance对象便一直占着这段内存（即便你还没有用到这个实例），当类被卸载时，静态变量被摧毁，并释放所占有的内存，因此在某些特定条件下会耗费内存。
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

@@ -61,3 +61,7 @@ Java堆是GC主要负责的区域，可分为新生代、老年代；更仔细�
 
 ### 参考资料
 * 《深入理解Java虚拟机》 周志明著
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

@@ -221,3 +221,7 @@ PS: setColorScheme()已经弃用，使用setColorSchemeResources()来设置颜�
 
 ### 运用RUP 4+1视图方法进行软件架构设计
 * http://www.uml.org.cn/zjjs/201412262.asp
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

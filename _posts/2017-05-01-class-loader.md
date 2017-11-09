@@ -86,3 +86,6 @@ protected Class<?> loadClass(String name, boolean resolve)
 * 《深入理解Java虚拟机》 周志明著
 * [双亲委派模型与自定义类加载器](http://www.importnew.com/24036.html)
 
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

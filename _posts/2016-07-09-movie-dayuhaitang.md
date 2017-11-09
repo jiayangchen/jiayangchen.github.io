@@ -36,3 +36,7 @@ tags:
 
 网上关于《大鱼海棠》的影评我也看了很多，为黑而黑的人也很多，总的来说看了还行，消费画面和配乐好了，这钱我觉得送的比《独立日2》好。。。
 
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com
+

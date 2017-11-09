@@ -47,3 +47,7 @@ the locking discipline any variable regardless of the interleaving produced by t
 ### Question4：Please raise at least one question of your own for ...
 
 * How locks of different granularity are used in a computer sys* tem？
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

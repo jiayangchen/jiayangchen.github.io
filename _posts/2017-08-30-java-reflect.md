@@ -84,5 +84,7 @@ public void testNewInstance()
 
 定义新的 Annotation 类型使用 @interface 关键字，Annotation 的成员变量在 Annotation 定义中以无参数方法的形式来声明.其方法名和返回值定义了该成员的名字和类型.可以在定义 Annotation 的成员变量时为其指定初始值,指定成员变量的初始值可使用 default 关键字，没有成员定义的 Annotation 称为标记;包含成员变量的 Annotation 称为元数据 Annotation。
 
+### 参考资料
+
 > [深入理解Java 注解原理](http://blog.csdn.net/zhang0558/article/details/52643016)，作者：红叶幽香
  

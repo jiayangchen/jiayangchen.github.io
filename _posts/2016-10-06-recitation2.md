@@ -60,3 +60,7 @@ large files.
 * Improve the physical tech just like promoteing the use of SSD.
 * Use an array to record the latest accessing time of these files and if the file hasn't been visited for a long
 time then try to move it to the lazy position.
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

@@ -60,3 +60,7 @@ REST 全称是 Representational State Transfer（表述性状态转移），它�
 ### 参考资料
 * [Spring MVC 入门示例讲解](http://www.importnew.com/15141.html)
 * [从 MVC 到前后端分离](http://www.importnew.com/21589.html)
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

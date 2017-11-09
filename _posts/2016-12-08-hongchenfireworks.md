@@ -43,3 +43,7 @@ tags:
 尽管时代判决了爱情，就像锋利的剪刀划开锦缎，可是忠贞的人们将它们拾起，继续缝补完好，不离不弃；尽管我们走过红尘，却又不能超脱红尘，只能挣扎在彼此生命的浮沉中，像一只挂着灯火的孤舟，摇曳在风浪之中……
 
 飞蛾扑火时，一定是极快乐极幸福的，一生难忘……
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

@@ -53,3 +53,7 @@ tags:
 >伤离别 离别虽然在眼前说再见 再见不会太遥远
 >若有缘 有缘就能期待明天你和我重逢在灿烂的季节
 >　　　　　　　　　　　　　　　　　　　——《祝福》张学友 冬夜在南京路上听流浪歌手唱的歌
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com

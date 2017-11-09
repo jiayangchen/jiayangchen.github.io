@@ -47,3 +47,7 @@ softwares ?
 * 2.How can we handle the problem caused by the "WIB" software such as lacking functions and poor
 quality?
 * 3.Is today's technology somewhat blur the boundaries between these two concepts?
+
+### 许可协议
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+* 网络平台转载请联系 Chen.Jiayang@foxmail.com
