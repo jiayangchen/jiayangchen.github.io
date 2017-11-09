@@ -4,7 +4,7 @@ title: "网站技术架构总结"
 subtitle: "最近看完了《大型网站技术架构核心原理与案例分析》这本书，书里主要涉及的都是技术知识而非代码实现，读下来之后感觉对自己的知识面还是有加深的，起到了很好的深化作用，巩固了之前的薄弱环节，而且对于面试时一些架构设计、分布式数据一致性问题都感到有了更好的回答思路，总之确实是一本适合入门的好书。"
 date: 2017-11-09
 author: "ChenJY"
-header-img: "img/website_architecture_bg.jpg"
+header-img: "img/websitear.jpg"
 catalog: true
 tags: 
     - 大型网站技术架构核心原理与案例分析
