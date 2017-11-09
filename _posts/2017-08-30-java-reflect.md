@@ -3,7 +3,7 @@ layout: post
 title: "浅谈 Java 反射原理和注解工作原理"
 subtitle: ""
 date: 2017-08-30
-author: "Jakob Jenkov"
+author: "ChenJY"
 header-img: "img/db.jpg"
 catalog: true
 tags: 
