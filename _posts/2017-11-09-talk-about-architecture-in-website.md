@@ -17,7 +17,7 @@ tags:
 
 * <a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank"><b>CDN</b></a>，全称内容分发网络，实际上是部署在距离用户最近地点的网络服务商，用户的访问请求总是先到达距离最近的网络服务商处，在那里会缓存一些网站的静态资源，既不需要访问数据库就能获取的，这样可以第一时间返回结果给用户，改善用户体验，例如爱奇艺这样的视频网站一定是在全国各地都会有 <a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank"><b>CDN</b></a> 服务器部署，其实用户经常访问的热点内容会缓存在上面。
 
-* <a href="https://en.wikipedia.org/wiki/Reverse_proxy" target="_blank"><b>反向代理</b></a>，这是属于前端架构的一部分，类似于在后台服务器集群与客户端之间架设的新的一台服务器，用于接收用户的请求。这其中，<a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank"><b>服务器有</b></a>两个基本功能，第一可以用作资源缓存，可以直接将重要的网站静态资源放置在此；第二因为<a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank"><b>服务器特</b></a>殊的部署位置，因此它还可以充当负载均衡器的作用，可以转发到后台合适的某台服务器上，这台服务器处理完用户请求之后的结果也需要通过<a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank"><b>服务器发</b></a>送至用户。
+* <a href="https://en.wikipedia.org/wiki/Reverse_proxy" target="_blank"><b>反向代理</b></a>，这是属于前端架构的一部分，类似于在后台服务器集群与客户端之间架设的新的一台服务器，用于接收用户的请求。这其中，<a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank"><b>反向代理服务器</b></a>有两个基本功能，第一可以用作资源缓存，可以直接将重要的网站静态资源放置在此；第二因为<a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank"><b>反向代理服务器</b></a>特殊的部署位置，因此它还可以充当负载均衡器的作用，可以转发到后台合适的某台服务器上，这台服务器处理完用户请求之后的结果也需要通过<a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank"><b>反向代理服务器</b></a>发送至用户。
 
 * 本地缓存，顾名思义，这是速度最快的访问方式，类似于现在的浏览器也会有缓存的功能。
 
