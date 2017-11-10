@@ -82,5 +82,13 @@ friends: [
     {
         title: "青菜萝卜",
         href: "http://www.huding.me/index.html"
+    },
+    {
+        title: "Commouse",
+        href: "http://www.commouse.me"
+    },
+    {
+        title: "Gaocegege",
+        href: "http://www.gaocegege.com"
     }
 ]
