@@ -127,8 +127,8 @@ public static void main(String[] args) {
 ```
 
 ### 参考资料
-* <a href="http://product.dangdang.com/9317290.html" target="_blank"><b>Java 编程思想</b></a>，Bruce Eckel 著，陈昊鹏 译
-* 代码样例[来源](http://ifeve.com/java-annotations/)
+* <a href="http://product.dangdang.com/9317290.html" target="_blank"><b>《Java 编程思想 Thinking in Java》</b></a>，Bruce Eckel 著，陈昊鹏 译
+* 代码样例 [来源](http://ifeve.com/java-annotations/)
 
 ### 许可协议
 * 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
