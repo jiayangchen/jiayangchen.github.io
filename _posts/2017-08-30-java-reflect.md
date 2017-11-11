@@ -12,7 +12,7 @@ tags:
 ---
 
 ### 什么是注解
-注解也叫元数据，为方便在代码中添加信息提供的一种形式化方法。它们可以提供用来完整描述程序所需的信息，而这些信息无法用 Java 来表达，因此注解使得我们能够以将由编译器来测试和验证的格式，存储有关程序的额外信息。注解同样还有利于代码阅读和编译器类型检查等。Java SE5 内置了三种，定义在 java.lang 中的注解：
+注解也叫 <a href="https://en.wikipedia.org/wiki/Metadata" target="_blank"><b>元数据</b></a>，为方便在代码中添加信息提供的一种形式化方法。它们可以提供用来完整描述程序所需的信息，而这些信息无法用 Java 来表达，因此注解使得我们能够以将由编译器来测试和验证的格式，存储有关程序的额外信息。注解同样还有利于代码阅读和编译器类型检查等。Java SE5 内置了三种，定义在 java.lang 中的注解：
 
 1. @Override：表示当前的方法定义将覆盖超类中的方法，如果方法签名对应不正确，编译器会发出错误提示。
 2. @Deprecated：如果使用注解为它的元素，编译器会发出错误提示。
@@ -21,7 +21,7 @@ tags:
 Java 还提供另外四种注解用于创建新注解。
 
 ### 定义注解
-定义注解时，会需要一些元注解（meta-annotation）的帮助，例如 <font color=#00BFFF><b>@Target</b></font> 和 <font color=#00BFFF><b>@Retention</b></font>。 @Target 用来定义你的主解将被用在什么地方，@Retention 定义注解在哪个级别可用，在源代码（SOURCE）中、类文件（CLASS） 亦或者运行时（RUNTIME）：
+定义注解时，会需要一些元注解（meta-annotation）的帮助，例如 <a><b>@Target</b></a> 和 <a><b>@Retention</b></a>。 <b>@Target</b> 用来定义你的主解将被用在什么地方，<b>@Retention</b> 定义注解在哪个级别可用，在源代码（SOURCE）中、类文件（CLASS） 亦或者运行时（RUNTIME）：
 
 ```java
 @Target(ElementType.METHOD)  //指作用在一个方法上
@@ -30,7 +30,7 @@ public @interface Test {}
 ```
 
 ### 写一个自定义注解
-创建自定义注解和创建一个接口相似，但是注解的interface关键字需要以 @ 符号开头。
+创建自定义注解和创建一个接口相似，但是注解的 interface 关键字需要以 <b>@</b> 符号开头。
 
 #### 自定义注解
 ```java
@@ -87,7 +87,7 @@ public static void main(String[] args) {
 ```
 
 #### 利用反射解析自定义注解
-注解的 RetentionPolicy 应该设置为 RUNTIME 否则 java 类的注解信息在执行过程中将不可用，那么我们也不能从中得到任何和注解有关的数据。
+注解的 <b>RetentionPolicy</b> 应该设置为 <b>RUNTIME</b> 否则 java 类的注解信息在执行过程中将不可用，那么我们也不能从中得到任何和注解有关的数据。
 
 ```java
 import java.lang.annotation.Annotation;
