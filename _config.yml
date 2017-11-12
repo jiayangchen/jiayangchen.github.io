@@ -1,10 +1,10 @@
 # Site settings
-title: 旧·时光
+title: 旧·时光 | Time
 SEOTitle: 旧·时光 | 陈嘉扬's Blog
 header-img: img/bg1.jpg
 email: jiayangchen@sjtu.edu.cn
-description: "You know some birds are not meant to be caged, their feathers are just too bright."
-keyword: "jiayangchen,blog,博客, 个人网站, 互联网,软件,Android"
+description: "Something that stays in your mind will someday spring up in your life."
+keyword: "chenjiayang,主页,博客,Java,Redis,分布式,MySQL"
 url: "http://chenjiayang.me"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
