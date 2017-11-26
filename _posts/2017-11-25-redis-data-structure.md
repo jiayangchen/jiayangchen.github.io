@@ -17,7 +17,7 @@ tags:
 #### SDS 简介
 Redis 虽然是基于 C 语言开发的，但是及时是 String 这样简单的数据结构，Redis 内部也不是直接使用了 C 的封装，而是自己封装了一层抽象类型，命名为简单动态字符串（Simple Dynamic String。仅当无需对字符串值进行修改的场景下，例如日志打印，Redis 才会直接使用 C 字符串，而 Redis 中，包含字符串值的键值对都是通过 SDS 实现的。
 #### SDS 类
-```C
+```C++
 struct sdshdr {
     // buf 已占用长度
     int len;
@@ -40,7 +40,7 @@ struct sdshdr {
 ### 链表
 #### Redis 内部链表的数据结构
 Redis 内部实现的是双向链表,先来看看链表节点的结构体代码：
-```C
+```C++
 typedef struct listNode {
     // 前置节点
     struct listNode *prev;
@@ -51,7 +51,7 @@ typedef struct listNode {
 } listNode;
 ```
 接下去时链表类的结构体：
-```C
+```C++
 typedef struct list {
     // 表头节点
     listNode *head;
@@ -74,7 +74,7 @@ typedef struct list {
 又称为符号表或者关系数组，是一种保存键值对的抽象数据结构。字典中每个键都是唯一的，可以根据键来删改查对应的值，Redis 的数据库就是使用字典实现的。
 #### 哈希表
 字典的底层实现是哈希表，如下：
-```C
+```C++
 typedef struct dictht {
     // 哈希表数组
     dictEntry **table;
@@ -90,7 +90,7 @@ typedef struct dictht {
 table 属性是一个数组， 数组中的每个元素都是一个指向 dict.h/dictEntry 结构的指针， 每个 dictEntry 结构保存着一个键值对。size 属性记录了哈希表的大小， 也即是 table 数组的大小， 而 used 属性则记录了哈希表目前已有节点（键值对）的数量。sizemask 属性的值总是等于 size - 1 ， 这个属性和哈希值一起决定一个键应该被放到 table 数组的哪个索引上面。
 ![](http://redisbook.com/_images/graphviz-bd3eecd927a4d8fc33b4a1c7f5957c52d67c5021.png)
 #### 哈希表节点
-```C
+```C++
 typedef struct dictEntry {
     // 键
     void *key;
@@ -105,9 +105,55 @@ typedef struct dictEntry {
 } dictEntry;
 ```
 ![](http://redisbook.com/_images/graphviz-d2641d962325fd58bf15d9fffb4208f70251a999.png)
+#### 字典的数据结构
+```C++
+typedef struct dict {
+    // 类型特定函数
+    dictType *type;
+    // 私有数据
+    void *privdata;
+    // 哈希表
+    dictht ht[2];
+    // rehash 索引
+    // 当 rehash 不在进行时，值为 -1
+    int rehashidx; /* rehashing not in progress if rehashidx == -1 */
+} dict;
+```
+`type` 属性和 `privdata` 属性是针对不同类型的键值对， 为创建多态字典而设置的。`ht` 属性是一个包含两个项的数组， 数组中的每个项都是一个 `dictht` 哈希表， 一般情况下， 字典只使用 `ht[0]` 哈希表， `ht[1]` 哈希表只会在对 `ht[0]` 哈希表进行 rehash 时使用。除了 `ht[1]` 之外， 另一个和 rehash 有关的属性就是 `rehashidx` ： 它记录了 rehash 目前的进度， 如果目前没有在进行 rehash ， 那么它的值为 -1 。
+![](http://redisbook.com/_images/graphviz-e73003b166b90094c8c4b7abbc8d59f691f91e27.png)
+#### 哈希算法
+哈希算法部分不多说了，熟悉 Java HashMap 的同学应该不会陌生，其实大同小异，解决哈希冲突的方法也是采用 `链表`。
+#### 重点之 Rehash
+当哈希表保存的键值对数量太多或者太少时， 程序需要对哈希表的大小进行相应的扩展或者收缩。
+当以下条件中的任意一个被满足时， 程序会自动开始对哈希表执行扩展操作：
+* 服务器目前没有在执行 `BGSAVE` 命令或者 `BGREWRITEAOF` 命令， 并且哈希表的负载因子大于等于 1 ；
+* 服务器目前正在执行 `BGSAVE` 命令或者 `BGREWRITEAOF` 命令， 并且哈希表的负载因子大于等于 5 ；
+之所以根据 BGSAVE 命令或 BGREWRITEAOF 命令是否正在执行来划分服务器执行扩展操作所需的负载因子， 这是因为在执行 BGSAVE 命令或 BGREWRITEAOF 命令的过程中， Redis 需要创建当前服务器进程的子进程， 而大多数操作系统都采用写时复制`（copy-on-write）`技术来优化子进程的使用效率， 所以在子进程存在期间， 服务器会提高执行扩展操作所需的负载因子， 从而尽可能地避免在子进程存在期间进行哈希表扩展操作， 这可以避免不必要的内存写入操作， 最大限度地节约内存。
 
+具体Rehash 方法也很简单，主要分为三步走：
+1. 为字典的 ht[1] 哈希表分配空间， 这个哈希表的空间大小取决于要执行的操作， 以及 ht[0] 当前包含的键值对数量 （也即是 ht[0].used 属性的值）：
+* 如果执行的是扩展操作， 那么 ht[1] 的大小为第一个大于等于 ht[0].used * 2 的 2^n （2 的 n 次方幂）；
+* 如果执行的是收缩操作， 那么 ht[1] 的大小为第一个大于等于 ht[0].used 的 2^n 。
+2. 将保存在 ht[0] 中的所有键值对 rehash 到 ht[1] 上面： rehash 指的是重新计算键的哈希值和索引值， 然后将键值对放置到 ht[1] 哈希表的指定位置上。
+3. 当 ht[0] 包含的所有键值对都迁移到了 ht[1] 之后 （ht[0] 变为空表）， 释放 ht[0] ， 将 ht[1] 设置为 ht[0] ， 并在 ht[1] 新创建一个空白哈希表， 为下一次 rehash 做准备。
+
+#### 渐进式哈希
+扩展或收缩哈希表需要将 ht[0] 里面的所有键值对 rehash 到 ht[1] 里面， 但是， 这个 rehash 动作并不是一次性、集中式地完成的， 而是分多次、渐进式地完成的。原因在于如果 Redis ht[0] 中保存的键值对数目过多，那么一次性哈希的方式可能导致服务直接不可用。为了避免 rehash 对服务器性能造成影响， 服务器不是一次性将 ht[0] 里面的所有键值对全部 rehash 到 ht[1] ， 而是分多次、渐进式地将 ht[0] 里面的键值对慢慢地 rehash 到 ht[1] 。
+
+哈希表渐进式 rehash 的详细步骤：
+1. 为 ht[1] 分配空间， 让字典同时持有 ht[0] 和 ht[1] 两个哈希表。
+2. 在字典中维持一个索引计数器变量 rehashidx ， 并将它的值设置为 0 ， 表示 rehash 工作正式开始。
+3. 在 rehash 进行期间， 每次对字典执行添加、删除、查找或者更新操作时， 程序除了执行指定的操作以外， 还会顺带将 ht[0] 哈希表在 rehashidx 索引上的所有键值对 rehash 到 ht[1] ， 当 rehash 工作完成之后， 程序将 rehashidx 属性的值增一。
+4. 随着字典操作的不断执行， 最终在某个时间点上， ht[0] 的所有键值对都会被 rehash 至 ht[1] ， 这时程序将 rehashidx 属性的值设为 -1 ， 表示 rehash 操作已完成。
+
+因为在进行渐进式 rehash 的过程中， 字典会同时使用 ht[0] 和 ht[1] 两个哈希表， 所以在渐进式 rehash 进行期间， 字典的删除（delete）、查找（find）、更新（update）等操作会在两个哈希表上进行： 比如说， 要在字典里面查找一个键的话， 程序会先在 ht[0] 里面进行查找， 如果没找到的话， 就会继续到 ht[1] 里面进行查找， 诸如此类。
+
+另外， 在渐进式 rehash 执行期间， 新添加到字典的键值对一律会被保存到 ht[1] 里面， 而 ht[0] 则不再进行任何添加操作： 这一措施保证了 ht[0] 包含的键值对数量会只减不增， 并随着 rehash 操作的执行而最终变成空表。
 ### 未完待续···
- 
+
+### 参考资料
+* <a href="http://product.dangdang.com/23501734.html" target="_blank"><b>《Redis 设计与实现》</b></a>，黄建宏 著
+
 ### 许可协议
 * 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
 * 商业用途转载请联系 Chen.Jiayang[AT]foxmail.com
