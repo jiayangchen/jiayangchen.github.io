@@ -8,7 +8,6 @@ header-img: "img/db.jpg"
 catalog: true
 tags: 
     - Spring
-    - 面试
 ---
 
 ### MVC框架是什么

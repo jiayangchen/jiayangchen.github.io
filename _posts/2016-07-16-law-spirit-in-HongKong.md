@@ -8,9 +8,6 @@ header-img: "img/movie_coldwar.jpg"
 catalog: true
 tags: 
     - 转载
-    - 寒战
-    - 法制精神 
-    - 转载
 ---
 
 __来源：[http://www.jcrb.com/culture/FSJ/HZZDXGFZJS/](http://www.jcrb.com/culture/FSJ/HZZDXGFZJS/)__

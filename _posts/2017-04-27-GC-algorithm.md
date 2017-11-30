@@ -9,7 +9,6 @@ catalog: true
 tags: 
     - 读书笔记
     - 深入理解Java虚拟机
-    - 面试
 ---
 
 ### 标记清除

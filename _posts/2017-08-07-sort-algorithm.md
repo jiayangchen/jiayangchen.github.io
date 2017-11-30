@@ -7,7 +7,7 @@ author: "ChenJY"
 header-img: "img/db.jpg"
 catalog: true
 tags: 
-    - 面试
+    - 算法
 ---
 
 ![image](http://blog.chinaunix.net/attachment/201201/18/21457204_1326898064RUxx.jpg)

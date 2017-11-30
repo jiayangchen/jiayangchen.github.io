@@ -8,7 +8,6 @@ header-img: "img/db.jpg"
 catalog: true
 tags: 
     - 数据库
-    - 面试
 ---
 
 一直不复习，今天回想的时候有些忘了，赶紧记录一下。

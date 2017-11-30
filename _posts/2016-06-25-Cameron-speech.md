@@ -7,7 +7,7 @@ author: "ChenJY"
 header-img: "img/england.png"
 catalog: true
 tags: 
-    - 日志
+    - 收藏
     - 英国脱欧
 ---
 

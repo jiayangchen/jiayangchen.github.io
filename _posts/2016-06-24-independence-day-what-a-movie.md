@@ -8,7 +8,6 @@ header-img: "img/duliri.jpg"
 catalog: true
 tags: 
     - 电影
-    - 独立日2
     - 观后感 
 ---
 

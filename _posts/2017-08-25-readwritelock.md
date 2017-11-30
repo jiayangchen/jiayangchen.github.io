@@ -7,7 +7,7 @@ author: "Jakob Jenkov"
 header-img: "img/db.jpg"
 catalog: true
 tags: 
-    - 面试
+    - 转载
 ---
 
 > [原文链接](http://ifeve.com/read-write-locks/)，作者：Jakob Jenkov 译者：微凉 校对：丁一

@@ -7,7 +7,7 @@ author: "ChenJY"
 header-img: "img/law.jpg"
 catalog: true
 tags: 
-    - 日志
+    - 杂谈
     - 法学
 ---
 

@@ -7,9 +7,7 @@ author: "ChenJY"
 header-img: "img/her.jpg"
 catalog: true
 tags: 
-    - 日志
-    - 学姐
-    - 回忆 
+    - 随笔
 ---
 
 2016年2月15号，全国各地陆续开放考研成绩查询入口。

@@ -7,9 +7,7 @@ author: "ChenJY"
 header-img: "img/404-bg.jpg"
 catalog: true
 tags: 
-    - 日志
-    - 春晚
-    - 六小龄童
+    - 回答
 ---
 
 ### 为什么这次舆论会爆发地这么猛烈？真的只在于春晚没有邀请六老吗？

@@ -8,8 +8,7 @@ header-img: "img/cloudwalk.jpg"
 catalog: true
 tags: 
     - 电影
-    - 云中行走
-    - 梦想 
+    - 观后感 
 ---
 
 　　__这是不可能的，但我要做到，这就是我的人生。 —— Philippe Petit 《云中行走》__

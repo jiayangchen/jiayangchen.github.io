@@ -8,7 +8,6 @@ header-img: "img/db.jpg"
 catalog: true
 tags: 
     - Spring
-    - 面试
 ---
 
 > [Spring源码分析：配置文件读取流程](http://www.importnew.com/24446.html)，作者：五月的仓颉

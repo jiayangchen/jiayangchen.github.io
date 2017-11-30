@@ -7,7 +7,7 @@ author: "cywosp"
 header-img: "img/db.jpg"
 catalog: true
 tags: 
-    - 面试
+    - 算法
 ---
 
 > [原文链接](http://blog.csdn.net/cywosp/article/details/23397179)，作者：cywosp

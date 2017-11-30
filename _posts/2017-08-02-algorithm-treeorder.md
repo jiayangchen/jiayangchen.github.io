@@ -8,7 +8,7 @@ header-img: "img/db.jpg"
 catalog: true
 tags: 
     - 数据结构
-    - 面试
+    - 转载
 ---
 
 > [原文链接](http://blog.csdn.net/hairongtian/article/details/7930937)，作者：hairongtian

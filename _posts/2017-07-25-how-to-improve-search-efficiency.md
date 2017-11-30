@@ -8,7 +8,7 @@ header-img: "img/db.jpg"
 catalog: true
 tags: 
     - 数据库
-    - 面试
+    - 转载
 ---
 
 > [原文链接](http://blog.csdn.net/xlgen157387/article/details/44156679),作者：徐刘根

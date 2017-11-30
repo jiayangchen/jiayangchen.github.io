@@ -7,8 +7,7 @@ author: "ChenJY"
 header-img: "img/book.jpg"
 catalog: true
 tags: 
-    - 回答
-    - 读书 
+    - 回答 
 ---
 
 　　还在考试周挣扎，抽空刷到这个问题，想答一答。

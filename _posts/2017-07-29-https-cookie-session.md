@@ -7,8 +7,7 @@ author: "ChenJY"
 header-img: "img/db.jpg"
 catalog: true
 tags: 
-    - 网络
-    - 面试
+    - 计算机网络
 ---
 
 ### HTTP 和 HTTPS 

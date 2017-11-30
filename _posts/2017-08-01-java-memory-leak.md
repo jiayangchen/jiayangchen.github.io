@@ -7,7 +7,7 @@ author: "X Wang"
 header-img: "img/db.jpg"
 catalog: true
 tags: 
-    - 面试
+    - 转载
 ---
 
 > 原文链接： [X Wang](http://www.programcreek.com/2013/10/the-introduction-of-memory-leak-what-why-and-how/) 翻译： ImportNew.com - strongme  译文链接： http://www.importnew.com/12961.html

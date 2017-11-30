@@ -7,8 +7,8 @@ author: "Hosee"
 header-img: "img/db.jpg"
 catalog: true
 tags: 
-    - Java 集合类
-    - 面试
+    - Java Collections
+    - 转载
 ---
 
 > [原文链接](https://my.oschina.net/hosee/blog/639352)，作者：Hosee

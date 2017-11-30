@@ -7,7 +7,7 @@ author: "ChenJY"
 header-img: "img/db.jpg"
 catalog: true
 tags: 
-    - 面试
+    - ThreadPool
 ---
 
 > [原文链接](http://allegro.tech/thread-pools.html)，作者：Piotr Glazar

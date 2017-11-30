@@ -8,7 +8,6 @@ header-img: "img/design_patterns.jpg"
 catalog: true
 tags: 
     - 设计模式
-    - 面试
 ---
 
 ### 概念：
