@@ -104,6 +104,8 @@ private class ListItr extends Itr implements ListIterator<E> {}
 
 `grow` 函数表示 ArrayList 的扩容大小，为原先的 `1.5 倍`
 
+#### 
+
 #### add()
 ![](http://o9oomuync.bkt.clouddn.com/arraylistadd1.png)
 
@@ -121,6 +123,9 @@ private class ListItr extends Itr implements ListIterator<E> {}
 ![](http://o9oomuync.bkt.clouddn.com/arraylistclone.png)
 
 `Clone` 方法执行`浅复制`，即容器中的元素本身并不复制，与之对应的叫`深复制`，针对集合中的`非基本数据类型`，都需要显示调用 `clone` 方法进行复制。
+
+### 关于 Vector
+`Vector` 也是基于数组实现的，是一个动态数组，其容量能自动增长，它的源码实现总体与 `ArrayList` 类似。`Vector` 有四个不同的构造方法。无参构造方法的容量为默认值 `10`，仅包含容量的构造方法则将容量增长量（从源码中可以看出容量增长量的作用，第二点也会对容量增长量详细说）明置为 `0`。`Vector` 内部很多方法都加入了 `synchronized` 关键字，来保证线程安全。目前 `Vector` 已经基本`不再使用`。
 
 ### 总结
 其他方法就不再细说了，最后总结一下 `ArrayList` 的特性吧：
