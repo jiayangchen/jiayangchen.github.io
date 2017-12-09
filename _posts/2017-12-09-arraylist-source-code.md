@@ -60,14 +60,14 @@ private class ListItr extends Itr implements ListIterator<E> {}
 3. 调用子类实现的 remove 方法删除最新访问的元素，重新更新游标
 4. 上次访问的元素位置置为 `-1`
 
-**注意：** 我阅读源码的时候一直很疑惑这个 `lastRet` 真正的意思，到底是标记最新访问的元素的位置，还是跟调用的函数也有关系，最后查阅资料发现，lastRet应该是标记迭代器最后一次调用 `next()` 或者 `previous()` 访问的元素的坐标，当调用 `remove()` 或者 `add()` 操作时（注意：不一定是针对这个元素的操作），该值被设定为 `-1`；
+**注意：** 我阅读源码的时候一直很疑惑这个 `lastRet` 真正的意思，到底是标记最新访问的元素的位置，还是跟调用的函数也有关系，最后查阅资料发现，`lastRet` 应该是标记迭代器最后一次调用 `next()` 或者 `previous()` 访问的元素的坐标，当调用 `remove()` 或者 `add()` 操作时（注意：不一定是针对这个元素的操作），该值被设定为 `-1`；
 
 #### ListLtr 
 因此，`Ltr` 看下来只是简单实现了 `Iterator` 中的 `next` 和 `remove` 方法，对于一个完整的迭代器类来说远远不够，这时候就需要 `ListLtr` 出马了：
 
 ![](http://o9oomuync.bkt.clouddn.com/arraylistprevious&set.png)
 
-`nextIndex` 和 `previousIndex` 都很好理解，不多说了。`previous` 方法中，返回迭代器游标之前的一个元素，并同时设定游标值和最后一次访问元素的坐标值。当调用previous函数时，可能出现最后一次访问元素坐标与游标重合，其它情况下则不会出现。`Set` 方法则是将列表最后一次访问的元素替换为 e 。
+`nextIndex` 和 `previousIndex` 都很好理解，不多说了。`previous` 方法中，返回迭代器游标之前的一个元素，并同时设定游标值和最后一次访问元素的坐标值。当调用 `previous` 函数时，可能出现最后一次访问元素坐标与游标重合，其它情况下则不会出现。`Set` 方法则是将列表最后一次访问的元素替换为 `e` 。
 
 #### equals()
 
@@ -81,10 +81,10 @@ private class ListItr extends Itr implements ListIterator<E> {}
 4. 为啥不先判断长度是否一样呢？
 
 ### ArrayList
-终于来到 ArrayList 了，之前所有的铺垫要到了交出成绩的时刻。
+终于来到 `ArrayList` 了，之前所有的铺垫要到了交出成绩的时刻。
 
 #### 构造器
-ArrayList 提供三种形式的构造器：
+`ArrayList` 提供三种形式的构造器：
 
 ![](http://o9oomuync.bkt.clouddn.com/arraylistconstructor.png)
 
@@ -93,7 +93,7 @@ ArrayList 提供三种形式的构造器：
 3. 第三种参数构造器传入集合
 
 #### 数据域
-ArrayList 的`数据域`是：
+`ArrayList` 的`数据域`是：
 
 ![](http://o9oomuync.bkt.clouddn.com/arraylistelement.png)
 
@@ -107,10 +107,10 @@ ArrayList 的`数据域`是：
 #### add()
 ![](http://o9oomuync.bkt.clouddn.com/arraylistadd1.png)
 
-* 先检查 `index` 合法性
-* 在确保空间大小不会溢出
-* 为 `Index` 位置的元素腾出空间
-* 最后塞进元素，`size ++`
+1. 先检查 `index` 合法性
+2. 在确保空间大小不会溢出
+3. 为 `Index` 位置的元素腾出空间
+4. 最后塞进元素，`size ++`
 
 #### remove()
 ![](http://o9oomuync.bkt.clouddn.com/arraylistremove.png)
@@ -120,14 +120,15 @@ ArrayList 的`数据域`是：
 #### clone()
 ![](http://o9oomuync.bkt.clouddn.com/arraylistclone.png)
 
-`Clone` 方法执行`浅复制`，即容器中的元素本身并不复制，与之对应的叫`深复制`，针对集合中的`非基本数据类型`，都需要显示调用 clone 方法进行复制。
+`Clone` 方法执行`浅复制`，即容器中的元素本身并不复制，与之对应的叫`深复制`，针对集合中的`非基本数据类型`，都需要显示调用 `clone` 方法进行复制。
 
 ### 总结
-其他方法就不再细说了，最后总结一下 ArrayList 的特性吧：
-1、是一个动态数组，容量可以自动扩容，不适合频繁增加元素的场景
-2、线性存储结构，需要调整、压缩、移动底层数组元素，因此对于增删的时间复杂度较高
-3、可以以索引访问元素，随机访问效率较好
-4、没见到对线程安全的保障，因此并非线程安全的集合类
+其他方法就不再细说了，最后总结一下 `ArrayList` 的特性吧：
+
+1. 是一个动态数组，容量可以自动扩容，不适合频繁增加元素的场景
+2. 线性存储结构，需要调整、压缩、移动底层数组元素，因此对于增删的时间复杂度较高
+3. 可以以索引访问元素，随机访问效率较好
+4. 没见到对线程安全的保障，因此并非线程安全的集合类
 
 ### 许可协议
 * 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
