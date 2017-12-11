@@ -34,8 +34,8 @@ tags:
 这里如果究其原因，我想可能是由于集合类`设计模式`的要求，因为具体的集合子类根据自身的特性不同，实现的方法也会不一样，如果定义成抽象方法，那么之后的子类均需要实现此方法，很繁琐不灵活，现在交给子类自己去实现，相当于把具体的决定权交给了子类，自由度更高。
 
 ### AbstractList
-接下去是 `AbstractList`，我们已经越来越接近 ArrayList 了，作为 ArrayList 的直接父类，其实大同小异，这里我们先看`迭代器`的实现吧，
-AbstractList 中涉及到迭代器的有两个：
+接下去是 `AbstractList`，我们已经越来越接近 `ArrayList` 了，作为 `ArrayList` 的直接父类，其实大同小异，这里我们先看`迭代器`的实现吧，
+`AbstractList` 中涉及到迭代器的有两个：
 
 ```java
 private class Itr implements Iterator<E> {}
