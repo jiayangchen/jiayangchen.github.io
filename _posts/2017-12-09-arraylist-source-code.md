@@ -104,8 +104,6 @@ private class ListItr extends Itr implements ListIterator<E> {}
 
 `grow` 函数表示 ArrayList 的扩容大小，为原先的 `1.5 倍`
 
-#### 
-
 #### add()
 ![](http://o9oomuync.bkt.clouddn.com/arraylistadd1.png)
 
