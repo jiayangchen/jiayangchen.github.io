@@ -42,13 +42,16 @@ Map 是一种存储键值对的对象，其中键值 key 不允许重复，目�
 int size(); //返回 map 键值对数目，如果超出了 Integer.MAX_VALUE 则返回 Integer.MAX_VALUE
 boolean containsKey(Object key); // key==null ? k==null : key.equals(k) 最多支持一个 key 为 null
 Set<K> keySet(); //值得注意的是，如果迭代过程中 map 被修改了（除却迭代器自身的修改行为），那么返回的结果是 undefined
+Set<Map.Entry<K, V>> entrySet(); //返回 map 中包含的键值对
 ... //其他方法不说了
 ```
 
 ### AbstractMap
 #### Introduction
+注释内容和之前的 AbstractList 近似，不再啰嗦了。
 
 #### Methods
+
 
 ### 许可协议
 * 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>

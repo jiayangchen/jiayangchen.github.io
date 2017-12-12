@@ -58,5 +58,5 @@ tags:
 
 ### 许可协议
 * 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
-* 商业用途转载请联系 Chen.Jiayang[AT]foxmail.com
+* 商业用途转载请联系 Chen.Jiayang [AT] foxmail.com
 * 封面图片来自 <a href="https://unsplash.com/" target="_blank"><b> unsplash </b></a>
