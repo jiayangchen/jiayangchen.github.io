@@ -19,7 +19,6 @@ tags:
 老规矩，我们分析 HashMap 之前还是先来看看其他的接口和抽象类，先是最顶层的 Map 接口。
 
 #### Introduction
-
 > An object that maps keys to values.  A map cannot contain duplicate keys; each key can map to at most one value.
 
 Map 是一种存储键值对的对象，其中键值 key 不允许重复，目的就是一个 key 最多只能对应一个值。
@@ -43,14 +42,112 @@ int size(); //返回 map 键值对数目，如果超出了 Integer.MAX_VALUE 则
 boolean containsKey(Object key); // key==null ? k==null : key.equals(k) 最多支持一个 key 为 null
 Set<K> keySet(); //值得注意的是，如果迭代过程中 map 被修改了（除却迭代器自身的修改行为），那么返回的结果是 undefined
 Set<Map.Entry<K, V>> entrySet(); //返回 map 中包含的键值对
-... //其他方法不说了
 ```
 
 ### AbstractMap
 #### Introduction
-注释内容和之前的 AbstractList 近似，不再啰嗦了。
+注释内容和之前的 AbstractList 近似，不再啰嗦了，我们看看其中包含的方法吧。
 
 #### Methods
+##### entrySet()
+```java
+public abstract Set<Entry<K,V>> entrySet();  //作为 AbstractMap 中唯一的抽象方法，返回键值对集合
+```
+
+##### get()
+```java
+public V get(Object key) {
+        Iterator<Entry<K,V>> i = entrySet().iterator(); 
+        if (key==null) {
+            while (i.hasNext()) { 
+                Entry<K,V> e = i.next();
+                if (e.getKey()==null) //循环到 key == null 时取出 value
+                    return e.getValue();
+            }
+        } else {
+            while (i.hasNext()) {
+                Entry<K,V> e = i.next();
+                if (key.equals(e.getKey())) //找到 key 时返回值
+                    return e.getValue();
+            }
+        }
+        return null;
+    }
+```
+
+##### put()
+```java
+public V put(K key, V value) {
+        throw new UnsupportedOperationException(); //默认不支持 put，子类需要重写 put 方法以实现可变的哈希表
+    }
+```
+
+##### remove()
+```java
+public V remove(Object key) {
+        Iterator<Entry<K,V>> i = entrySet().iterator();
+        Entry<K,V> correctEntry = null;
+        if (key==null) {
+            while (correctEntry==null && i.hasNext()) {
+                Entry<K,V> e = i.next();
+                if (e.getKey()==null)
+                    correctEntry = e;
+            }
+        } else {
+            while (correctEntry==null && i.hasNext()) {
+                Entry<K,V> e = i.next();
+                if (key.equals(e.getKey()))
+                    correctEntry = e;
+            }
+        }
+
+        V oldValue = null;
+        if (correctEntry !=null) { //确保找到 entry，否则返回 null
+            oldValue = correctEntry.getValue(); //返回旧值
+            i.remove(); //调用 Iterator remove 方法删除
+        }
+        return oldValue;
+    }
+```
+
+##### equals()
+```java
+public boolean equals(Object o) {
+        if (o == this) //如果是自身返回 true
+            return true;
+
+        if (!(o instanceof Map)) //如果不是 map 的实现类
+            return false;
+        Map<?,?> m = (Map<?,?>) o; //强制转换成 map
+        if (m.size() != size()) //判断数量是否相等
+            return false;
+
+        //然后还需要一个个比对
+        try {
+            Iterator<Entry<K,V>> i = entrySet().iterator();
+            while (i.hasNext()) {
+                Entry<K,V> e = i.next();
+                K key = e.getKey();
+                V value = e.getValue();
+                if (value == null) {
+                    if (!(m.get(key)==null && m.containsKey(key))) //对于 null 的 key 值需要既判断 key 存在并且值相等
+                        return false;
+                } else {
+                    if (!value.equals(m.get(key)))
+                        return false;
+                }
+            }
+        } catch (ClassCastException unused) {
+            return false;
+        } catch (NullPointerException unused) {
+            return false;
+        }
+
+        return true;
+    }
+```
+
+
 
 
 ### 许可协议
