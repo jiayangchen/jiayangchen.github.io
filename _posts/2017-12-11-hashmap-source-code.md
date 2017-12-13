@@ -147,7 +147,57 @@ public boolean equals(Object o) {
     }
 ```
 
+##### hashcode()
+```java
+// Map<K,V> 的 hash 值为每个映射的 hash 值的总和  
+public int hashCode() {
+        int h = 0;
+        Iterator<Entry<K,V>> i = entrySet().iterator();
+        while (i.hasNext())
+            h += i.next().hashCode();
+        return h;
+    }
+```
 
+##### clone()
+```java
+//万年不变还是浅复制
+protected Object clone() throws CloneNotSupportedException {
+        AbstractMap<?,?> result = (AbstractMap<?,?>)super.clone();
+        result.keySet = null;
+        result.values = null;
+        return result;
+    }
+```
+
+##### SimpleEntry<K,V>
+```java
+public static class SimpleEntry<K,V>
+        implements Entry<K,V>, java.io.Serializable //SimpleEntry 类，用于实现自定义映射
+```
+
+##### SimpleImmutableEntry<K,V>
+```java
+public static class SimpleImmutableEntry<K,V>
+        implements Entry<K,V>, java.io.Serializable //不可变的 SimpleEntry 类，其内部 put 方法未实现，直接抛异常
+```
+
+### HashMap
+#### Introduction
+
+>The <tt>HashMap</tt> class is roughly equivalent to <tt>Hashtable</tt>, except that it is unsynchronized and permits nulls.
+
+HashMap 和 HashTable 基本相似，不过前者不是线程安全的，并且支持 key 和 value 都可以是 null，但 key 为 null 的个数最多一个。
+
+> Thus, it's very important not to set the initial capacity too high (or the load factor too low) if iteration performance is important.
+
+如果你对迭代效率要求很高的话，要注意设置初始容量大小，不能太大。接下去讲了一些影响 HashMap 性能的两大要素：初始大小和负载因子。如果你的 HashMap 要存储的数据量很大，那么设置一个较高的初始容量大小比让它频繁扩容触发 rehash 方法要好得多；负载因子需要考虑实际需求，一般默认的 0.75 是在时间-空间上权衡下来较好的选择。
+
+> The iterators returned by all of this class's "collection view methods" are <i>fail-fast</i>
+
+迭代器是快速失败的，关于什么叫快速失败可以看上一篇 LinkedList 源码分析中的翻译。
+
+#### Methods
 
 
 ### 许可协议
