@@ -30,6 +30,7 @@ Map 是一种存储键值对的对象，其中键值 key 不允许重复，目�
 > The <tt>Map</tt> interface provides three <i>collection views</i>, which allow a map's contents to be viewed as a set of keys, collection of values, or set of key-value mappings.  The <i>order</i> of a map is defined as the order in which the iterators on the map's collection views return their elements.  Some map implementations, like the <tt>TreeMap</tt> class, make specific guarantees as to their order; others, like the <tt>HashMap</tt> class, do not.
 
 这段说明了 Map 提供了三种形式的集合视图：
+
 1. keys 的集合
 2. values 的集合
 3. <key,value> 对的集合
@@ -38,10 +39,10 @@ Map 是一种存储键值对的对象，其中键值 key 不允许重复，目�
 
 #### Methods
 ```java
-int size(); //返回 map 键值对数目，如果超出了 Integer.MAX_VALUE 则返回 Integer.MAX_VALUE
-boolean containsKey(Object key); // key==null ? k==null : key.equals(k) 最多支持一个 key 为 null
-Set<K> keySet(); //值得注意的是，如果迭代过程中 map 被修改了（除却迭代器自身的修改行为），那么返回的结果是 undefined
-Set<Map.Entry<K, V>> entrySet(); //返回 map 中包含的键值对
+    int size(); //返回 map 键值对数目，如果超出了 Integer.MAX_VALUE 则返回 Integer.MAX_VALUE
+    boolean containsKey(Object key); // key==null ? k==null : key.equals(k) 最多支持一个 key 为 null
+    Set<K> keySet(); //值得注意的是，如果迭代过程中 map 被修改了（除却迭代器自身的修改行为），那么返回的结果是 undefined
+    Set<Map.Entry<K, V>> entrySet(); //返回 map 中包含的键值对
 ```
 
 ### AbstractMap
@@ -51,12 +52,12 @@ Set<Map.Entry<K, V>> entrySet(); //返回 map 中包含的键值对
 #### Methods
 ##### entrySet()
 ```java
-public abstract Set<Entry<K,V>> entrySet();  //作为 AbstractMap 中唯一的抽象方法，返回键值对集合
+    public abstract Set<Entry<K,V>> entrySet();  //作为 AbstractMap 中唯一的抽象方法，返回键值对集合
 ```
 
 ##### get()
 ```java
-public V get(Object key) {
+    public V get(Object key) {
         Iterator<Entry<K,V>> i = entrySet().iterator(); 
         if (key==null) {
             while (i.hasNext()) { 
@@ -77,14 +78,14 @@ public V get(Object key) {
 
 ##### put()
 ```java
-public V put(K key, V value) {
+    public V put(K key, V value) {
         throw new UnsupportedOperationException(); //默认不支持 put，子类需要重写 put 方法以实现可变的哈希表
     }
 ```
 
 ##### remove()
 ```java
-public V remove(Object key) {
+    public V remove(Object key) {
         Iterator<Entry<K,V>> i = entrySet().iterator();
         Entry<K,V> correctEntry = null;
         if (key==null) {
@@ -112,7 +113,7 @@ public V remove(Object key) {
 
 ##### equals()
 ```java
-public boolean equals(Object o) {
+    public boolean equals(Object o) {
         if (o == this) //如果是自身返回 true
             return true;
 
@@ -150,7 +151,7 @@ public boolean equals(Object o) {
 ##### hashcode()
 ```java
 // Map<K,V> 的 hash 值为每个映射的 hash 值的总和  
-public int hashCode() {
+    public int hashCode() {
         int h = 0;
         Iterator<Entry<K,V>> i = entrySet().iterator();
         while (i.hasNext())
@@ -162,7 +163,7 @@ public int hashCode() {
 ##### clone()
 ```java
 //万年不变还是浅复制
-protected Object clone() throws CloneNotSupportedException {
+    protected Object clone() throws CloneNotSupportedException {
         AbstractMap<?,?> result = (AbstractMap<?,?>)super.clone();
         result.keySet = null;
         result.values = null;
@@ -172,13 +173,13 @@ protected Object clone() throws CloneNotSupportedException {
 
 ##### SimpleEntry<K,V>
 ```java
-public static class SimpleEntry<K,V>
+    public static class SimpleEntry<K,V>
         implements Entry<K,V>, java.io.Serializable //SimpleEntry 类，用于实现自定义映射
 ```
 
 ##### SimpleImmutableEntry<K,V>
 ```java
-public static class SimpleImmutableEntry<K,V>
+    public static class SimpleImmutableEntry<K,V>
         implements Entry<K,V>, java.io.Serializable //不可变的 SimpleEntry 类，其内部 put 方法未实现，直接抛异常
 ```
 
@@ -197,8 +198,320 @@ HashMap 和 HashTable 基本相似，不过前者不是线程安全的，并且�
 
 迭代器是快速失败的，关于什么叫快速失败可以看上一篇 LinkedList 源码分析中的翻译。
 
-#### Methods
+#### Attributes
+属性值大都采用 static final 的形式定义为不可变的静态常量。
 
+1. 缺省容量（DEFAULT_INITIAL_CAPACITY）大小为 16，没有采用直接赋值而是以 1<<4 的形式，速度快？数据安全性更好？
+2. 最大容量（MAXIMUM_CAPACITY）为 1<<30，即 2^30
+3. 默认负载因子（DEFAULT_LOAD_FACTOR）大小为 0.75f
+4. TREEIFY_THRESHOLD 意为一个阈值，超过此值之后采用将后挂链表转换为红黑树的方法解决冲突
+5. UNTREEIFY_THRESHOLD 也是一个阈值，跟第四条更好相反，意思是在 resize 的过程中，当 bucket 中的数量小于此值时用链表代替红黑树
+6. MIN_TREEIFY_CAPACITY 当 bucket 中的节点被转化成红黑树时最小的 hash 表容量。
+
+#### Structure
+在我们分析具体的方法之前，先就 HashMap 整体的结构做一个叙述，简单来说，一个 HashMap 主要由数组（即 Bucket）、链表、红黑树这三者构成，其中链表和红黑树在适当的时候会相互转换。
+
+> 图片来自美团点评技术博客
+
+![](http://tech.meituan.com/img/java-hashmap/hashMap%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84%E5%9B%BE.png)
+
+##### Node<K,V>
+```java
+    /**
+     * Basic hash bin node, used for most entries.  (See below for
+     * TreeNode subclass, and in LinkedHashMap for its Entry subclass.)
+     */
+    static class Node<K,V> implements Map.Entry<K,V> { //实现了 Entry 接口
+        final int hash; //哈希值，int 类型，final 修饰不可变
+        final K key;    //key 值同样由 final 修饰
+        V value;        //存储的实际 value 可变
+        Node<K,V> next; //指向下一个 next
+
+        Node(int hash, K key, V value, Node<K,V> next) { //构造函数
+            this.hash = hash;
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+
+        //gettter & setter 方法，这里可以注意一下这个 toString 方法的隔离方式，用等号隔开KV，这个特性有的场景下挺有用的，例如我上次做的一个很复杂的报表，有这个分割方式取值快多了
+        public final K getKey()        { return key; }
+        public final V getValue()      { return value; }
+        public final String toString() { return key + "=" + value; }
+
+        //这个方法应该都不陌生，看看这么做的，是通过获取 key value 二者的哈希值再进行异或操作
+        public final int hashCode() {
+            return Objects.hashCode(key) ^ Objects.hashCode(value);
+        }
+
+        public final V setValue(V newValue) {
+            V oldValue = value;
+            value = newValue;
+            return oldValue;
+        }
+
+        public final boolean equals(Object o) {
+            if (o == this) //如果是本身的话返回 true
+                return true;
+            if (o instanceof Map.Entry) { //否则一定要是 Map 的实现
+                Map.Entry<?,?> e = (Map.Entry<?,?>)o; //强制类型转换
+                if (Objects.equals(key, e.getKey()) && //分别比较 key 和 value 的值
+                    Objects.equals(value, e.getValue()))
+                    return true;
+            }
+            return false;
+        }
+    }
+```
+
+#### hash()
+将高 16 位和低 16 位进行异或计算，主要是从速度、功效、质量来考虑的，这么做可以在数组 table 的 length 比较小的时候，也能保证考虑到高低 Bit 都参与到哈希值的计算中，同时不会有太大的性能损耗和开销。
+
+```java
+    static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16); //将高 16 位加入哈希值计算
+    }
+```
+
+#### 一些变量
+```java
+    transient Node<K,V>[] table; //数组，第一次使用时初始化，必要时进行扩容
+```
+
+```java
+    transient int modCount; //用来探测结构性修改的，实现 fast-fail 机制
+```
+
+#### 构造器
+HashMap 总共提供了四种不同形式的构造器，让我们一起来看看分别有什么特点。
+
+##### 第一种
+```java
+    public HashMap(int initialCapacity, float loadFactor) { //带初始化容量和负载因子的
+        if (initialCapacity < 0)
+            throw new IllegalArgumentException("Illegal initial capacity: " +
+                                               initialCapacity);
+        if (initialCapacity > MAXIMUM_CAPACITY) //限定最大容量
+            initialCapacity = MAXIMUM_CAPACITY;
+        if (loadFactor <= 0 || Float.isNaN(loadFactor))
+            throw new IllegalArgumentException("Illegal load factor: " +
+                                               loadFactor);
+        this.loadFactor = loadFactor;
+        this.threshold = tableSizeFor(initialCapacity);
+    }
+```
+
+##### 第二种
+```java
+    public HashMap(int initialCapacity) { //只带有初始化容量，负载因子使用缺省值，即 0.75f
+        this(initialCapacity, DEFAULT_LOAD_FACTOR);
+    }
+```
+
+##### 第三种
+```java
+    public HashMap() { //没有初始化容量，只有缺省值的负载因子
+        this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
+    }
+```
+
+##### 第四种
+```java
+    public HashMap(Map<? extends K, ? extends V> m) { //传一个 Map 进去
+        this.loadFactor = DEFAULT_LOAD_FACTOR; //使用负载因子的缺省值
+        putMapEntries(m, false); //调用 putMapEntries 方法将 Map 中的数值迁移到 HashMap 中，下面看看这个方法的实现
+    }
+```
+
+#### putMapEntries
+
+evict 这个参数是 false 的时候表示已经初始化过数组，反之没有
+
+```java
+    final void putMapEntries(Map<? extends K, ? extends V> m, boolean evict) {
+        int s = m.size();
+        if (s > 0) { 
+            if (table == null) { // 如果此时数组尚未初始化
+                float ft = ((float)s / loadFactor) + 1.0F; //计算实际所需容量 + 1
+                int t = ((ft < (float)MAXIMUM_CAPACITY) ? //判断容量是否溢出
+                         (int)ft : MAXIMUM_CAPACITY);
+                if (t > threshold)
+                    //如果大于原先设定的阈值，则通过调用 tableSizeFor 方法寻找最接近满足条件的 2 的幂
+                    threshold = tableSizeFor(t); 
+            }
+            else if (s > threshold) //如果数组已经初始化完成，判断是否超过 resize 的阈值，若是扩容
+                resize();
+            for (Map.Entry<? extends K, ? extends V> e : m.entrySet()) {
+                K key = e.getKey();
+                V value = e.getValue();
+                putVal(hash(key), key, value, false, evict); //拿到 key，value 之后插入哈希表
+            }
+        }
+    }
+```
+
+#### get & getNode
+```java
+    public V get(Object key) { //根据 key 获取值的方法
+        Node<K,V> e;
+        return (e = getNode(hash(key), key)) == null ? null : e.value;
+    }
+
+    //final 修饰，不可变的方法
+    final Node<K,V> getNode(int hash, Object key) { 
+        Node<K,V>[] tab; Node<K,V> first, e; int n; K k; //参数很多，慢慢看
+        if ((tab = table) != null && (n = tab.length) > 0 &&
+            (first = tab[(n - 1) & hash]) != null) { //hash & (length-1)得到对象的保存位  
+            if (first.hash == hash && // 总是先检查首节点的 hash 值，再接着比对 key 的具体内容
+                ((k = first.key) == key || (key != null && key.equals(k))))
+                return first; //符合则返回首节点
+            if ((e = first.next) != null) { //如果首节点仅是 hash 值命中，key 的内容不一样的话，说明真正要找的值在后挂链表或者后挂红黑树里面
+                if (first instanceof TreeNode) //判断是否是树节点
+                    return ((TreeNode<K,V>)first).getTreeNode(hash, key); //是的话调用红黑树的函数获取值
+                do {
+                    if (e.hash == hash &&
+                        ((k = e.key) == key || (key != null && key.equals(k)))) 
+                        return e;
+                } while ((e = e.next) != null); //否则的话，在链表中一次寻找
+            }
+        }
+        return null;
+    }
+```
+
+#### put & putVal
+```java
+    public V put(K key, V value) { //放入 key value 的方法
+        return putVal(hash(key), key, value, false, true);
+    }
+
+    final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                   boolean evict) {
+        Node<K,V>[] tab; Node<K,V> p; int n, i;
+        if ((tab = table) == null || (n = tab.length) == 0) //如果数组为初始化过或者 lenght = 0
+            n = (tab = resize()).length; //调用 resize 方法初始化并返回 length
+        if ((p = tab[i = (n - 1) & hash]) == null) //如果数组中还没有这个 bucket，直接新增一个数组项
+            tab[i] = newNode(hash, key, value, null);
+        else {
+            Node<K,V> e; K k;
+            if (p.hash == hash &&
+                ((k = p.key) == key || (key != null && key.equals(k)))) //否则先找到 bucket 的位置
+                e = p;
+            else if (p instanceof TreeNode)
+                e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value); //如果后挂红黑树，则需要调用红黑树的方法插入节点
+            else {
+                for (int binCount = 0; ; ++binCount) {
+                    if ((e = p.next) == null) { //e为空，表示已到表尾也没有找到key值相同节点，则新建节点  
+                        p.next = newNode(hash, key, value, null);
+                        if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                            treeifyBin(tab, hash); //转化为红黑树解决冲突
+                        break;
+                    }
+                    if (e.hash == hash &&
+                        ((k = e.key) == key || (key != null && key.equals(k)))) //容许 key 为 null  
+                        break;
+                    p = e; //p指向下一个节点  
+                }
+            }
+            if (e != null) { // existing mapping for key
+                V oldValue = e.value;
+                if (!onlyIfAbsent || oldValue == null)
+                    e.value = value;
+                afterNodeAccess(e);
+                return oldValue;
+            }
+        }
+        ++modCount;
+        if (++size > threshold)
+            resize(); //扩容
+        afterNodeInsertion(evict);
+        return null;
+    }
+```
+
+#### resize
+
+核心方法 resize
+
+```java
+    final Node<K,V>[] resize() {
+        Node<K,V>[] oldTab = table;
+        int oldCap = (oldTab == null) ? 0 : oldTab.length;
+        int oldThr = threshold;
+        int newCap, newThr = 0;
+        if (oldCap > 0) {
+            if (oldCap >= MAXIMUM_CAPACITY) { //若超过 1>>30 大小，无法扩容只能改变阈值
+                threshold = Integer.MAX_VALUE;
+                return oldTab;
+            }
+            else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&
+                     oldCap >= DEFAULT_INITIAL_CAPACITY)
+                newThr = oldThr << 1; // 扩为 2 倍，最小为 16
+        }
+        else if (oldThr > 0) // initial capacity was placed in threshold
+            newCap = oldThr;
+        else {               //还记得在 putVal 中调用 resize 可以完成初始化吗？就是这里
+            newCap = DEFAULT_INITIAL_CAPACITY;
+            newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
+        }
+        if (newThr == 0) {
+            float ft = (float)newCap * loadFactor;
+            newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
+                      (int)ft : Integer.MAX_VALUE);
+        }
+        threshold = newThr; //更新阈值
+        @SuppressWarnings({"rawtypes","unchecked"})
+            Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
+        table = newTab;
+        if (oldTab != null) {
+            for (int j = 0; j < oldCap; ++j) {
+                Node<K,V> e;
+                if ((e = oldTab[j]) != null) {
+                    oldTab[j] = null;
+                    if (e.next == null)
+                        newTab[e.hash & (newCap - 1)] = e;
+                    else if (e instanceof TreeNode)
+                        ((TreeNode<K,V>)e).split(this, newTab, j, oldCap);
+                    else { // preserve order
+                        Node<K,V> loHead = null, loTail = null;
+                        Node<K,V> hiHead = null, hiTail = null;
+                        Node<K,V> next;
+                        do {
+                            next = e.next;
+                            if ((e.hash & oldCap) == 0) {
+                                if (loTail == null)
+                                    loHead = e;
+                                else
+                                    loTail.next = e;
+                                loTail = e;
+                            }
+                            else {
+                                if (hiTail == null)
+                                    hiHead = e;
+                                else
+                                    hiTail.next = e;
+                                hiTail = e;
+                            }
+                        } while ((e = next) != null);
+                        if (loTail != null) {
+                            loTail.next = null;
+                            newTab[j] = loHead;
+                        }
+                        if (hiTail != null) {
+                            hiTail.next = null;
+                            newTab[j + oldCap] = hiHead;
+                        }
+                    }
+                }
+            }
+        }
+        return newTab;
+    }
+```
+
+```java
+```
 
 ### 许可协议
 * 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
