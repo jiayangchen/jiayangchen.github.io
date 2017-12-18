@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "HashMap 源码分析"
-subtitle: ""
+subtitle: "未完待续..."
 date: 2017-12-11
 author: "ChenJY"
 header-img: "img/websitear.jpg"
@@ -326,7 +326,7 @@ HashMap 总共提供了四种不同形式的构造器，让我们一起来看看
 
 #### putMapEntries
 
-evict 这个参数是 false 的时候表示已经初始化过数组，反之没有
+evict 这个参数是 false 的时候表示是在创建 HashMap 时调用的这个函数，反之则是在创建之后调用的
 
 ```java
     final void putMapEntries(Map<? extends K, ? extends V> m, boolean evict) {
@@ -432,7 +432,7 @@ evict 这个参数是 false 的时候表示已经初始化过数组，反之没�
 
 #### resize
 
-核心方法 resize
+核心方法 resize，既可以用于初始化 table 数组，又可以完成扩容两倍的本职工作。
 
 ```java
     final Node<K,V>[] resize() {
@@ -447,46 +447,46 @@ evict 这个参数是 false 的时候表示已经初始化过数组，反之没�
             }
             else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&
                      oldCap >= DEFAULT_INITIAL_CAPACITY)
-                newThr = oldThr << 1; // 扩为 2 倍，最小为 16
+                newThr = oldThr << 1; // 不溢出的情况下，容量阈值均扩为 2 倍，最小为 16
         }
-        else if (oldThr > 0) // initial capacity was placed in threshold
+        else if (oldThr > 0) // 如果 oldCap <= 0，初始容量为阈值 threshold  
             newCap = oldThr;
-        else {               //还记得在 putVal 中调用 resize 可以完成初始化吗？就是这里
+        else {               //还记得在 putVal 中调用 resize 可以完成初始化吗？就是这里，使用默认值
             newCap = DEFAULT_INITIAL_CAPACITY;
             newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
         }
-        if (newThr == 0) {
+        if (newThr == 0) { //计算新的扩容上限
             float ft = (float)newCap * loadFactor;
             newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
                       (int)ft : Integer.MAX_VALUE);
         }
         threshold = newThr; //更新阈值
         @SuppressWarnings({"rawtypes","unchecked"})
-            Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
+            Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap]; //创建一个初始容量为新hash表长度的newTab数组
         table = newTab;
-        if (oldTab != null) {
+        if (oldTab != null) {                                   //如果旧表不为空，则按顺序将旧表中的元素重定向到新表，把每个bucket都移动到新的buckets中
             for (int j = 0; j < oldCap; ++j) {
-                Node<K,V> e;
+                Node<K,V> e;                                    //e按序指向每个链表中的头结点
                 if ((e = oldTab[j]) != null) {
                     oldTab[j] = null;
-                    if (e.next == null)
+                    if (e.next == null)                         //如果仅有头结点
                         newTab[e.hash & (newCap - 1)] = e;
                     else if (e instanceof TreeNode)
-                        ((TreeNode<K,V>)e).split(this, newTab, j, oldCap);
-                    else { // preserve order
+                        ((TreeNode<K,V>)e).split(this, newTab, j, oldCap); //红黑树分裂节点
+                    else {                                      //保持原有的顺序，链表优化重 hash 的代码块
                         Node<K,V> loHead = null, loTail = null;
                         Node<K,V> hiHead = null, hiTail = null;
                         Node<K,V> next;
                         do {
                             next = e.next;
-                            if ((e.hash & oldCap) == 0) {
+                            if ((e.hash & oldCap) == 0) {       //原索引
                                 if (loTail == null)
                                     loHead = e;
                                 else
                                     loTail.next = e;
                                 loTail = e;
                             }
-                            else {
+                            else {                              //原索引 + oldCap
                                 if (hiTail == null)
                                     hiHead = e;
                                 else
@@ -494,11 +494,11 @@ evict 这个参数是 false 的时候表示已经初始化过数组，反之没�
                                 hiTail = e;
                             }
                         } while ((e = next) != null);
-                        if (loTail != null) {
+                        if (loTail != null) {                   //原索引放到bucket里
                             loTail.next = null;
                             newTab[j] = loHead;
                         }
-                        if (hiTail != null) {
+                        if (hiTail != null) {                   //原索引+oldCap放到bucket里
                             hiTail.next = null;
                             newTab[j + oldCap] = hiHead;
                         }
