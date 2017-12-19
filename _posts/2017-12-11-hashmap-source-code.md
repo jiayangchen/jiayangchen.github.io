@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "HashMap 源码分析"
-subtitle: "未完待续..."
+subtitle: "长文慎入，HashMap 的源码分析和整体类层结构分析"
 date: 2017-12-11
 author: "ChenJY"
 header-img: "img/websitear.jpg"
