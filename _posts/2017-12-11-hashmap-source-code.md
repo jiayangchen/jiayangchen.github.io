@@ -13,19 +13,20 @@ tags:
 ### UML 类图
 ![](http://o9oomuync.bkt.clouddn.com/hashmaphashmap%E7%B1%BB%E5%9B%BE.png)
 
-不知道大家还记不记得在 ArrayList 那篇文章中，我谈到说不定存在 AbstractSet、AbstractMap 等抽象类的事情，那是基于对类层设计的猜想，现在看到 HashMap 的层级类图之后，我们会发现确实存在 AbstractMap 这个抽象类，也印证了整个 Java 集合类的设计确实遵循严格的规范，这是值得我们仔细体会和学习的。
+不知道大家还记不记得在 `ArrayList` 那篇文章中，我谈到说不定存在 `AbstractSet`、`AbstractMap` 等抽象类的事情，那是基于对类层设计的猜想，现在看到 `HashMap` 的层级类图之后，我们会发现确实存在 `AbstractMap` 这个抽象类，也印证了整个 Java 集合类的设计确实遵循严格的规范，这是值得我们仔细体会和学习的。
 
 ### Map
-老规矩，我们分析 HashMap 之前还是先来看看其他的接口和抽象类，先是最顶层的 Map 接口。
+老规矩，我们分析 `HashMap` 之前还是先来看看其他的接口和抽象类，先是最顶层的 `Map` 接口。
 
 #### Introduction
+
 > An object that maps keys to values.  A map cannot contain duplicate keys; each key can map to at most one value.
 
-Map 是一种存储键值对的对象，其中键值 key 不允许重复，目的就是一个 key 最多只能对应一个值。
+Map 是一种存储`键值对`的对象，其中键值 key 不允许重复，目的就是一个 key 最多只能对应一个值。
 
 > This interface takes the place of the <tt>Dictionary</tt> class, which was a totally abstract class rather than an interface.
 
-由此可见，Map 接口是取代了老式的 Dictionary 抽象类，由接口实现更显轻量、灵活，抽象类会有很多制约，例如不允许多重继承、强制子类实现抽象方法等。
+由此可见，Map 接口是取代了老式的 `Dictionary` 抽象类，由接口实现更显轻量、灵活，抽象类会有很多制约，例如不允许多重继承、强制子类实现抽象方法等。
 
 > The <tt>Map</tt> interface provides three <i>collection views</i>, which allow a map's contents to be viewed as a set of keys, collection of values, or set of key-value mappings.  The <i>order</i> of a map is defined as the order in which the iterators on the map's collection views return their elements.  Some map implementations, like the <tt>TreeMap</tt> class, make specific guarantees as to their order; others, like the <tt>HashMap</tt> class, do not.
 
@@ -35,7 +36,7 @@ Map 是一种存储键值对的对象，其中键值 key 不允许重复，目�
 2. values 的集合
 3. <key,value> 对的集合
 
-并且，TreeMap 是保证插入顺序的，HashMap 则并不保证。
+并且，`TreeMap` 是保证插入顺序的，`HashMap` 则并不保证。
 
 #### Methods
 ```java
@@ -47,7 +48,8 @@ Map 是一种存储键值对的对象，其中键值 key 不允许重复，目�
 
 ### AbstractMap
 #### Introduction
-注释内容和之前的 AbstractList 近似，不再啰嗦了，我们看看其中包含的方法吧。
+
+注释内容和之前的 `AbstractList` 近似，不再啰嗦了，我们看看其中包含的方法吧。
 
 #### Methods
 ##### entrySet()
@@ -188,28 +190,29 @@ Map 是一种存储键值对的对象，其中键值 key 不允许重复，目�
 
 >The <tt>HashMap</tt> class is roughly equivalent to <tt>Hashtable</tt>, except that it is unsynchronized and permits nulls.
 
-HashMap 和 HashTable 基本相似，不过前者不是线程安全的，并且支持 key 和 value 都可以是 null，但 key 为 null 的个数最多一个。
+`HashMap` 和 `HashTable` 基本相似，不过前者不是线程安全的，并且支持 key 和 value 都可以是 null，但 key 为 null 的个数`最多一个`。
 
 > Thus, it's very important not to set the initial capacity too high (or the load factor too low) if iteration performance is important.
 
-如果你对迭代效率要求很高的话，要注意设置初始容量大小，不能太大。接下去讲了一些影响 HashMap 性能的两大要素：初始大小和负载因子。如果你的 HashMap 要存储的数据量很大，那么设置一个较高的初始容量大小比让它频繁扩容触发 rehash 方法要好得多；负载因子需要考虑实际需求，一般默认的 0.75 是在时间-空间上权衡下来较好的选择。
+如果你对`迭代效率`要求很高的话，要注意设置初始容量大小，不能太大。接下去讲了一些影响 HashMap 性能的两大要素：`初始大小`和`负载因子`。如果你的 HashMap 要存储的数据量很大，那么设置一个较高的初始容量大小比让它频繁扩容触发 rehash 方法要好得多；负载因子需要考虑实际需求，一般默认的 `0.75` 是在时间-空间上权衡下来较好的选择。
 
 > The iterators returned by all of this class's "collection view methods" are <i>fail-fast</i>
 
-迭代器是快速失败的，关于什么叫快速失败可以看上一篇 LinkedList 源码分析中的翻译。
+迭代器是`快速失败`的，关于什么叫快速失败可以看上一篇 LinkedList 源码分析中的翻译。
 
 #### Attributes
+
 属性值大都采用 static final 的形式定义为不可变的静态常量。
 
-1. 缺省容量（DEFAULT_INITIAL_CAPACITY）大小为 16，没有采用直接赋值而是以 1<<4 的形式，速度快？数据安全性更好？
-2. 最大容量（MAXIMUM_CAPACITY）为 1<<30，即 2^30
-3. 默认负载因子（DEFAULT_LOAD_FACTOR）大小为 0.75f
-4. TREEIFY_THRESHOLD 意为一个阈值，超过此值之后采用将后挂链表转换为红黑树的方法解决冲突
-5. UNTREEIFY_THRESHOLD 也是一个阈值，跟第四条更好相反，意思是在 resize 的过程中，当 bucket 中的数量小于此值时用链表代替红黑树
-6. MIN_TREEIFY_CAPACITY 当 bucket 中的节点被转化成红黑树时最小的 hash 表容量。
+1. 缺省容量（`DEFAULT_INITIAL_CAPACITY`）大小为 16，没有采用直接赋值而是以 `1<<4` 的形式，速度快？数据安全性更好？
+2. 最大容量（`MAXIMUM_CAPACITY`）为 1<<30，即 `2^30`
+3. 默认负载因子（`DEFAULT_LOAD_FACTOR`）大小为 `0.75f`
+4. `TREEIFY_THRESHOLD` 意为一个阈值，超过此值之后采用将后挂链表转换为红黑树的方法解决冲突
+5. `UNTREEIFY_THRESHOLD` 也是一个阈值，跟第四条更好相反，意思是在 `resize` 的过程中，当 `bucket` 中的数量小于此值时用链表代替红黑树
+6. `MIN_TREEIFY_CAPACITY` 当 `bucket` 中的节点被转化成红黑树时最小的 `hash` 表容量。
 
 #### Structure
-在我们分析具体的方法之前，先就 HashMap 整体的结构做一个叙述，简单来说，一个 HashMap 主要由数组（即 Bucket）、链表、红黑树这三者构成，其中链表和红黑树在适当的时候会相互转换。
+在我们分析具体的方法之前，先就 HashMap 整体的结构做一个叙述，简单来说，一个 HashMap 主要由`数组`（即 Bucket）、`链表`、`红黑树`这三者构成，其中链表和红黑树在适当的时候会相互转换。
 
 > 图片来自美团点评技术博客
 
@@ -265,7 +268,7 @@ HashMap 和 HashTable 基本相似，不过前者不是线程安全的，并且�
 ```
 
 #### hash()
-将高 16 位和低 16 位进行异或计算，主要是从速度、功效、质量来考虑的，这么做可以在数组 table 的 length 比较小的时候，也能保证考虑到高低 Bit 都参与到哈希值的计算中，同时不会有太大的性能损耗和开销。
+将`高 16` 位和`低 16` 位进行`异或`计算，主要是从速度、功效、质量来考虑的，这么做可以在数组 table 的 length 比较小的时候，也能保证考虑到高低 Bit 都参与到哈希值的计算中，同时不会有太大的性能损耗和开销。
 
 ```java
     static final int hash(Object key) {
@@ -274,17 +277,23 @@ HashMap 和 HashTable 基本相似，不过前者不是线程安全的，并且�
     }
 ```
 
+> 图片来自美团点评技术博客
+
+![](http://tech.meituan.com/img/java-hashmap/hashMap%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E4%BE%8B%E5%9B%BE.png)
+
+
 #### 一些变量
 ```java
-    transient Node<K,V>[] table; //数组，第一次使用时初始化，必要时进行扩容
-```
-
-```java
-    transient int modCount; //用来探测结构性修改的，实现 fast-fail 机制
+    //数组，第一次使用时必须被初始化，必要时进行扩容，被分配之后长度一直会是 2 的幂，可以在一些场合容忍长度为 0
+    transient Node<K,V>[] table; 
+    //用来探测结构性修改的，实现 fast-fail 机制
+    transient int modCount; 
+    //下次 resize 的阈值，值为 capacity * load factor
+    int threshold;
 ```
 
 #### 构造器
-HashMap 总共提供了四种不同形式的构造器，让我们一起来看看分别有什么特点。
+HashMap 总共提供了`四种`不同形式的构造器，让我们一起来看看分别有什么特点。
 
 ##### 第一种
 ```java
@@ -326,7 +335,7 @@ HashMap 总共提供了四种不同形式的构造器，让我们一起来看看
 
 #### putMapEntries
 
-evict 这个参数是 false 的时候表示是在创建 HashMap 时调用的这个函数，反之则是在创建之后调用的
+`evict` 这个参数是 `false` 的时候表示是在创建 `HashMap` 时调用的这个函数，反之则是在创建之后调用的
 
 ```java
     final void putMapEntries(Map<? extends K, ? extends V> m, boolean evict) {
@@ -414,7 +423,7 @@ evict 这个参数是 false 的时候表示是在创建 HashMap 时调用的这�
                     p = e; //p指向下一个节点  
                 }
             }
-            if (e != null) { // existing mapping for key
+            if (e != null) { // existing mapping for key，已经存在该元素
                 V oldValue = e.value;
                 if (!onlyIfAbsent || oldValue == null)
                     e.value = value;
@@ -430,9 +439,75 @@ evict 这个参数是 false 的时候表示是在创建 HashMap 时调用的这�
     }
 ```
 
+#### remove & removeNode
+```java
+    public V remove(Object key) { // 删除节点的方法
+        Node<K,V> e;
+        return (e = removeNode(hash(key), key, null, false, true)) == null ? //调用 removeNode 方法
+            null : e.value;
+    }
+
+    /** @param value 允许传个值进去，用于比较删除节点时 value 是否相等
+     *  @param matchValue true 意味着当且仅当 value 也相等时删除节点
+     *  @param movable if false do not move other nodes while removing
+     */
+    final Node<K,V> removeNode(int hash, Object key, Object value,
+                               boolean matchValue, boolean movable) { //参数略多啊...慢慢看
+        Node<K,V>[] tab; Node<K,V> p; int n, index;
+        if ((tab = table) != null && (n = tab.length) > 0 &&
+            (p = tab[index = (n - 1) & hash]) != null) { //如果这个位置有首节点的话
+            Node<K,V> node = null, e; K k; V v;
+            if (p.hash == hash &&
+                ((k = p.key) == key || (key != null && key.equals(k)))) //找到了这个 key
+                node = p;
+            else if ((e = p.next) != null) { //否则在链表或者红黑树中寻找
+                if (p instanceof TreeNode)
+                    node = ((TreeNode<K,V>)p).getTreeNode(hash, key);
+                else {
+                    do {
+                        if (e.hash == hash &&
+                            ((k = e.key) == key ||
+                             (key != null && key.equals(k)))) {
+                            node = e;
+                            break;
+                        }
+                        p = e;
+                    } while ((e = e.next) != null);
+                }
+            }
+            if (node != null && (!matchValue || (v = node.value) == value ||
+                                 (value != null && value.equals(v)))) {
+                if (node instanceof TreeNode)
+                    ((TreeNode<K,V>)node).removeTreeNode(this, tab, movable);
+                else if (node == p)
+                    tab[index] = node.next;
+                else
+                    p.next = node.next;
+                ++modCount;
+                --size;
+                afterNodeRemoval(node);
+                return node;
+            }
+        }
+        return null;
+    }
+```
+
 #### resize
 
-核心方法 resize，既可以用于初始化 table 数组，又可以完成扩容两倍的本职工作。
+核心方法 `resize`，既可以用于初始化 table 数组，又可以完成`扩容两倍`的本职工作。下面的分析摘自美团点评技术博客：
+
+> 下面我们讲解下 JDK 1.8 做了哪些优化。经过观测可以发现，我们使用的是 2 次幂的扩展(指长度扩为原来 2 倍)，所以，元素的位置要么是在原位置，要么是在原位置再移动 2 次幂的位置。看下图可以明白这句话的意思，n 为 table 的长度，图（a）表示扩容前的 key1 和 key2 两种 key 确定索引位置的示例，图（b）表示扩容后 key1 和 key2 两种 key 确定索引位置的示例，其中 hash1 是 key1 对应的哈希与高位运算结果。
+
+![](http://tech.meituan.com/img/java-hashmap/hashMap%201.8%20%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E4%BE%8B%E5%9B%BE1.png)
+
+> 元素在重新计算 hash 之后，因为 n 变为 2 倍，那么 n-1 的 mask 范围在高位多 1 bit (红色)，因此新的 index 就会发生这样的变化：
+
+![](http://tech.meituan.com/img/java-hashmap/hashMap%201.8%20%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E4%BE%8B%E5%9B%BE2.png)
+
+> 因此，我们在扩充 HashMap 的时候，不需要像 JDK 1.7 的实现那样重新计算 hash，只需要看看原来的 hash 值新增的那个 bit 是 1 还是 0 就好了，是 0 的话索引没变，是 1 的话索引变成 “原索引 + oldCap”，可以看看下图为 16 扩充为 32 的 resize 示意图：
+
+![](http://tech.meituan.com/img/java-hashmap/jdk1.8%20hashMap%E6%89%A9%E5%AE%B9%E4%BE%8B%E5%9B%BE.png)
 
 ```java
     final Node<K,V>[] resize() {
@@ -440,8 +515,8 @@ evict 这个参数是 false 的时候表示是在创建 HashMap 时调用的这�
         int oldCap = (oldTab == null) ? 0 : oldTab.length;
         int oldThr = threshold;
         int newCap, newThr = 0;
-        if (oldCap > 0) {
-            if (oldCap >= MAXIMUM_CAPACITY) { //若超过 1>>30 大小，无法扩容只能改变阈值
+        if (oldCap > 0) {                       //如果容量大于 0，说明已经有元素存在里面了
+            if (oldCap >= MAXIMUM_CAPACITY) {   //若超过 1>>30 大小，无法扩容只能改变阈值
                 threshold = Integer.MAX_VALUE;
                 return oldTab;
             }
@@ -462,11 +537,11 @@ evict 这个参数是 false 的时候表示是在创建 HashMap 时调用的这�
         }
         threshold = newThr; //更新阈值
         @SuppressWarnings({"rawtypes","unchecked"})
-            Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap]; //创建一个初始容量为新hash表长度的newTab数组
+            Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap]; //创建一个初始容量为新 hash 表长度的newTab数组
         table = newTab;
-        if (oldTab != null) {                                   //如果旧表不为空，则按顺序将旧表中的元素重定向到新表，把每个bucket都移动到新的buckets中
+        if (oldTab != null) {                                   //如果旧表不为空，则按顺序将旧表中的元素重定向到新表，把每个bucket 都移动到新的 buckets 中
             for (int j = 0; j < oldCap; ++j) {
-                Node<K,V> e;                                    //e按序指向每个链表中的头结点
+                Node<K,V> e;                                    //e 按序指向每个链表中的头结点
                 if ((e = oldTab[j]) != null) {
                     oldTab[j] = null;
                     if (e.next == null)                         //如果仅有头结点
@@ -479,7 +554,7 @@ evict 这个参数是 false 的时候表示是在创建 HashMap 时调用的这�
                         Node<K,V> next;
                         do {
                             next = e.next;
-                            if ((e.hash & oldCap) == 0) {       //原索引
+                            if ((e.hash & oldCap) == 0) {       //原索引：如果(e.hash & oldCap)==true，表明(e.hash & (newCap - 1))还会和 e.hash & (oldCap - 1)一样。因为 oldCap 和 newCap 是 2 的幂，并且 newCap是oldCa一个二进制的1向高位移动了一位(e.hash & oldCap) == 0就代表了(e.hash & (newCap - 1))还会 和 e.hash & (oldCap - 1)一样。
                                 if (loTail == null)
                                     loHead = e;
                                 else
@@ -494,11 +569,11 @@ evict 这个参数是 false 的时候表示是在创建 HashMap 时调用的这�
                                 hiTail = e;
                             }
                         } while ((e = next) != null);
-                        if (loTail != null) {                   //原索引放到bucket里
+                        if (loTail != null) {                   //原索引放到 bucket 里
                             loTail.next = null;
                             newTab[j] = loHead;
                         }
-                        if (hiTail != null) {                   //原索引+oldCap放到bucket里
+                        if (hiTail != null) {                   //原索引 + oldCap 放到 bucket 里
                             hiTail.next = null;
                             newTab[j + oldCap] = hiHead;
                         }
@@ -510,8 +585,219 @@ evict 这个参数是 false 的时候表示是在创建 HashMap 时调用的这�
     }
 ```
 
+#### HashMap 中的红黑树结构
+
+这部分貌似别的博客都很少涉及，那我来讲一讲吧！
+
+##### TreeNode
+
+树节点的类中主要有以下属性：父节点、左节点、右节点、前置节点、颜色值，继承自 `LinkedHashMap.Entry<K,V>`
+
 ```java
+    static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
+        TreeNode<K,V> parent;  // red-black tree links
+        TreeNode<K,V> left;
+        TreeNode<K,V> right;
+        TreeNode<K,V> prev;    // needed to unlink next upon deletion
+        boolean red;
+        TreeNode(int hash, K key, V val, Node<K,V> next) {
+            super(hash, key, val, next);
+        }
+    }
+
+    //这里还有前指针，后指针，哈希值，数值 value 等一些属性
+    static class Entry<K,V> extends HashMap.Node<K,V> {
+        Entry<K,V> before, after;
+        Entry(int hash, K key, V value, Node<K,V> next) {
+            super(hash, key, value, next);
+        }
+    }
+
 ```
+
+##### treeifyBin
+
+我们在 `putVal` 方法中谈到，当节点数已经超过 `TREEIFY_THRESHOLD` 之后，需要调用 `treeifyBin` 方法将链表转化为红黑树
+
+```java
+    final void treeifyBin(Node<K,V>[] tab, int hash) {
+        int n, index; Node<K,V> e;
+        if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY) //当哈希表为空或者长度小于进行树形化的阈值 64 的话，就先扩容
+            resize();
+        else if ((e = tab[index = (n - 1) & hash]) != null) {
+            TreeNode<K,V> hd = null, tl = null; //定义红黑树的头尾节点
+            do {
+                TreeNode<K,V> p = replacementTreeNode(e, null); //新建红黑树节点，值为 e，建立前后节点的连接关系
+                if (tl == null) 
+                    hd = p;     //头结点
+                else {
+                    p.prev = tl;
+                    tl.next = p;
+                }
+                tl = p;
+            } while ((e = e.next) != null);
+            if ((tab[index] = hd) != null) //让数组 tab 的第一个元素指向红黑树的头结点
+                hd.treeify(tab); //传入 tab 开始树形化
+        }
+    }
+```
+
+##### treeify
+
+```java
+    final void treeify(Node<K,V>[] tab) {
+        TreeNode<K,V> root = null;
+        for (TreeNode<K,V> x = this, next; x != null; x = next) {
+            next = (TreeNode<K,V>)x.next;
+            x.left = x.right = null;
+            if (root == null) { //指定树的根节点
+                x.parent = null;
+                x.red = false; //黑色
+                root = x;
+            }
+            else { //有了根节点后，进入内部循坏，用双层循坏来比较其他节点的 hash 值跟当前节点的 hash 值，然后确定左右子节点
+                K k = x.key;
+                int h = x.hash;
+                Class<?> kc = null;
+                for (TreeNode<K,V> p = root;;) { //内部循坏开始
+                    int dir, ph;
+                    K pk = p.key;
+                    if ((ph = p.hash) > h) 
+                        dir = -1;
+                    else if (ph < h)
+                        dir = 1;
+                    else if ((kc == null &&
+                                (kc = comparableClassFor(k)) == null) ||
+                                (dir = compareComparables(kc, k, pk)) == 0)
+                        dir = tieBreakOrder(k, pk);
+
+                    TreeNode<K,V> xp = p;
+                    if ((p = (dir <= 0) ? p.left : p.right) == null) {
+                        x.parent = xp;
+                        if (dir <= 0)
+                            xp.left = x;
+                        else
+                            xp.right = x;
+                        root = balanceInsertion(root, x);
+                        break;
+                    }
+                }
+            }
+        }
+        moveRootToFront(tab, root);
+    }
+```
+
+##### untreeify
+
+```java
+    //解除树形化，返回一个链表
+    final Node<K,V> untreeify(HashMap<K,V> map) {
+        Node<K,V> hd = null, tl = null;
+        for (Node<K,V> q = this; q != null; q = q.next) {
+            Node<K,V> p = map.replacementNode(q, null);
+            if (tl == null)
+                hd = p; //找到头结点
+            else
+                tl.next = p; //一次相连
+            tl = p;
+        }
+        return hd;
+    }
+```
+
+##### find & getTreeNode
+
+```java
+    final TreeNode<K,V> find(int h, Object k, Class<?> kc) {
+        TreeNode<K,V> p = this;
+        do {
+            int ph, dir; K pk;
+            TreeNode<K,V> pl = p.left, pr = p.right, q;
+            if ((ph = p.hash) > h)
+                p = pl;
+            else if (ph < h)
+                p = pr;
+            else if ((pk = p.key) == k || (k != null && k.equals(pk))) //命中
+                return p;
+            else if (pl == null) //左子树为空
+                p = pr;
+            else if (pr == null) //右子树为空
+                p = pl;
+            else if ((kc != null ||
+                        (kc = comparableClassFor(k)) != null) &&
+                        (dir = compareComparables(kc, k, pk)) != 0)
+                p = (dir < 0) ? pl : pr;
+            else if ((q = pr.find(h, k, kc)) != null) //递归查询
+                return q;
+            else
+                p = pl;
+        } while (p != null);
+        return null;
+    }
+
+    /**
+        * Calls find for root node.
+        */
+    final TreeNode<K,V> getTreeNode(int h, Object k) {
+        return ((parent != null) ? root() : this).find(h, k, null);  //从根节点开始调用 find 方法
+    }
+```
+
+##### putTreeVal
+
+```java
+    final TreeNode<K,V> putTreeVal(HashMap<K,V> map, Node<K,V>[] tab,
+                                       int h, K k, V v) {
+        Class<?> kc = null;
+        boolean searched = false;
+        TreeNode<K,V> root = (parent != null) ? root() : this; //获取根节点
+        for (TreeNode<K,V> p = root;;) {
+            int dir, ph; K pk;
+            if ((ph = p.hash) > h)
+                dir = -1;
+            else if (ph < h)
+                dir = 1;
+            else if ((pk = p.key) == k || (k != null && k.equals(pk))) //已存在直接返回
+                return p;
+            else if ((kc == null &&
+                        (kc = comparableClassFor(k)) == null) ||
+                        (dir = compareComparables(kc, k, pk)) == 0) {
+                if (!searched) { //如果当前节点和要添加的节点哈希值相等，但是两个节点的键不是一个类，挨个对比左右孩子
+                    TreeNode<K,V> q, ch;
+                    searched = true;
+                    if (((ch = p.left) != null &&
+                            (q = ch.find(h, k, kc)) != null) ||
+                        ((ch = p.right) != null &&
+                            (q = ch.find(h, k, kc)) != null))
+                        return q; //如果找到了，说明已存在
+                }
+                dir = tieBreakOrder(k, pk); //哈希值相等但是 key 无法比较时的方法
+            }
+
+            //要插入的节点比当前节点小就插到左子树，大就插到右子树
+            TreeNode<K,V> xp = p;
+            if ((p = (dir <= 0) ? p.left : p.right) == null) {
+                Node<K,V> xpn = xp.next;
+                TreeNode<K,V> x = map.newTreeNode(h, k, v, xpn);
+                if (dir <= 0)
+                    xp.left = x;
+                else
+                    xp.right = x;
+                xp.next = x;
+                x.parent = x.prev = xp;
+                if (xpn != null)
+                    ((TreeNode<K,V>)xpn).prev = x;
+                moveRootToFront(tab, balanceInsertion(root, x)); //红黑树是一种平衡树，插入节点后需要进行平衡性调整，左旋右旋之类的
+                return null;
+            }
+        }
+    }
+```
+
+### Conclusion
+
+HashMap 是根据键的 hashCode 值存储数据，可以通过 key 直接定位到它的 value，因而具有很快的访问速度，但遍历顺序却是不确定的。 HashMap 最多只允许一条记录的 key 为 null，允许多条记录的 value 为 null。HashMap 是非线程安全，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致。HashMap 解决冲突的方法是链表法，节点数过多或者过少时，可以在链表与红黑树之间进行转换。在 tab 容量达到阈值时可以进行 resize，一般情况下变为原先的 2 倍，扩容时线程并发可能导致链表无限循环 Bug。
 
 ### 许可协议
 * 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
