@@ -84,11 +84,9 @@ tags:
 
 ### QA
 
-按照本博客一贯的传统（问：哦？什么传统从什么时候开始的，我怎么不知道？ 答：现在开始），其中涉及的原理是一定要讲清楚的。那么我们下面来谈谈为什么这么做就能 `HTTPS` 了呢？和正规网站的 `HTTPS` 有什么不同呢？
+按照本博客一贯的传统（问：哦？什么传统从什么时候开始的，我怎么不知道？ 答：现在开始），其中涉及的原理是一定要讲清楚的。那么我们下面来谈谈为什么这么做就能 `HTTPS` 了呢？和正规网站的 `HTTPS` 有什么不同呢？前者在博客 [HTTP & HTTPS, Session & Cookie](https://chenjiayang.me/2017/07/29/https-cookie-session/) 中有解答，感兴趣的可以看看，而后者的话，其实很简单。
 
-### Conclusion
-
-对于 `HTTPS` 的其他问题感兴趣的，可以看看这篇博客 [HTTP & HTTPS, Session & Cookie]()
+其中原理有点像反向代理，还记得刚刚选择的 flexible SSL 么？其实它相当于每次你的请求先发到 CloudFare 的域名服务器，再由 CLoudFare 的域名服务器转发你的请求到实际资源服务器，取回结果之后再经 CLoudFare 返给用户。而其中，SSL 只加密用户至 CloudFlare 之间的通信，但CloudFlare 至实际资源服务器之间的通信依旧是明文的，所以其实全程通信来看还是不安全的。
 
 ### 许可协议
 * 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
