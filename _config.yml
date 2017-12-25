@@ -64,7 +64,7 @@ ba_track_id: 57bc9aa8fa52f13b45b8480cacb9cc67
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "从来不求时间为我搁浅..."
-sidebar-avatar: /img/avatar.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
