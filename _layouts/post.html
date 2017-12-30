@@ -64,8 +64,6 @@ layout: default
                 <hr>
                 <div class="bshare-custom icon-medium-plus"><a title="分享到微信" class="bshare-weixin"></a><a title="分享到豆瓣" class="bshare-douban"></a><a title="分享到QQ好友" class="bshare-qqim"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到电子邮件" class="bshare-email"></a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="https://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="https://static.bshare.cn/b/bshareC0.js"></script>
                 
-                
-
                 {% if site.duoshuo_share && site.duoshuo_username %}
                 <!-- 多说 Share start -->
                 </style>
@@ -132,6 +130,14 @@ layout: default
                     <div id="disqus_thread" class="disqus-thread"></div>
                 </div>
                 <!-- disqus 评论框 end -->
+                {% endif %}
+
+                {% if site.livere_userid %}
+                <!-- livere 评论框 start -->
+                <div class="comment">
+                    <div id="lv-container" data-id="city" data-uid="{{site.livere_userid}}">
+                </div>
+                <!-- livere 评论框 end -->
                 {% endif %}
 
             </div>  
@@ -215,23 +221,21 @@ layout: default
 
 {% if site.livere_userid %}
 <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="{{site.livere_userid}}">
-    <script type="text/javascript">
-       (function(d, s) {
-           var j, e = d.getElementsByTagName(s)[0];
-    
-           if (typeof LivereTower === 'function') { return; }
-    
-           j = d.createElement(s);
-           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-           j.async = true;
-    
-           e.parentNode.insertBefore(j, e);
-       })(document, 'script');
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-    <!-- City版安装代码已完成 -->
+<script type="text/javascript">
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+
+        if (typeof LivereTower === 'function') { return; }
+
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+<!-- City版安装代码已完成 -->
 {% endif %}
 
 {% if site.disqus_username %}
