@@ -43,9 +43,10 @@ kramdown:
   input: GFM                            # use Github Flavored Markdown !important
 
 
-
+# Livere settings
+livere_userid: MTAyMC8zMjgxNS85Mzc2
 # Disqus settings
-disqus_username: jiayangchen
+#disqus_username: jiayangchen
 
 # Duoshuo settings
 #duoshuo_username: jiayangchen
