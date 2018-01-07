@@ -1,17 +1,18 @@
 ---
 layout: post
-title: "LinkedHashMap 源码分析"
-subtitle: "LinkedHashMap 的源码分析和整体类层结构分析"
-date: 2017-12-25
+title: "小议 Redis Cluster 下的主从数据同步"
+subtitle: ""
+date: 2018-01-05
 author: "ChenJY"
 header-img: "img/websitear.jpg"
 catalog: true
 tags: 
-    - JDK 源码分析
-    - Java Collections
+    - Redis 设计与实现
+    - Redis
+    - 数据库
 ---
 
-此坑待填
+
 
 ### 许可协议
 * 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
