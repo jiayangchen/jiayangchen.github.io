@@ -116,11 +116,11 @@ Redis 4.0 RC3 及更高版本彻底解决了这个问题，现在 writable slave
 
 要在正在运行的实例上执行此操作，请使用 redis-cli 并输入：
 
-> config set masterauth <password>
+> config set masterauth \<password\>
 
 要永久设置的话，请将其添加到您的配置文件中：
 
-> masterauth <password>
+> masterauth \<password\>
 
 ## 允许只写入 N 个附加的副本
 
@@ -134,15 +134,15 @@ Redis 4.0 RC3 及更高版本彻底解决了这个问题，现在 writable slave
 * Redis master 会记得上一次从每个 slave 都收到 ping 的时间。
 * 用户可以配置一个最小的 slave 数量，使得它滞后 <= 最大秒数。
 
-如果至少有N个从站，并且滞后小于M秒，则写入将被接受。
+如果至少有 N 个 slave ，并且滞后小于 M 秒，则写入将被接受。
 
-您可能认为这是一个尽力而为的数据安全机制，对于给定的写入来说，不能保证一致性，但至少数据丢失的时间窗限制在给定的秒数内。一般来说，绑定的数据丢失比不绑定的更好。
+你可能认为这是一个尽力而为的数据安全机制，对于给定的写入来说，不能保证一致性，但至少数据丢失的时间窗限制在给定的秒数内。一般来说，绑定的数据丢失比不绑定的更好。
 
 如果条件不满足，master 将会回复一个 error 并且写入将不被接受。
 
 这个特性有两个配置参数：
-* min-slaves-to-write <slave 数量>
-* min-slaves-max-lag <秒数>
+* min-slaves-to-write \<slave 数量\>
+* min-slaves-max-lag \<秒数\>
 
 有关更多信息，请查看随 Redis 源代码发行版一起提供的示例 redis.conf 文件。
 
@@ -170,6 +170,7 @@ Redis 的过期机制可以限制 key 的生存时间。此功能取决于 Redis
 为了解决这两个问题，从 Redis 3.2.2 开始，可以强制一个 slave 向 master 通告一对任意的 IP 和端口。使用的两个配置指令是：
 
 > slave-announce-ip 5.5.5.5
+
 > slave-announce-port 1234
 
 在近期 Redis distributions 中的 redis.conf 的样例中可以找到记录。
