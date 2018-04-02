@@ -7,6 +7,7 @@ author: "ChenJY"
 header-img: "img/websitear.jpg"
 catalog: true
 tags: 
+    - Redis
     - Redis 设计与实现
     - 读书笔记
 ---
