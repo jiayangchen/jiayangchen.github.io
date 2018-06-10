@@ -1,13 +1,4 @@
 ### Introduction 
 
-This is ChenJY's personal website using Huxpro's blog template. Thank him for his sharing. He is also a good web developer who I know from [Zhuhu](https://www.zhihu.com/)
+这是陈嘉扬的个人博客，，地址：[chenjiayang.me](https://chenjiayang.me)，基于黄玄的 [博客主题](https://github.com/Huxpro/huxpro.github.io) 二次开发得到，主要增加了访问量统计、文章阅读统计、画廊、评论等功能。
 
-I usually post some articles on it and some of them are about technology and some are about life. If the article is reprinted from other place, I will indicate in a striking place such as title and the reprint is gained consent from the origin author.
-
-### License
-
-Apache License 2.0.
-Copyright (c) 2015-2016 Huxpro
-
-Hux Blog is derived from [Clean Blog Jekyll Theme (MIT License)](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/)
-Copyright (c) 2013-2016 Blackrock Digital LLC.
