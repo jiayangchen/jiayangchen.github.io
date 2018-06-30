@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "redis sds (简单动态字符串) 源码阅读"
-subtitle: ""
+title: "Redis SDS (简单动态字符串) 源码阅读"
+subtitle: "Redis 源码阅读系列"
 date: 2018-04-08
 author: "ChenJY"
 header-img: "img/websitear.jpg"

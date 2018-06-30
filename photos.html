@@ -38,91 +38,21 @@ header-img: "img/photo.jpg"
 </header>
     
 <div class="container">
-                <div class="row">
+                <div class="row" ng-app="blogSystem" ng-controller="PhotoController">
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
                         <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered" data-am-gallery="{  }" >
-                            <li>
-                                <div class="am-gallery-item">
-                                    <a href="http://o9oomuync.bkt.clouddn.com/bloghometown.jpeg" class="">
-                                        <img src="http://o9oomuync.bkt.clouddn.com/bloghometown.jpeg"  alt="年关的家乡"/>
-                                        <h3 class="am-gallery-title">年关的家乡</h3>
-                                        <div class="am-gallery-desc">2018.02 摄于 <i class="fa fa-map-marker" aria-hidden="true"></i> 张家港乐余镇</div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="am-gallery-item">
-                                    <a href="http://o9oomuync.bkt.clouddn.com/blog%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20170921164059.jpg" class="">
-                                        <img src="http://o9oomuync.bkt.clouddn.com/blog%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20170921164059.jpg"  alt="在东南偶遇拍毕业照"/>
-                                        <h3 class="am-gallery-title">在东南偶遇拍毕业照</h3>
-                                        <div class="am-gallery-desc">2017.09 摄于 <i class="fa fa-map-marker" aria-hidden="true"></i> 东南大学四牌楼校区</div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="am-gallery-item">
-                                    <a href="http://o9oomuync.bkt.clouddn.com/blog%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20170921161442.jpg" class="">
-                                        <img src="http://o9oomuync.bkt.clouddn.com/blog%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20170921161442.jpg"  alt="台风来临前的晚霞"/>
-                                        <h3 class="am-gallery-title">台风来临前的晚霞</h3>
-                                        <div class="am-gallery-desc">2017.09 摄于 <i class="fa fa-map-marker" aria-hidden="true"></i> 东 26 楼寝室阳台</div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="am-gallery-item">
-                                    <a href="/photos/love.jpg" class="">
-                                        <img src="/photos/love.jpg"  alt="球场看台的求婚"/>
-                                        <h3 class="am-gallery-title">球场看台的求婚</h3>
-                                        <div class="am-gallery-desc">2017.05 摄于 <i class="fa fa-map-marker" aria-hidden="true"></i> 上海八万人体育场</div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="am-gallery-item">
-                                    <a href="/photos/Hackathon.jpg" class="">
-                                        <img src="/photos/Hackathon.jpg"  alt="2016 Microsoft Penta-Hackathon"/>
-                                        <h3 class="am-gallery-title">2016 Microsoft Penta-Hackathon</h3>
-                                        <div class="am-gallery-desc">2016.11 摄于 <i class="fa fa-map-marker" aria-hidden="true"></i> 微软紫竹亚研院</div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="am-gallery-item">
-                                    <a href="/photos/binjiang_park.jpg" class="">
-                                        <img src="/photos/binjiang_park.jpg"  alt="初春公园出游掠影"/>
-                                        <h3 class="am-gallery-title">初春公园出游掠影</h3>
-                                        <div class="am-gallery-desc">2016.04 摄于 <i class="fa fa-map-marker" aria-hidden="true"></i> 闵行区滨江公园外</div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="am-gallery-item">
-                                    <a href="/photos/military_training.jpg" class="">
-                                        <img src="/photos/military_training.jpg"  alt="大一暑假军训晚会"/>
-                                        <h3 class="am-gallery-title">大一暑假军训晚会</h3>
-                                        <div class="am-gallery-desc">2015.09 摄于 <i class="fa fa-map-marker" aria-hidden="true"></i> 上海交通大学霍英东体育馆</div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="am-gallery-item">
-                                    <a href="/photos/stadium.jpg" class="">
-                                        <img src="/photos/stadium.jpg"  alt="2015 年中超联赛首轮"/>
-                                        <h3 class="am-gallery-title">2015 年中超联赛首轮</h3>
-                                        <div class="am-gallery-desc">2015.03 摄于 <i class="fa fa-map-marker" aria-hidden="true"></i> 上海八万人体育场</div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="am-gallery-item">
-                                    <a href="/photos/museum.jpg" class="">
-                                        <img src="/photos/museum.jpg"  alt="唐朝彩色侍女佣像"/>
-                                        <h3 class="am-gallery-title">唐朝彩色侍女佣像</h3>
-                                        <div class="am-gallery-desc">2016 年中秋摄于 <i class="fa fa-map-marker" aria-hidden="true"></i> 上海博物馆</div>
-                                    </a>
-                                </div>
-                            </li>
+                            {% for photo in site.photos %}
+                                <li>
+                                    <div class="am-gallery-item">
+                                        <a href="{{photo.url}}" class="">
+                                            <img src="{{photo.url}}"  alt="{{photo.title}}"/>
+                                            <h3 class="am-gallery-title">{{photo.title}}</h3>
+                                            <div class="am-gallery-desc">{{photo.date}} 摄于 <i class="fa fa-map-marker" aria-hidden="true"></i> {{photo.location}}</div>
+                                        </a>
+                                    </div>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="col-md-1"></div>

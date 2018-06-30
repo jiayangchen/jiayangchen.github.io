@@ -1,10 +1,10 @@
 # Site settings
 title: 旧·时光 | Time
-SEOTitle: 旧·时光 | 陈嘉扬's Blog
+SEOTitle: 旧·时光 | YoungChen's Blog
 header-img: img/bg1.jpg
-email: jiayangchen@sjtu.edu.cn
+email: Chen.Jiayang@foxmail.com
 description: "Something that stays in your mind will someday spring up in your life."
-keyword: "chenjiayang,主页,博客,Java,Redis,分布式,MySQL"
+keyword: "YoungChen,主页,博客,Java,Redis,分布式,MySQL"
 url: "http://chenjiayang.me"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -95,5 +95,81 @@ friends: [
     {
         title: "嘉美伯爵",
         href: "http://blog.fovegage.cn/"
+    }
+]
+
+# Photos
+photos: [
+    {
+        url: "http://o9oomuync.bkt.clouddn.com/blogIMG_20180623_132723_HDR.jpg",
+        title: "罗中立美术馆",
+        date: "2018.06",
+        location: "重庆四川美术学院"
+    },
+    {
+        url: "http://o9oomuync.bkt.clouddn.com/blogIMG_20180625_150859.jpg",
+        title: "艺术楼",
+        date: "2018.06",
+        location: "成都东郊记忆"
+    },
+    {
+        url: "http://o9oomuync.bkt.clouddn.com/blogIMG_20180626_161617.jpg",
+        title: "青铜面具人像",
+        date: "2018.06",
+        location: "四川博物馆"
+    },
+    {
+        url: "http://o9oomuync.bkt.clouddn.com/bloghometown.jpeg",
+        title: "年关的家乡",
+        date: "2018.02",
+        location: "张家港乐余镇"
+    },
+    {
+        url: "http://o9oomuync.bkt.clouddn.com/blog%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20170921164059.jpg",
+        title: "在东南偶遇拍毕业照",
+        date: "2017.09",
+        location: "东南大学四牌楼校区"
+    },
+    {
+        url: "http://o9oomuync.bkt.clouddn.com/blog%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20170921161442.jpg",
+        title: "台风来临前的晚霞",
+        date: "2017.09",
+        location: "东 26 楼寝室阳台"
+    },
+    {
+        url: "/photos/love.jpg",
+        title: "球场看台的求婚",
+        date: "2017.05",
+        location: "上海八万人体育场"
+    },
+    {
+        url: "/photos/Hackathon.jpg",
+        title: "2016 Microsoft Penta-Hackathon",
+        date: "2016.11",
+        location: "微软紫竹亚研院"
+    },
+    {
+        url: "/photos/binjiang_park.jpg",
+        title: "初春公园出游掠影",
+        date: "2016.04",
+        location: "闵行区滨江公园外"
+    },
+    {
+        url: "/photos/military_training.jpg",
+        title: "大一暑假军训晚会",
+        date: "2015.09",
+        location: "上海交通大学霍英东体育馆"
+    },
+    {
+        url: "/photos/stadium.jpg",
+        title: "2015 年中超联赛首轮",
+        date: "2015.03",
+        location: "上海八万人体育场"
+    },
+    {
+        url: "/photos/museum.jpg",
+        title: "唐朝彩色侍女佣像",
+        date: "2016 年中秋",
+        location: "上海博物馆"
     }
 ]
