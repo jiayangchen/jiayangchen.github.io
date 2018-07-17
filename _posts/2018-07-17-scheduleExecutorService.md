@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "谈谈在 Java 中实现定时任务的几种方式"
-subtitle: ""
+subtitle: "实现定时任务的方式很多，常见的有 Spring @schedule 注解、JDK 自带的 TimerTask or Timer、开源作业调度框架 Quartz、线程池 ScheduleExecutorService、ScheduledThreadPoolExecutor。"
 date: 2018-07-17
 author: "ChenJY"
 header-img: "img/websitear.jpg"
 catalog: true
 tags: 
-    - 活学活用
+    - Java Tech
 ---
 
 工作中经常接触到定时任务，实现定时任务的方式很多，常见的有 Spring @schedule 注解配合 Cron 表达式、JDK 自带的 TimerTask or Timer、使用开源作业调度框架 Quartz、线程池 ScheduleExecutorService 和其实现类 ScheduledThreadPoolExecutor。
