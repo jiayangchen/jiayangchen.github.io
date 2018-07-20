@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "谈谈在 Java 中实现定时任务的几种方式"
-subtitle: "实现定时任务的方式很多，常见的有 Spring @schedule 注解、JDK 自带的 `Timer`Task or `Timer`、开源作业调度框架 Quartz、线程池 ScheduleExecutorService、ScheduledThreadPoolExecutor。"
+subtitle: "实现定时任务的方式很多，常见的有 Spring @schedule 注解、JDK 自带的 TimerTask or Timer、开源作业调度框架 Quartz、线程池 ScheduleExecutorService、ScheduledThreadPoolExecutor。"
 date: 2018-07-17
 author: "ChenJY"
 header-img: "img/websitear.jpg"
@@ -10,27 +10,27 @@ tags:
     - Java Tech
 ---
 
-工作中经常接触到定时任务，实现定时任务的方式很多，常见的有 Spring @schedule 注解配合 Cron 表达式、JDK 自带的 `Timer`Task or `Timer`、使用开源作业调度框架 Quartz、线程池 ScheduleExecutorService 和其实现类 ScheduledThreadPoolExecutor。
+工作中经常接触到定时任务，实现定时任务的方式很多，常见的有 Spring @schedule 注解配合 Cron 表达式、JDK 自带的 TimerTask or Timer、使用开源作业调度框架 Quartz、线程池 ScheduleExecutorService 和其实现类 ScheduledThreadPoolExecutor。
 
 ## @schedule 注解
 Spring 中的 @schedule 是我最早接触学会的，注解实现非常方便，注解中有三个参数分别是 Cron 表达式、fixedRate 和 initialDelay，具体使用看你的场景，需要注意的是使用 @schedule 注解的方法的类必须用 @Component （最好）或者 @Service @Controller 等注解进行修饰，将其交给 Spring 进行托管，且在 XML 配置文件中必须有相应的配置。随着学习的深入，后来了解到 @schedule 内部本质上是基于 Quartz 实现的。Quartz 是一个任务调度框架，@schedule 注解修饰的方法会被交给 ScheduledAnnotationBeanPostProcessor 处理，在 ScheduledAnnotationBeanPostProcessor 类中会解析 @schedule 中的三个参数，根据参数的不同，将任务交给 ScheduledTaskRegistrar 进行处理，3种不同属性的task均由quartz的taskScheduler的不同方法来完成，scheduleWithFixedDelay、
 scheduleAtFixedRate 和 schedule。
 
-## `Timer` & `Timer`Task 
-`Timer` 是 JDK 中提供的一个定时器工具，使用的时候会在主线程之外起一个单独的线程执行指定的计划任务，可以指定执行一次或者反复执行多次。`Timer`Task 是一个实现了 Runnable 接口的抽象类，代表一个可以被 `Timer` 执行的任务。我们可以这样理解 `Timer` 是一种定时器工具，用来在一个后台线程计划执行指定任务，而 `Timer`Task 是一个抽象类，它的子类代表一个可以被 `Timer` 计划的任务。
+## Timer & TimerTask 
+Timer 是 JDK 中提供的一个定时器工具，使用的时候会在主线程之外起一个单独的线程执行指定的计划任务，可以指定执行一次或者反复执行多次。TimerTask 是一个实现了 Runnable 接口的抽象类，代表一个可以被 Timer 执行的任务。我们可以这样理解 Timer 是一种定时器工具，用来在一个后台线程计划执行指定任务，而 TimerTask 是一个抽象类，它的子类代表一个可以被 Timer 计划的任务。
 
-`Timer`Task 我自己极少使用，主要是它有一些弊端，`Timer` 在执行定时任务时只会创建一个线程，所以如果存在多个任务，且任务时间过长，超过了两个任务的间隔时间，那么第二个任务只能等待第一个任务执行完毕后再执行，其行为可能已经不符合编码者期望的了。例如 t2 定义 3s 后开始执行，t1 定义在 1s 后执行，但是 t1 执行过程总共消耗了 4s，那么实际上 t2 会在第 6s 才会执行，因为 `Timer` 是单线程的缘故。
+TimerTask 我自己极少使用，主要是它有一些弊端，Timer 在执行定时任务时只会创建一个线程，所以如果存在多个任务，且任务时间过长，超过了两个任务的间隔时间，那么第二个任务只能等待第一个任务执行完毕后再执行，其行为可能已经不符合编码者期望的了。例如 t2 定义 3s 后开始执行，t1 定义在 1s 后执行，但是 t1 执行过程总共消耗了 4s，那么实际上 t2 会在第 6s 才会执行，因为 Timer 是单线程的缘故。
 
 ```java
-package com.zhy.concurrency.`Timer`;
-import java.util.`Timer`;
-import java.util.`Timer`Task;
+package com.zhy.concurrency.Timer;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class `Timer`Test
+public class TimerTest
 {
 	private static long start;
 	public static void main(String[] args) throws Exception{
-		`Timer`Task task1 = new `Timer`Task(){
+		TimerTask task1 = new TimerTask(){
 			@Override
 			public void run(){
 				System.out.println("task1 invoked ! " + (System.currentTimeMillis() - start));
@@ -42,21 +42,21 @@ public class `Timer`Test
  
 			}
 		};
-		`Timer`Task task2 = new `Timer`Task(){
+		TimerTask task2 = new TimerTask(){
 			@Override
 			public void run(){
 				System.out.println("task2 invoked ! " + (System.currentTimeMillis() - start));
 			}
 		};
-		`Timer` `Timer` = new `Timer`();
+		Timer Timer = new Timer();
 		start = System.currentTimeMillis();
-		`Timer`.schedule(task1, 1000);
-		`Timer`.schedule(task2, 3000);
+		Timer.schedule(task1, 1000);
+		Timer.schedule(task2, 3000);
 	}
 }
 
 ```
-另外由于单线程架构，一旦 `Timer` 抛出运行时异常，那么 `Timer` 将停止所有的任务执行。`Timer` 还依赖于系统时间，而非时间延迟，因此一旦系统时间发生改变，可能造成执行行为的不可预测。关于 `Timer` 和 `Timer`Task 有时间的话写个源码分析仔细看看。
+另外由于单线程架构，一旦 Timer 抛出运行时异常，那么 Timer 将停止所有的任务执行。Timer 还依赖于系统时间，而非时间延迟，因此一旦系统时间发生改变，可能造成执行行为的不可预测。关于 Timer 和 TimerTask 有时间的话写个源码分析仔细看看。
 
 ## Quartz
 Quartz 相比写程序的人应该都比较熟悉了，名声在外。如果你想在某一个有规律的时间点干某件事，并且时间的触发的条件可以非常复杂（比如每月最后一个工作日的17:50），复杂到需要一个专门的框架来干这个事。 Quartz就是来干这样的事，你给它一个触发条件的定义，它负责到了时间点，触发相应的Job起来干活。
@@ -147,7 +147,7 @@ ScheduleExecutorService 本身是一个接口，继承自 ExecutorService，里�
 public ScheduledFuture<?> schedule(Runnable command,long delay, TimeUnit unit);
 //Callable 可以拿到回调的结果
 public <V> ScheduledFuture<V> schedule(Callable<V> callable,long delay, TimeUnit unit);
-//看名字，固定速率执行，跟`Timer`不一样
+//看名字，固定速率执行，跟Timer不一样
 public ScheduledFuture<?> scheduleAtFixedRate(Runnable command,
                                                   long initialDelay,
                                                   long period,

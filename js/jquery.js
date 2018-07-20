@@ -6261,7 +6261,7 @@ jQuery.fx.step = {};
 
 
 var
-	fxNow, `Timer`Id,
+	fxNow, TimerId,
 	rfxtypes = /^(?:toggle|show|hide)$/,
 	rfxnum = new RegExp( "^(?:([+-])=|)(" + pnum + ")([a-z%]*)$", "i" ),
 	rrun = /queueHooks$/,
@@ -6619,7 +6619,7 @@ function Animation( elem, properties, options ) {
 		animation.opts.start.call( elem, animation );
 	}
 
-	jQuery.fx.`Timer`(
+	jQuery.fx.Timer(
 		jQuery.extend( tick, {
 			elem: elem,
 			anim: animation,
@@ -6742,7 +6742,7 @@ jQuery.fn.extend({
 		return this.each(function() {
 			var dequeue = true,
 				index = type != null && type + "queueHooks",
-				`Timer`s = jQuery.`Timer`s,
+				Timers = jQuery.Timers,
 				data = data_priv.get( this );
 
 			if ( index ) {
@@ -6757,16 +6757,16 @@ jQuery.fn.extend({
 				}
 			}
 
-			for ( index = `Timer`s.length; index--; ) {
-				if ( `Timer`s[ index ].elem === this && (type == null || `Timer`s[ index ].queue === type) ) {
-					`Timer`s[ index ].anim.stop( gotoEnd );
+			for ( index = Timers.length; index--; ) {
+				if ( Timers[ index ].elem === this && (type == null || Timers[ index ].queue === type) ) {
+					Timers[ index ].anim.stop( gotoEnd );
 					dequeue = false;
-					`Timer`s.splice( index, 1 );
+					Timers.splice( index, 1 );
 				}
 			}
 
 			// Start the next in the queue if the last step wasn't forced.
-			// `Timer`s currently will call their complete callbacks, which
+			// Timers currently will call their complete callbacks, which
 			// will dequeue but only if they were gotoEnd.
 			if ( dequeue || !gotoEnd ) {
 				jQuery.dequeue( this, type );
@@ -6782,7 +6782,7 @@ jQuery.fn.extend({
 				data = data_priv.get( this ),
 				queue = data[ type + "queue" ],
 				hooks = data[ type + "queueHooks" ],
-				`Timer`s = jQuery.`Timer`s,
+				Timers = jQuery.Timers,
 				length = queue ? queue.length : 0;
 
 			// Enable finishing flag on private data
@@ -6796,10 +6796,10 @@ jQuery.fn.extend({
 			}
 
 			// Look for any active animations, and finish them
-			for ( index = `Timer`s.length; index--; ) {
-				if ( `Timer`s[ index ].elem === this && `Timer`s[ index ].queue === type ) {
-					`Timer`s[ index ].anim.stop( true );
-					`Timer`s.splice( index, 1 );
+			for ( index = Timers.length; index--; ) {
+				if ( Timers[ index ].elem === this && Timers[ index ].queue === type ) {
+					Timers[ index ].anim.stop( true );
+					Timers.splice( index, 1 );
 				}
 			}
 
@@ -6839,48 +6839,48 @@ jQuery.each({
 	};
 });
 
-jQuery.`Timer`s = [];
+jQuery.Timers = [];
 jQuery.fx.tick = function() {
-	var `Timer`,
+	var Timer,
 		i = 0,
-		`Timer`s = jQuery.`Timer`s;
+		Timers = jQuery.Timers;
 
 	fxNow = jQuery.now();
 
-	for ( ; i < `Timer`s.length; i++ ) {
-		`Timer` = `Timer`s[ i ];
-		// Checks the `Timer` has not already been removed
-		if ( !`Timer`() && `Timer`s[ i ] === `Timer` ) {
-			`Timer`s.splice( i--, 1 );
+	for ( ; i < Timers.length; i++ ) {
+		Timer = Timers[ i ];
+		// Checks the Timer has not already been removed
+		if ( !Timer() && Timers[ i ] === Timer ) {
+			Timers.splice( i--, 1 );
 		}
 	}
 
-	if ( !`Timer`s.length ) {
+	if ( !Timers.length ) {
 		jQuery.fx.stop();
 	}
 	fxNow = undefined;
 };
 
-jQuery.fx.`Timer` = function( `Timer` ) {
-	jQuery.`Timer`s.push( `Timer` );
-	if ( `Timer`() ) {
+jQuery.fx.Timer = function( Timer ) {
+	jQuery.Timers.push( Timer );
+	if ( Timer() ) {
 		jQuery.fx.start();
 	} else {
-		jQuery.`Timer`s.pop();
+		jQuery.Timers.pop();
 	}
 };
 
 jQuery.fx.interval = 13;
 
 jQuery.fx.start = function() {
-	if ( !`Timer`Id ) {
-		`Timer`Id = setInterval( jQuery.fx.tick, jQuery.fx.interval );
+	if ( !TimerId ) {
+		TimerId = setInterval( jQuery.fx.tick, jQuery.fx.interval );
 	}
 };
 
 jQuery.fx.stop = function() {
-	clearInterval( `Timer`Id );
-	`Timer`Id = null;
+	clearInterval( TimerId );
+	TimerId = null;
 };
 
 jQuery.fx.speeds = {
@@ -7915,7 +7915,7 @@ jQuery.extend({
 			responseHeadersString,
 			responseHeaders,
 			// timeout handle
-			timeout`Timer`,
+			timeoutTimer,
 			// Cross-domain detection vars
 			parts,
 			// To know if global events are to be dispatched
@@ -8151,7 +8151,7 @@ jQuery.extend({
 			}
 			// Timeout
 			if ( s.async && s.timeout > 0 ) {
-				timeout`Timer` = setTimeout(function() {
+				timeoutTimer = setTimeout(function() {
 					jqXHR.abort("timeout");
 				}, s.timeout );
 			}
@@ -8184,8 +8184,8 @@ jQuery.extend({
 			state = 2;
 
 			// Clear timeout if it exists
-			if ( timeout`Timer` ) {
-				clearTimeout( timeout`Timer` );
+			if ( timeoutTimer ) {
+				clearTimeout( timeoutTimer );
 			}
 
 			// Dereference transport for early garbage collection
@@ -8896,7 +8896,7 @@ jQuery.each( [ "ajaxStart", "ajaxStop", "ajaxComplete", "ajaxError", "ajaxSucces
 
 
 jQuery.expr.filters.animated = function( elem ) {
-	return jQuery.grep(jQuery.`Timer`s, function( fn ) {
+	return jQuery.grep(jQuery.Timers, function( fn ) {
 		return elem === fn.elem;
 	}).length;
 };
