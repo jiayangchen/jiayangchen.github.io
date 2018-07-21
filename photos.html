@@ -38,25 +38,23 @@ header-img: "img/photo.jpg"
 </header>
     
 <div class="container">
-                <div class="row" ng-app="blogSystem" ng-controller="PhotoController">
-                    <div class="col-md-10 col-md-offset-1">
-                        <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered" data-am-gallery="{  }" >
-                            {% for photo in site.photos %}
-                                <li>
-                                    <div class="am-gallery-item">
-                                        <a href="{{photo.url}}" class="">
-                                            <img src="{{photo.url}}"  alt="{{photo.title}}"/>
-                                            <h3 class="am-gallery-title">{{photo.title}}</h3>
-                                            <div class="am-gallery-desc">{{photo.date}} 摄于<i class="fa fa-map-marker" aria-hidden="true"></i>{{photo.location}}</div>
-                                        </a>
-                                    </div>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="col-md-1"></div>
-                </div>
-                </div>
+    <div class="row" ng-app="blogSystem" ng-controller="PhotoController">
+        <div class="col-md-10 col-md-offset-1">
+            <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered" data-am-gallery="{  }" >
+                {% for photo in site.photos %}
+                    <li>
+                        <div class="am-gallery-item">
+                            <a href="{{photo.url}}" class="">
+                                <img src="{{photo.url}}"  alt="{{photo.title}}"/>
+                                <h3 class="am-gallery-title">{{photo.title}}</h3>
+                                <div class="am-gallery-desc">{{photo.date}} 摄于<i class="fa fa-map-marker" aria-hidden="true"></i>{{photo.location}}</div>
+                            </a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/amazeui.min.js"></script>
