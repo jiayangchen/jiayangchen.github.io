@@ -1,7 +1,7 @@
 ---
-title: Photos
 layout: default
-description: Seeing | Photoing | Enjoying
+title: "Photos"
+description: 世界那么大，总要去看看r
 header-img: "img/photo.jpg"
 ---
 <head>
@@ -39,8 +39,7 @@ header-img: "img/photo.jpg"
     
 <div class="container">
                 <div class="row" ng-app="blogSystem" ng-controller="PhotoController">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
+                    <div class="col-md-10 col-md-offset-1">
                         <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered" data-am-gallery="{  }" >
                             {% for photo in site.photos %}
                                 <li>
@@ -56,6 +55,7 @@ header-img: "img/photo.jpg"
                         </ul>
                     </div>
                     <div class="col-md-1"></div>
+                </div>
                 </div>
 </div>
 <script src="/js/jquery.min.js"></script>
