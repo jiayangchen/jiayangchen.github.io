@@ -77,6 +77,14 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
     {
+        title: "yeming",
+        href: "http://yeming.me/"
+    },
+    {
+        title: "田守支Java技术博客",
+        href: "http://tianshouzhi.com/"
+    },
+    {
         title: "Ivy-End",
         href: "http://www.ivy-end.com/"
     },
