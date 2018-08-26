@@ -7,8 +7,7 @@ author: "ChenJY"
 header-img: "img/websitear.jpg"
 catalog: true
 tags: 
-    - 大型网站技术架构核心原理与案例分析
-    - 读后感
+    - 读书笔记
 ---
 
 ### 重点网站架构技术

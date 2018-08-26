@@ -7,7 +7,7 @@ author: "ChenJY"
 header-img: "img/websitear.jpg"
 catalog: true
 tags: 
-    - redis
+    - Redis
 ---
 
 ## 只挑选代表性的方法

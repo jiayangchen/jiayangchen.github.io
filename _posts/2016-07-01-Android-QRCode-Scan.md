@@ -8,7 +8,6 @@ header-img: "img/android.jpg"
 catalog: true
 tags: 
     - Android
-    - 技术整理
 ---
 	
     

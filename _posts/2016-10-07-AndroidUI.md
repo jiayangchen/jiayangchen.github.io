@@ -8,7 +8,7 @@ header-img: "img/android.jpg"
 catalog: true
 tags: 
     - Android
-    - 技术整理
+    - 收藏
 ---
 
 ### Titanic for Android 浮动文字

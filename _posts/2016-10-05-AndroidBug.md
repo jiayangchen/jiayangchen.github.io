@@ -8,7 +8,7 @@ header-img: "img/android.jpg"
 catalog: true
 tags: 
     - Android
-    - 技术整理
+    - 收藏
 ---
 
 ### 集成SDK构建项目报错："AGPBI: {"kind":"error","text":"warning..."

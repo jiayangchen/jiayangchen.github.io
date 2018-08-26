@@ -7,7 +7,7 @@ author: "ChenJY"
 header-img: "img/hongchen.jpg"
 catalog: true
 tags: 
-    - 《碎片》征文
+    - 随笔
 ---
 
 > “来易来去难去 数十载的人世游……” 大概罗大佑自己也没料到，这首他当年应约写下的曲子，竟成了一个年代的绝响……  ——题记

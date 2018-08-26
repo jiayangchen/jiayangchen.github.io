@@ -7,8 +7,7 @@ author: "ChenJY"
 header-img: "img/recitation.jpg"
 catalog:    true
 tags:
-    - 论文笔记
-    - CSE
+    - 论文阅读
 ---
 
 >Please read Worse is Better, and answer following questions. Maybe you're not familar with LISP, don't be afraid, just finish the artical and try to get the main idea. Be critical to anything you are reading, since the artical is written more than 20 years ago, the environment has changed a lot since then. No worship.

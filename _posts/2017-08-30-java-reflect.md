@@ -7,8 +7,7 @@ author: "ChenJY"
 header-img: "img/db.jpg"
 catalog: true
 tags: 
-    - Java 编程思想
-    - Java 注解
+    - Java Tech
 ---
 
 ### 什么是注解
