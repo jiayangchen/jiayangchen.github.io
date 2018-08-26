@@ -4,14 +4,14 @@ title: "从大学到工作一个月，自己发生了哪些变化"
 subtitle: "从生理上和心理上两个方面来回答"
 date: 2018-08-26
 author: "ChenJY"
-header-img: "img/newblogbg.jpg"
+header-img: "img/zatan.jpg"
 catalog: true
 tags: 
     - 杂谈
     - 随笔
 ---
 
-最开始，这是 [凯老师](www.ivy-end.com/) 在知乎上邀请我回答的一个问题。
+最开始，这是 [凯老师](ivy-end.com) 在知乎上邀请我回答的一个问题。
 
 从生理上和心理上两个方面来回答：
 
