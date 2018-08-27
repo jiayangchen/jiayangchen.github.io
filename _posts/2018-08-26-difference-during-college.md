@@ -4,7 +4,7 @@ title: "从大学到工作一个月，自己发生了哪些变化"
 subtitle: "从生理上和心理上两个方面来回答"
 date: 2018-08-26
 author: "ChenJY"
-header-img: "img/zatan.jpg"
+header-img: "img/zatanbg.jpg"
 catalog: true
 tags: 
     - 杂谈
