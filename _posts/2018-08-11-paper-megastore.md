@@ -66,3 +66,6 @@ Megastore 提供对数据单一的、一致的 view，读写操作都可以在�
 
 ## 5 结论
 论文介绍了可拓展、高可用的存储服务 Megastore，使用 Paxos 来大范围同步复制数据，对每个操作提供轻量级和快速 failover，使用 BigTable 作为可伸缩的数据存储，且加入队列、索引和 ACID 事务。
+
+## License
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>

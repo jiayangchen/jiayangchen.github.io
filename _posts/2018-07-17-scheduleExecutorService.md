@@ -167,5 +167,8 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(threadNum);
 ## ScheduledThreadPoolExecutor
 ScheduledThreadPoolExecutor 继承自 ThreadPoolExecutor 并实现了 ScheduleExecutorService 接口。使用时可以直接 new 一个线程池出来然后调用相应的方法。
 
+## License
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+
 
 

@@ -70,4 +70,6 @@ Redis 因其支持 setbit 和 getbit 操作，且纯内存性能高等特点，�
 ## 参考资料
 * [probabilistic data structures:bloom filter](https://hackernoon.com/probabilistic-data-structures-bloom-filter-5374112a7832)
 * [bloom filters](https://www.jasondavies.com/bloomfilter/)
+
+## License
 * 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>

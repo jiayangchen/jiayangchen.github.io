@@ -37,4 +37,7 @@ Zookeeper 采用推拉结合的方式，客户端可以在 Zookeeper 上对感�
 ## 结论
 总而言之，现在 Zookeeper 同 Redis 一样，在开发过程中的使用频率越来越高，了解常见的使用场景会加深对其的理解。但是 Zookeeper 并不是万能的组件，其饱受诟病的就是性能表现，Leader 一旦撑不住高流量就会崩溃；Leader 选举过程因为基于 Paxos 改进，因此效率不高；此外如果不借助成熟的框架例如 Curator，那么 Zookeeper 其实只暴露一堆 API 而已，至于怎么去实现可靠的选举、注册等功能，还是需要开发人员自己万般小心。
 
+## License
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+
 

@@ -57,3 +57,6 @@ Dynamo 采用 MerkleTree 更快地检测副本之间的不一致性，并且减�
 
 ## 结论
 论文介绍了 Dynamo，一个高度可用和可扩展的数据存储系统，被 Amazon 电子商务平台用来存储许多核心服务的状态。Dynamo 已经提供了所需的可用性和性能水平，并已成功处理服务器故障，数据中心故障和网络分区。Dynamo是增量扩展，并允许服务的拥有者根据请求负载按比例增加或减少。Dynamo让服务的所有者通过调整参数 N、R 和 W 来达到他们渴求的性能，耐用性和一致性的 SLA。
+
+## License
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>

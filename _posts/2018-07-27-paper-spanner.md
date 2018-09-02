@@ -81,4 +81,7 @@ Spanner 的事务在内部依赖于一些单调性，在外部一致性的表现
 
 论文中指出Spanner 汇集和扩展了两个研究社区的概念：一个是数据库研究社区，包括熟悉易用的半关系接口，事务和基于 SQL 的查询语言；另一个是系统研究社区，包括可扩展性，自动分区，容错，一致性复制，外部一致性和大范围分布。设计中一个亮点特性就是 TrueTime API，以更加强壮的时间语义来构建分布式系统。
 
+## License
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+
 

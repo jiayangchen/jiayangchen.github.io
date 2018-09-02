@@ -63,4 +63,7 @@ sequence number 指锁的持有者向Chubby服务端请求一个序号（包括�
 
 论文剩下的部分主要是一些工程上的演进和使用改良。
 
+## License
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+
 

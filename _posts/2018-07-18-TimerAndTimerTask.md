@@ -224,5 +224,8 @@ private void sched(TimerTask task, long time, long period) {
 ## TimerTask 
 这个类就更简单了，本质是一个实现了 Runnable 接口的抽象类，使用的时候需要具体的实现子类继承它，重写其中的 run 方法，TimerTask 内部主要定义了几个任务状态标识 VIRGIN、CANCELED、SCHEDULED、EXECUTED 等，外加执行时间属性 nextExecutionTime、间隔 period，还有一个锁标识 lock。
 
+## License
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+
 
 

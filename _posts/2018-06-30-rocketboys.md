@@ -65,4 +65,7 @@ tags:
 
 ### Day3：四川博物馆 - 陈麻婆豆腐 - 四川图书馆 - 四川美术馆 - 老妈蹄花 - 双流机场
 
+## License
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
+
 

@@ -36,3 +36,6 @@ public static Cache<Integer, Integer> cache = CacheBuilder.newBuilder()
 > The reason for this is as follows: if we wanted to perform Cache maintenance continuously, we would need to create a thread, and its operations would be competing with user operations for shared locks. Additionally, some environments restrict the creation of threads, which would make CacheBuilder unusable in that environment.
 
 这样做既可以保证对 Key 读写的正确性，也可以节省资源，减少竞争。
+
+## License
+* 本文遵守创作共享 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><b>CC BY-NC-SA 3.0协议</b></a>
