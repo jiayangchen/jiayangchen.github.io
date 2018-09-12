@@ -4,17 +4,27 @@ title: "About"
 description: "Hey, this is ChenJY."
 header-img: "img/about_bg.jpg"
 ---
-
+<style>
+select {
+    -webkit-appearance: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #337ab7;
+    border-color: #337ab7;
+    padding: 0 .4em;
+    background: #fff;
+}
+</style>
 <div class="row">
 <!-- Language Selector -->
-<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
         <option value="0"> 中文 Chinese </option>
         <option value="1" selected> 英文 English </option>
     </select>
 </div>
 
 <div class="row">
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28285910&auto=0&height=66"></iframe>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28285910&auto=0&height=66"></iframe>
 </div>
 
 <!-- Chinese Version -->
