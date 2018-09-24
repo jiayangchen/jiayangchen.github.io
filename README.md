@@ -1,6 +1,6 @@
 ## 关于
 
-这是我的个人博客，地址：[chenjiayang.me](https://chenjiayang.me)。
+这是我的个人博客，地址：[chenjiayang.me](https://chenjiayang.me)
 
 基于 Hux 的 [博客主题](https://github.com/Huxpro/huxpro.github.io) 二次开发，主要增加了：
 1. 访问量、文章阅读量统计
