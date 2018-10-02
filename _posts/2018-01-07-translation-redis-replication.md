@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "【译】Redis Replication"
+title: "[译] Redis Replication"
 subtitle: "Redis 文档翻译系列"
 date: 2018-01-07
 author: "ChenJY"
