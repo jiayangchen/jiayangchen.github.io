@@ -75,7 +75,7 @@ int pselect(int nfds, fd_set *readfds, fd_set *writefds,
             const sigset_t *sigmask);
 ```
 
-`poll` 方法中，你告诉它 “这是我想监听的文件描述符：1，3，8，19 等等” （即是 pollfd 参数）。`select `方法中，你告诉它 “我希望监听 19 个文件描述符，我关心其中三个的 `read/write/exception` 状态变更” 所以当 `select` 运行时，它会轮询这 19 个文件描述符，即使你只关心其中几个。
+poll 方法中，你告诉它 “这是我想监听的文件描述符：1，3，8，19 等等” （即是 pollfd 参数）。select 方法中，你告诉它 “我希望监听 19 个文件描述符，我关心其中某个fd的三种（read/write/exception）状态变更（select 使用三个位图来表示三个 fdset）” 所以当 select 运行时，它会轮询这 19 个文件描述符，即使你只关心其中几个。
 
 书中还有许多 `poll` 和 `select` 不同的细节，但是这两点是我学到的最主要的。
 
