@@ -112,42 +112,42 @@ friends: [
 
 # Photos
 photos: [
-    {
-        url: "http://o9oomuync.bkt.clouddn.com/blogIMG_20180623_132723_HDR.jpg",
-        title: "罗中立美术馆",
-        date: "2018.06",
-        location: "重庆四川美术学院"
-    },
-    {
-        url: "http://o9oomuync.bkt.clouddn.com/blogIMG_20180625_150859.jpg",
-        title: "艺术楼",
-        date: "2018.06",
-        location: "成都东郊记忆"
-    },
-    {
-        url: "http://o9oomuync.bkt.clouddn.com/blogIMG_20180626_161617.jpg",
-        title: "青铜面具人像",
-        date: "2018.06",
-        location: "四川博物馆"
-    },
-    {
-        url: "http://o9oomuync.bkt.clouddn.com/bloghometown.jpeg",
-        title: "年关的家乡",
-        date: "2018.02",
-        location: "张家港乐余镇"
-    },
-    {
-        url: "http://o9oomuync.bkt.clouddn.com/blog%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20170921164059.jpg",
-        title: "在东南偶遇拍毕业照",
-        date: "2017.09",
-        location: "东南大学四牌楼校区"
-    },
-    {
-        url: "http://o9oomuync.bkt.clouddn.com/blog%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20170921161442.jpg",
-        title: "台风来临前的晚霞",
-        date: "2017.09",
-        location: "东 26 楼寝室阳台"
-    },
+    # {
+    #     url: "http://o9oomuync.bkt.clouddn.com/blogIMG_20180623_132723_HDR.jpg",
+    #     title: "罗中立美术馆",
+    #     date: "2018.06",
+    #     location: "重庆四川美术学院"
+    # },
+    # {
+    #     url: "http://o9oomuync.bkt.clouddn.com/blogIMG_20180625_150859.jpg",
+    #     title: "艺术楼",
+    #     date: "2018.06",
+    #     location: "成都东郊记忆"
+    # },
+    # {
+    #     url: "http://o9oomuync.bkt.clouddn.com/blogIMG_20180626_161617.jpg",
+    #     title: "青铜面具人像",
+    #     date: "2018.06",
+    #     location: "四川博物馆"
+    # },
+    # {
+    #     url: "http://o9oomuync.bkt.clouddn.com/bloghometown.jpeg",
+    #     title: "年关的家乡",
+    #     date: "2018.02",
+    #     location: "张家港乐余镇"
+    # },
+    # {
+    #     url: "http://o9oomuync.bkt.clouddn.com/blog%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20170921164059.jpg",
+    #     title: "在东南偶遇拍毕业照",
+    #     date: "2017.09",
+    #     location: "东南大学四牌楼校区"
+    # },
+    # {
+    #     url: "http://o9oomuync.bkt.clouddn.com/blog%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20170921161442.jpg",
+    #     title: "台风来临前的晚霞",
+    #     date: "2017.09",
+    #     location: "东 26 楼寝室阳台"
+    # },
     {
         url: "/photos/love.jpg",
         title: "球场看台的求婚",
