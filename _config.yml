@@ -113,6 +113,24 @@ friends: [
 # Photos
 photos: [
     {
+        url: "http://ww1.sinaimg.cn/large/c3beb895ly1fzgrhf1tf8j22bc1qiard.jpg",
+        title: "墙上涂鸦",
+        date: "2019.01",
+        location: "厦门大学芙蓉隧道"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895ly1fzgrh6jpvzj21jk1110z8.jpg",
+        title: "落日",
+        date: "2019.01",
+        location: "厦门园林植物园"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895gy1fzgrf1h8muj21jk111425.jpg",
+        title: "三丘田码头",
+        date: "2019.01",
+        location: "厦门鼓浪屿"
+    },
+    {
         url: "http://ww1.sinaimg.cn/mw690/c3beb895gy1fyr8y1n1r7j23341sdx6y.jpg",
         title: "罗中立美术馆",
         date: "2018.06",
