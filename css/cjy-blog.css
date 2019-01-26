@@ -1,0 +1,36 @@
+code {
+    font-family: Monaco,Consolas,"Lucida Console",monospace;
+    color: dimgrey;
+    font-size: 100%;
+    background: #fafafa;
+    border: 1px solid #f2f3f3;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.125);
+}
+
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+    line-height: 1.8;
+    color: #494e52;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+.post-container li p {
+    margin-bottom: 15px;
+}
+
+.post-container h1, .post-container h2, .post-container h3, .post-container h4, .post-container h5, .post-container h6 {
+    margin: 30px 0 30px;
+}
+
+p {
+    margin: 20px 0;
+}
+
+.side-catalog .catalog-body .h1_nav, .side-catalog .catalog-body .h2_nav, .side-catalog .catalog-body .h3_nav {
+    font-size: 17px;
+    font-weight: 500;
+}
