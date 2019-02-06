@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "回顾《深入理解 Java 虚拟机》之 Java 内存区域"
-subtitle: "过年会把《深入理解 Java 虚拟机》回看一遍，整理下知识点"
+subtitle: "第一篇，过年会把《深入理解 Java 虚拟机》回看一遍，整理下知识点"
 date: 2019-02-05
 author: "ChenJY"
 header-img: "img/java.jpg"
