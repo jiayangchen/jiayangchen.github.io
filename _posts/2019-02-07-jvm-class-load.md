@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "回顾《深入理解 Java 虚拟机》之类加载机制"
-subtitle: ""
+subtitle: "第三篇，虚拟机把描述类的数据从 Class 文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的 Java 类型，这就是虚拟机的类加载机制"
 date: 2019-02-07
 author: "ChenJY"
 header-img: "img/java.jpg"
