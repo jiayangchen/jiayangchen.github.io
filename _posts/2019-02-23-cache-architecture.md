@@ -4,7 +4,7 @@ title: "缓存架构的设计和常见问题"
 subtitle: ""
 date: 2019-02-23
 author: "ChenJY"
-header-img: "img/java.jpg"
+header-img: "img/her.jpg"
 catalog: true
 tags: 
     - Redis
