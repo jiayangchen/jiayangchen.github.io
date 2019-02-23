@@ -47,3 +47,12 @@ p {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.post-container img {
+    border: 2px solid #79787936;
+    /* box-shadow: #1d1b1b 0px 0px 30px 5px inset; */
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5em auto 1.6em auto;
+}
