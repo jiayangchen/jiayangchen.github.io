@@ -7,7 +7,7 @@ author: "ChenJY"
 header-img: "img/java.jpg"
 catalog: true
 tags: 
-    - JVM
+    - Java 并发编程 
 ---
 
 ### 写在前面
