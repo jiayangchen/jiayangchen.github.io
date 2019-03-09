@@ -7,8 +7,7 @@ author: "ChenJY"
 header-img: "img/java.jpg"
 catalog: true
 tags: 
-    - 读书笔记
-    - 深入理解Java虚拟机
+    - JVM
 ---
 
 ### 标记清除

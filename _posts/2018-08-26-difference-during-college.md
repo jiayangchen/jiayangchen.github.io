@@ -7,7 +7,6 @@ author: "ChenJY"
 header-img: "img/zatanbg.jpg"
 catalog: true
 tags: 
-    - 杂谈
     - 随笔
 ---
 
