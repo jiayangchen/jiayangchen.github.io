@@ -9,13 +9,19 @@ code {
 }
 
 body {
-    font-family: -apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
-    line-height: 1.8;
-    color: #494e52;
+    /* font-family: -apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif; */
+    /* line-height: 1.8; */
+    font-family: "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", sans-serif, "Merriweather", serif;
+    letter-spacing: 0.01rem;
+    font-size: 1.7rem;
+    line-height: 1.85em;
+    color: #3A4145;
 }
 
 h3 {
-    font-size: 24px;
+    /* font-size: 24px; */
+    font-size: 3.6rem;
+    letter-spacing: -1px;
 }
 
 .post-container li p {
