@@ -189,7 +189,13 @@ private:
 
 `RC`、`RR` 两种隔离级别的事务在执行普通的读操作时，通过访问版本链的方法，使得事务间的读写操作得以并发执行，从而提升系统性能。`RC`、`RR` 这两个隔离级别的一个很大不同就是生成 `ReadView` 的时间点不同，`RC` 在每一次读操作语句前都会生成一个 `ReadView`，事务期间会更新，因此在其他事务提交前后所得到的 `m_ids` 列表可能发生变化，使得先前不可见的版本后续又突然可见了。而 `RR` 只在事务开始前生成一个 `ReadView`，事务操作期间不更新。
 
-
+### 参考资料
+- 《高性能 MySQL》
+- [Understanding InnoDB MVCC](http://ronaldbradford.com/blog/understanding-innodb-mvcc-2009-07-15/)
+- [15.3 InnoDB Multi-Versioning](https://dev.mysql.com/doc/refman/8.0/en/innodb-multi-versioning.html)
+- [MySQL · 引擎特性 · InnoDB MVCC 相关实现](http://mysql.taobao.org/monthly/2018/11/04/)
+- [MySQL事务隔离级别和MVCC](https://juejin.im/post/5c9b1b7df265da60e21c0b57)
+- [MVCC 原理探究及 MySQL 源码实现分析](https://juejin.im/entry/58f86815ac502e00638e1c97)
 
 
 
