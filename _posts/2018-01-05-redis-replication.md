@@ -4,7 +4,7 @@ title: "小议 Redis 的主从复制功能"
 subtitle: ""
 date: 2018-01-05
 author: "ChenJY"
-header-img: "img/code1.jpg"
+header-img: "img/newblogbg.jpg"
 catalog: true
 tags: 
     - Redis

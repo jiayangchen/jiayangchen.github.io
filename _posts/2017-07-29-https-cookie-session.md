@@ -4,7 +4,7 @@ title: "HTTP & HTTPS, Session & Cookie"
 subtitle: ""
 date: 2017-07-29
 author: "ChenJY"
-header-img: "img/db.jpg"
+header-img: "img/java.jpg"
 catalog: true
 tags: 
     - 计算机网络

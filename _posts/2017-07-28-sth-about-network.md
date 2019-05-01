@@ -4,7 +4,7 @@ title: "计算机网络 —— 网络分层架构"
 subtitle: ""
 date: 2017-07-28
 author: "ChenJY"
-header-img: "img/db.jpg"
+header-img: "img/java.jpg"
 catalog: true
 tags: 
     - 计算机网络

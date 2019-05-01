@@ -4,7 +4,7 @@ title: "MySQL 索引机制背后的隐藏之道"
 subtitle: ""
 date: 2019-03-13
 author: "ChenJY"
-header-img: "img/mysql.jpg"
+header-img: "img/newblogbg.jpg"
 catalog: true
 tags: 
     - MySQL

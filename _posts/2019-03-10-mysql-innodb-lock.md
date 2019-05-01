@@ -4,7 +4,7 @@ title: "MySQL InnoDB 中的锁机制"
 subtitle: "写在前面 数据库本质上是一种共享资源，因此在最大程度提供并发访问性能的同时，仍需要确保每个用户能以一致的方式读取和修改数据。锁机制（Locking）就是解决这类问题的最好武器。"
 date: 2019-03-10
 author: "ChenJY"
-header-img: "img/mysql.jpg"
+header-img: "img/newblogbg.jpg"
 catalog: true
 tags: 
     - MySQL

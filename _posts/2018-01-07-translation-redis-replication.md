@@ -4,7 +4,7 @@ title: "[译] Redis Replication"
 subtitle: "Redis 文档翻译系列"
 date: 2018-01-07
 author: "ChenJY"
-header-img: "img/code1.jpg"
+header-img: "img/java.jpg"
 catalog: true
 tags: 
     - Redis
