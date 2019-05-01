@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "InnoDB MVCC 原理及实现"
+title: "MySQL InnoDB MVCC 机制的原理及实现"
 subtitle: "多版本并发控制，是现代数据库引擎实现中常用的处理读写冲突的手段，目的在于提高数据库高并发场景下的吞吐性能。"
 date: 2019-04-13
 author: "ChenJY"

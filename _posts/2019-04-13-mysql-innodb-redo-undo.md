@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "InnoDB 中的 redo 和 undo log"
+title: "MySQL InnoDB 中的 redo/undo log"
 subtitle: "讲到 InnoDB、MVCC 等概念时，我们时常听到 redo log 和 undo log 的名字，那么二者的作用是什么呢"
 date: 2019-04-13
 author: "ChenJY"

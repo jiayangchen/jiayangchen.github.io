@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MySQL 索引背后的隐藏之道"
+title: "MySQL 索引机制背后的隐藏之道"
 subtitle: ""
 date: 2019-03-13
 author: "ChenJY"
