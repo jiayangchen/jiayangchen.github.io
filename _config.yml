@@ -109,6 +109,36 @@ friends: [
 
 # Photos
 photos: [
+{
+        url: "http://ww1.sinaimg.cn/large/c3beb895gy1g4bdmoogsbj20rs0ijn35.jpg",
+        title: "随拍",
+        date: "2019.06",
+        location: "长宁区愚园路"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895gy1g4bdmot73oj20rs0ijn2m.jpg",
+        title: "点评小人像",
+        date: "2019.06",
+        location: "长宁区德必易园"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895gy1g3mxaunkv9j20rs0ij7cp.jpg",
+        title: "南湖",
+        date: "2019.06",
+        location: "安徽黟县宏村"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895gy1g3mxby9v78j21hc0u0wiu.jpg",
+        title: "月沼",
+        date: "2019.06",
+        location: "安徽黟县宏村"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895gy1g3mw96fvekj21400u0wi1.jpg",
+        title: "莲蕊峰",
+        date: "2019.06",
+        location: "安徽黄山风景区"
+    },
     {
         url: "http://ww1.sinaimg.cn/large/c3beb895ly1fzgrhf1tf8j22bc1qiard.jpg",
         title: "墙上涂鸦",
