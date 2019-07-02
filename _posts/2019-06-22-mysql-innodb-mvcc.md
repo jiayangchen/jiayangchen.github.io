@@ -10,6 +10,24 @@ tags:
     - MySQL
 ---
 
+- [什么是 MVCC](#什么是-mvcc)
+- [为什么需要 MVCC](#为什么需要-mvcc)
+- [InnoDB 中的 MVCC](#innodb-中的-mvcc)
+- [InnoDB MVCC 实现原理](#innodb-mvcc-实现原理)    
+    - [DATA_TRX_ID](#data_trx_id)    
+    - [DATA_ROLL_PTR](#data_roll_ptr)    
+    - [DB_ROW_ID](#db_row_id)
+- [如何组织 Undo Log 链](#如何组织-undo-log-链)
+- [如何实现一致性读 —— ReadView](#如何实现一致性读--readview)    
+    - [RR 下的 ReadView 生成](#rr-下的-readview-生成)    
+    - [RC 下的 ReadView 生成](#rc-下的-readview-生成)    
+- [举个例子](#举个例子)    
+    - [RC 下的 MVCC 判断流程](#rc-下的-mvcc-判断流程)    
+    - [RR 下的 MVCC 判断流程](#rr-下的-mvcc-判断流程)    
+- [一个争论点](#一个争论点)
+- [总结](#总结)
+- [参考资料](#参考资料)
+
 ### 什么是 MVCC
 
 `MVCC (Multiversion Concurrency Control)` 中文全程叫**多版本并发控制**，是现代数据库（包括 `MySQL`、`Oracle`、`PostgreSQL` 等）引擎实现中常用的处理读写冲突的手段，**目的在于提高数据库高并发场景下的吞吐性能**。

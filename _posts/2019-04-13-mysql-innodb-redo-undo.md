@@ -10,6 +10,15 @@ tags:
     - MySQL
 ---
 
+- [写在前面](#写在前面)    
+- [什么是 redo log](#什么是-redo-log)    
+- [什么是 undo log](#什么是-undo-log)
+- [为什么要引入 redo log ？](#为什么要引入-redo-log-)    
+    - [只靠 undo log 行么？](#只靠-undo-log-行么)    
+    - [只靠 redo log 行么？](#只靠-redo-log-行么)
+- [redo/undo log 的持久化](#redoundo-log-的持久化)
+- [参考资料](#参考资料)
+
 ### 写在前面
 
 讲到 `InnoDB`、`MVCC` 等概念时，我们时常听到 `redo log` 和 `undo log` 的名字，那么二者的作用是什么呢？其实二者并非事务操作独有，索引更新时也会记录 `redo/undo log`，甚至记录 `undo log` 时也会记录 `redo log`，而本文聚焦于事务方面的 `redo/undo log`。
