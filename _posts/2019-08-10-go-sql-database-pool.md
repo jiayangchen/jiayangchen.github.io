@@ -10,8 +10,7 @@ tags:
     - Golang
 ---
 
-> 1. 这是公众号的第 xx 篇文章
-> 2. 即使你不了解 Go 语言，阅读本文也不会有障碍
+> 即使你不了解 Go 语言，阅读本文也不会有障碍
 
 - [什么是池化技术](#什么是池化技术)
 - [database/sql 包](#databasesql-包)
@@ -51,15 +50,7 @@ tags:
 #### sql.DB 对象关键属性
 `Go` 语言操作数据库时，我们先使用 `sql.Open` 方法返回一个具体的 `sql.DB` 对象，如下代码片中的 `db` ：
 
-```go
-func main() {
-    db, err := sql.Open("mysql", "user:password@tcp(127.0.0.1:3306)/test")
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer db.Close()
-}
-```
+![](http://ww1.sinaimg.cn/large/c3beb895gy1g5uu3bls08j212q0da402.jpg)
 
 `sql.DB` 对象即是我们访问数据库的入口，我们看看它里面的关键属性，均与连接池的设计相关
 
