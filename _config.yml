@@ -109,7 +109,43 @@ friends: [
 
 # Photos
 photos: [
-{
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895ly1g9uz6s05xwj21jk15o1kx.jpg",
+        title: "猫",
+        date: "2019.12",
+        location: "上海北新泾"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/mw690/c3beb895ly1g9uyhzev81j2340340hdv.jpg",
+        title: "汽车机器人",
+        date: "2019.11",
+        location: "上海科技馆"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895ly1g9uyyx5l4lj21jk223u0x.jpg",
+        title: "大雁塔",
+        date: "2019.11",
+        location: "西安"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895ly1g9uywt89guj21jk15ohdt.jpg",
+        title: "华清宫",
+        date: "2019.11",
+        location: "骊山国家森林公园"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895ly1g9uym75kllj215o15okjl.jpg",
+        title: "后巷",
+        date: "2019.11",
+        location: "西安兵马俑博物馆"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895ly1g9uz4zpfdmj20u00miaf3.jpg",
+        title: "中超联赛",
+        date: "2019.11",
+        location: "上海八万人体育场"
+    },
+    {
         url: "http://ww1.sinaimg.cn/large/c3beb895gy1g4bdmoogsbj20rs0ijn35.jpg",
         title: "随拍",
         date: "2019.06",
