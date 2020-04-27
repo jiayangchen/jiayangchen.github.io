@@ -110,10 +110,16 @@ friends: [
 # Photos
 photos: [
     {
+        url: "http://ww1.sinaimg.cn/large/c3beb895ly1ge8kmdj186j21g11e67wh.jpg",
+        title: "少年",
+        date: "2020.01",
+        location: "江苏路"
+    },
+    {
         url: "http://ww1.sinaimg.cn/large/c3beb895ly1g9uz6s05xwj21jk15o1kx.jpg",
         title: "猫",
         date: "2019.12",
-        location: "上海北新泾"
+        location: "北新泾"
     },
     {
         url: "http://ww1.sinaimg.cn/mw690/c3beb895ly1g9uyhzev81j2340340hdv.jpg",
