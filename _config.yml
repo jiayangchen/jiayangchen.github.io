@@ -107,6 +107,74 @@ friends: [
     }
 ]
 
+books: {
+    "2020": [
+        {
+            url: "https://book.douban.com/subject/34970321/",
+            title: "1918年之疫,被流感改变的世界",
+            star: "☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/34895571/",
+            title: "饱食穷民",
+            star: "☆☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/34949599/",
+            title: "溢出 : 中国制造未来史",
+            star: "☆☆☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/33479141/",
+            title: "世界贸易战简史",
+            star: "☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/30460837/",
+            title: "近代中国人物论",
+            star: "☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/34888158/",
+            title: "中国经济2020",
+            star: "☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/34434309/",
+            title: "82年生的金智英",
+            star: "☆☆☆☆☆"
+        }
+    ],
+    "2019": [
+        {
+            url: "https://book.douban.com/subject/33440205/",
+            title: "你当像鸟飞往你的山",
+            star: "☆☆☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/30306047/",
+            title: "重新定义未来,区块链如何……生活方式!",
+            star: "☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/33417653/",
+            title: "我不是产品经理,移动互联网商业模式下的用户增长",
+            star: "☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/30169979/",
+            title: "战后日本经济史",
+            star: "☆☆☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/10575976/",
+            title: "中国近代史",
+            star: "☆☆☆☆☆"
+        }
+    ]
+}
+
+
 # Photos
 photos: [
     {

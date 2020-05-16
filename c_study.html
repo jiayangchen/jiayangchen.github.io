@@ -1,13 +1,27 @@
 ---
-layout: page
+layout: default
 title: "Studys"
 description: 记录日常学习，包括论文和书籍
 header-img: "img/design_patterns.jpg"
 ---
 
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading photo" id="tag-heading">
+                    <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+                    <span class="subheading">{{ page.description }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-6">
             <h3 style="margin-bottom: 20px;">论文阅读</h3>
             <li><a href="https://chenjiayang.me/2019/12/21/read-dynamo-again/" target="_blank" style="color: rgb(6, 197, 245)">重读 Amazon Dynamo 论文有感</a><span style="display: block;margin-left: 2%;color: rgb(168, 172, 172)">最近重新阅读了 Dynamo 的论文，和初次阅读又有了其他不同的感受</span></li>
             <li><a href="https://chenjiayang.me/2018/07/20/paper-chubby/" target="_blank" style="color: rgb(6, 197, 245)">The Chubby lock service for loosely-coupled distributed systems</a><span style="display: block;margin-left: 2%;color: rgb(168, 172, 172)">Google Chubby 分布式锁服务，Zookeeper 的理论来源</span></li>
@@ -16,6 +30,16 @@ header-img: "img/design_patterns.jpg"
             <li><a href="https://chenjiayang.me/2018/08/11/paper-megastore/" target="_blank" style="color: rgb(6, 197, 245)">Megastore: Providing Scalable, Highly Available Storage for Interactive Services</a><span style="display: block;margin-left: 2%;color: rgb(168, 172, 172)">Google Megastore 可拓展、高可用存储</span></li>
             <li><a href="https://chenjiayang.me/2018/09/02/paper-cassandra/" target="_blank" style="color: rgb(6, 197, 245)">Cassandra - A Decentralized Structured Storage System</a><span style="display: block;margin-left: 2%;color: rgb(168, 172, 172)">Facebook 开源分布式 NoSQL 数据库系统</span></li>
             <li><a href="https://chenjiayang.me/2018/11/06/paper-surviva/" target="_blank" style="color: rgb(6, 197, 245)">Survivability of Cloud Databases - Factors and Prediction</a><span style="display: block;margin-left: 2%;color: rgb(168, 172, 172)">SIGMOD 18 微软 Azure 团队</span></li>
+        </div>
+        <div class="col-md-6">
+            <h3 style="margin-bottom: 20px;">2020 书籍阅读</h3>
+            {% for book in site.books.2020 %}
+                <li><a href="{{book.url}}" target="_blank" style="color: rgb(6, 197, 245)">《{{book.title}}》</a><span style="margin-left: 2%;color: rgb(168, 172, 172)">{{book.star}}</span></li>
+            {% endfor %}
+            <h3 style="margin-bottom: 20px;">2019 书籍阅读</h3>
+            {% for book in site.books.2019 %}
+                <li><a href="{{book.url}}" target="_blank" style="color: rgb(6, 197, 245)">《{{book.title}}》</a><span style="margin-left: 2%;color: rgb(168, 172, 172)">{{book.star}}</span></li>
+            {% endfor %}
         </div>
     </div>
 </div>
