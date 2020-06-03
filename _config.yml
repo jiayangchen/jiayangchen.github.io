@@ -107,8 +107,52 @@ friends: [
     }
 ]
 
+papers: [
+    {
+        url: "https://chenjiayang.me/2019/12/21/read-dynamo-again/",
+        title: "重读 Amazon Dynamo 论文有感",
+        desc: "最近重新阅读了 Dynamo 的论文，和初次阅读又有了其他不同的感受"
+    },
+    {
+        url: "https://chenjiayang.me/2018/07/20/paper-chubby/",
+        title: "The Chubby lock service for loosely-coupled distributed systems",
+        desc: "Google Chubby 分布式锁服务，Zookeeper 的理论来源"
+    },
+    {
+        url: "https://chenjiayang.me/2018/07/27/paper-spanner/",
+        title: "Spanner: Google’s Globally-Distributed Database",
+        desc: "Google Spanner 全球分布式数据库，TiDB 的理论来源"
+    },
+    {
+        url: "https://chenjiayang.me/2018/08/05/paper-Dynamo/",
+        title: "Dynamo: Amazon’s Highly Available Key-value Store",
+        desc: "Amazon 的大型高可用 KV 存储系统 Dynamo"
+    },
+    {
+        url: "https://chenjiayang.me/2018/08/11/paper-megastore/",
+        title: "Megastore: Providing Scalable, Highly Available Storage for Interactive Services",
+        desc: "Google Megastore 可拓展、高可用存储"
+    },
+    {
+        url: "https://chenjiayang.me/2018/09/02/paper-cassandra/",
+        title: "Cassandra - A Decentralized Structured Storage System",
+        desc: "Facebook 开源分布式 NoSQL 数据库系统"
+    },
+    {
+        url: "https://chenjiayang.me/2018/11/06/paper-surviva/",
+        title: "Survivability of Cloud Databases - Factors and Prediction",
+        desc: "SIGMOD 18 微软 Azure 团队"
+    }
+]
+
 books: {
     "2020": [
+        {
+            url: "https://book.douban.com/subject/26865333/",
+            title: "中国1945,中国革命与美国的抉择",
+            star: "☆☆☆",
+            comment: "没看完,偏向性比较明显,过于粉饰美国二战后在亚太的野心"
+        },
         {
             url: "https://book.douban.com/subject/34433981/",
             title: "汴京之围,北宋末年的外交、战争和人",
@@ -117,7 +161,8 @@ books: {
         {
             url: "https://book.douban.com/subject/34970321/",
             title: "1918年之疫,被流感改变的世界",
-            star: "☆☆"
+            star: "☆☆",
+            comment: "枯燥、晦涩、翻译质量感人，年度最差读本候选"
         },
         {
             url: "https://book.douban.com/subject/34895571/",
@@ -127,7 +172,8 @@ books: {
         {
             url: "https://book.douban.com/subject/34949599/",
             title: "溢出 : 中国制造未来史",
-            star: "☆☆☆☆☆"
+            star: "☆☆☆☆☆",
+            comment: "部分观点很有借鉴意义，对民族身份认同的思考很受启发"
         },
         {
             url: "https://book.douban.com/subject/33479141/",
