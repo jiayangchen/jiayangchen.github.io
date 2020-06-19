@@ -148,6 +148,11 @@ papers: [
 books: {
     "2020": [
         {
+            url: "https://book.douban.com/subject/34880649/",
+            title: "改变中国,经济学家的改革记述",
+            star: "☆☆☆"
+        },
+        {
             url: "https://book.douban.com/subject/26865333/",
             title: "中国1945,中国革命与美国的抉择",
             star: "☆☆☆",
