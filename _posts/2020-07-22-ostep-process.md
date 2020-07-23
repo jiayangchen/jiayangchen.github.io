@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "OSTEP[4-6]：Process"
-subtitle: "《Operating System：Three Easy Pieces》"
+title: "OSTEP[4-6]：low-level mechanisms of running processes"
+subtitle: "Operating System：Three Easy Pieces"
 date: 2020-07-22
 author: "ChenJY"
 header-img: "img/java.jpg"
