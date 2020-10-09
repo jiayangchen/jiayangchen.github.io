@@ -148,6 +148,18 @@ papers: [
 books: {
     "2020": [
         {
+            url: "https://book.douban.com/subject/27096824/",
+            title: "决战朝鲜",
+            star: "☆☆☆☆☆",
+            comment: "通俗入门读物"
+        },
+        {
+            url: "https://book.douban.com/subject/35006198/",
+            title: "大宋之变",
+            star: "☆☆☆",
+            comment: "没看完，不够通俗易懂……越看越懵逼"
+        },
+        {
             url: "https://book.douban.com/subject/34983746/",
             title: "长安客",
             star: "☆☆☆☆☆"
