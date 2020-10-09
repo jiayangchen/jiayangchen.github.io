@@ -306,7 +306,7 @@ photos: [
     },
     {
         url: "http://ww1.sinaimg.cn/large/c3beb895gy1g4bdmot73oj20rs0ijn2m.jpg",
-        title: "点评小人像",
+        title: "点评小人",
         date: "2019.06",
         location: "长宁区德必易园"
     },
@@ -366,49 +366,49 @@ photos: [
     },
     {
         url: "http://ww1.sinaimg.cn/mw690/c3beb895gy1fyr9200tptj21251904cv.jpg",
-        title: "电动的..霸王龙",
+        title: "电动……霸王龙",
         date: "2018.06",
         location: "上海自然博物馆"
     },
     {
         url: "http://ww1.sinaimg.cn/mw690/c3beb895gy1fyr8yjfx2tj23342bchdu.jpg",
-        title: "年关的家乡",
+        title: "年关",
         date: "2018.02",
         location: "张家港乐余镇"
     },
     {
         url: "http://ww1.sinaimg.cn/mw690/c3beb895gy1fyr8sxdf9aj236o2e04qu.jpg",
-        title: "在东南偶遇拍毕业照",
+        title: "泉台",
         date: "2017.09",
         location: "东南大学四牌楼校区"
     },
     {
         url: "http://ww1.sinaimg.cn/mw690/c3beb895gy1fyr8ufopacj226v14b4qp.jpg",
-        title: "台风来临前的晚霞",
+        title: "晚霞",
         date: "2017.09",
         location: "东 26 楼寝室阳台"
     },
     {
         url: "http://ww1.sinaimg.cn/mw690/c3beb895gy1fyr8zd29n9j20zk0qogpj.jpg",
-        title: "球场看台的求婚",
+        title: "求婚",
         date: "2017.05",
         location: "上海八万人体育场"
     },
     {
         url: "http://ww1.sinaimg.cn/mw690/c3beb895gy1fyr8yznlwaj20xr0xrn0t.jpg",
-        title: "2016 Microsoft Penta-Hackathon",
+        title: "Hackathon",
         date: "2016.11",
         location: "微软紫竹亚研院"
     },
     {
         url: "http://ww1.sinaimg.cn/mw690/c3beb895gy1fyr8vezh3mj20nf0hswj4.jpg",
-        title: "初春公园出游掠影",
+        title: "初春",
         date: "2016.04",
         location: "闵行区滨江公园外"
     },
     {
         url: "http://ww1.sinaimg.cn/large/c3beb895gy1fyr8q4f8uwj238w1ts1kx.jpg",
-        title: "大一暑假军训晚会",
+        title: "军训晚会",
         date: "2015.09",
         location: "上海交通大学霍英东体育馆"
     },
@@ -420,13 +420,13 @@ photos: [
     },
     {
         url: "http://ww1.sinaimg.cn/mw690/c3beb895gy1fyr92c1w7yj20mu0gxacn.jpg",
-        title: "老校门",
+        title: "校门",
         date: "2015.04",
         location: "苏州大学"
     },
     {
         url: "http://ww1.sinaimg.cn/mw690/c3beb895gy1fyr8w1rfqlj20k00k040u.jpg",
-        title: "2015 年中超联赛首轮",
+        title: "中超联赛首轮",
         date: "2015.03",
         location: "上海八万人体育场"
     },
