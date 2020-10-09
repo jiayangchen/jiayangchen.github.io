@@ -252,7 +252,7 @@ books: {
 photos: [
     {
         url: "http://ww1.sinaimg.cn/large/c3beb895gy1gjj6ykk3k8j22ia1xlb2a.jpg",
-        titel: "三个必胜纪念馆",
+        title: "三个必胜纪念馆",
         date: "2020.10",
         location: "南京"
     },
