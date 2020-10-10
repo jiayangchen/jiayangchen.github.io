@@ -1,0 +1,69 @@
+---
+layout: post
+title: "OSTEP[13-15] Address Space And Address Translation"
+subtitle: "Operating System：Three Easy Pieces"
+date: 2020-10-10
+author: "ChenJY"
+header-img: "img/ostep.png"
+catalog: true
+tags: 
+    - 读书笔记
+    - 操作系统
+---
+
+> OSTEP 全称叫《Operating System：Three Easy Pieces》，从 virtualization, concurrency, 和 persistence 三个角度谈论操作系统的设计和实现，是威斯康辛的研究生教材，即使本科不修 CS 的人也可以阅读，写得非常通俗易懂，是值得推荐的操作系统入门读物，难度较 CSAPP 低一点，可以先读这本再去看 CSAPP。书籍的章节 PDF 是开源的，地址在：[http://pages.cs.wisc.edu/~remzi/OSTEP/](http://pages.cs.wisc.edu/~remzi/OSTEP/)。
+
+## Multiprogramming and Time Sharing
+
+早期的系统没有提供很好的抽象，机器的物理内存中的内容通常如下图所示：
+
+![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3g3xw7hj212i0tgdht.jpg)
+
+操作系统占据了从物理内存起始位置开始到 `64 KB` 的一段空间，剩余的空间用来存放当前运行的程序的代码、数据等信息。随着机器变得越累越贵，人们期望高效的共享机器的计算资源，`multiprogramming` 诞生，意为多个进程可以同时准备运行，然后 `OS` 在它们之间进行切换（例如当某个进程需要等待 `IO` 输入的时候），这种效率上的提升在当时非常重要，因为机器实在非常昂贵。
+
+紧接着，人们不满足于仅仅让多个进程切换运行，他们继续采用 `time sharing` 的机制划分单个进程的时间片，从而进一步提升运行效率。实现 `time sharing` 的一个方法是让某个进程在那个时间点使用全部的物理内存，然后由 `OS` 将上下文保存到磁盘上，让出时间片给另一个进程执行，这种缺点在于效率太低，保存寄存器是很快的，但是保存物理内存的内容非常慢。解决办法就是在物理内存上给每个进程分配一块空间，上下文都保存在这些地方，用于切换。
+
+例如下图中有三个进程 `ABC`，分别占据 `64KB` 的内存空间，假设我们仅有一个核，那当 `OS` 选择进程 `A` 运行时，`B` 和 `C` 就在内存中等待被调度。
+
+![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3i9gh6vj213y0x0n0v.jpg)
+
+随着 `time sharing` 技术的流行，进程需要在物理内存中各自占据一块地盘保存数据，这时候如何保障隔离性就很关键，严格限制进程 `A` 不能访问到进行 `B` 的数据。
+
+## The Address Space
+
+为了达到这个目的，`OS` 必须提供一个简单易懂的抽象，我们称之为地址空间。下图是一个例子，该地址空间属于某个进程，大小为 `16 KB`，其中头部存储进程的 `code`，堆和栈分别位于空间的两端并同时相向扩张，其中栈上用来存放函数调用关系、返回地址、本地变量等；堆里存储各种需要动态分配的内容，例如 `java` 中 `new` 出来的对象。
+
+![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3ir86n2j213y0xmjvh.jpg)
+
+当然这张图仅仅是个抽象，真正的物理内存中该进程的起始地址肯定不是 `0` 而是某个具体的物理地址，那么问题来了，`OS` 怎么抽象物理内存，让进程感觉自己就是从 `0` 到 `16 KB`，好像独占物理内存似的运行呢？例如当进程 `A` 需要从起始位置 `load` 代码，那么 `OS` 需要定位到实际物理内存中的起始位置。虚拟化内存有三个目标，第一是足够透明，第二是足够高效，第三是安全性，实现这些的机制叫做地址翻译。
+
+## Address Translation
+
+当我们谈 `CPU` 虚拟化的时候，说过一个措施叫做 `limit direct execution`，解决的方案是让大部分程序运行在用户态，等到关键步骤时必须由内核态来执行，这样保证安全和隔离。因此地址翻译就是 `OS` 借助硬件提供的一些功能，维护物理内存中 “哪里空闲”、“哪里在使用”，然后将指令中的虚拟地址翻译为真实的物理地址的过程。
+
+我们会先假设进程的地址空间是连续的并且都不是很大，讲清楚原理之后我们再进一步深入一些页表机制。我们看下面的 `C` 代码：
+
+![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3j2rzrfj215g07975m.jpg)
+
+它会被编译期翻译为这样的汇编：
+
+![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3j9dx36j215g05tgo4.jpg)
+
+假设它的地址空间如下：
+
+![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3jg1fzdj20ik0te0ug.jpg)
+
+那么它所做的操作顺序有：
+
+1. 从地址 128 处 load 指令
+2. 执行指令，从地址 15KB 处 load 值
+3. 从地址 132 处 load 指令
+4. 执行指令 + 3
+5. 从地址 135 处 load 指令
+6. 执行指令，写回地址 15KB，更新内存值
+
+进程实际在物理内存中可能位于 `32 KB` 处，硬件通过公式：
+
+> physical address = virtual address + base
+
+来翻译地址，例如虚拟地址 `128` 处的指令，翻译器会将 `128 + 32KB` 得到物理地址 `32896`。

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OSTEP[4-6]：low-level mechanisms of running processes"
+title: "OSTEP[4-6]：Low-level Mechanisms Of Running Processes"
 subtitle: "Operating System：Three Easy Pieces"
 date: 2020-07-22
 author: "ChenJY"
