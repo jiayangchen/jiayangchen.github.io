@@ -148,6 +148,11 @@ papers: [
 books: {
     "2020": [
         {
+            url: "https://book.douban.com/subject/6388661/",
+            title: "这些人，那些事",
+            star: "☆☆☆☆☆"
+        },
+        {
             url: "https://book.douban.com/subject/27096824/",
             title: "决战朝鲜",
             star: "☆☆☆☆☆",
