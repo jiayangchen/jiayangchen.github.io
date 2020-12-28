@@ -150,12 +150,14 @@ books: {
         {
             url: "https://book.douban.com/subject/35074464/",
             title: "光景宛如昨",
-            star: "☆☆☆☆☆"
+            star: "☆☆☆☆☆",
+            comment: "看完有种难以言说的幸福感"
         },
         {
             url: "https://book.douban.com/subject/1009529/",
             title: "毛泽东、斯大林与朝鲜战争",
-            star: "☆☆☆☆☆"
+            star: "☆☆☆☆☆",
+            comment: "严肃史学"
         },
         {
             url: "https://book.douban.com/subject/6388661/",
