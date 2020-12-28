@@ -148,6 +148,16 @@ papers: [
 books: {
     "2020": [
         {
+            url: "https://book.douban.com/subject/35074464/",
+            title: "光景宛如昨",
+            star: "☆☆☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/1009529/",
+            title: "毛泽东、斯大林与朝鲜战争",
+            star: "☆☆☆☆☆"
+        },
+        {
             url: "https://book.douban.com/subject/6388661/",
             title: "这些人，那些事",
             star: "☆☆☆☆☆"
@@ -155,8 +165,7 @@ books: {
         {
             url: "https://book.douban.com/subject/27096824/",
             title: "决战朝鲜",
-            star: "☆☆☆☆☆",
-            comment: "通俗入门读物"
+            star: "☆☆☆☆"
         },
         {
             url: "https://book.douban.com/subject/35006198/",
