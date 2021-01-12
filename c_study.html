@@ -22,6 +22,17 @@ header-img: "img/design_patterns.jpg"
 <div class="container">
     <div class="row">
         <div class="col-md-6">
+            <h3 style="margin-bottom: 20px;">2021 书籍阅读</h3>
+            {% for book in site.books.2021 %}
+            <div class="row">
+                <a href="{{book.url}}" target="_blank" style="color: rgb(6, 197, 245)">《{{book.title}}》</a><span style="margin-left: 2%;color: rgb(168, 172, 172)">{{book.star}}</span>
+            </div>
+            {% if book.comment %}
+            <div class="row">
+                <span style="margin-left: 2%;color: rgb(168, 172, 172);font-size:16px;font-weight: lighter;">{{book.comment}}</span>
+            </div>
+            {% endif %}
+            {% endfor %}
             <h3 style="margin-bottom: 20px;">2020 书籍阅读</h3>
             {% for book in site.books.2020 %}
             <div class="row">

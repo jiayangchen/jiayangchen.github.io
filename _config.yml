@@ -146,6 +146,14 @@ papers: [
 ]
 
 books: {
+    "2021": [
+        {
+            url: "https://book.douban.com/subject/26824237/",
+            title: "大国大城 当代中国的统一、发展与平衡",
+            star: "☆☆☆☆☆",
+            comment: "不论你是否同意陆铭的观点，都应该读一读"
+        }
+    ],
     "2020": [
         {
             url: "https://book.douban.com/subject/35074464/",
