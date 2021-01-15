@@ -150,8 +150,7 @@ books: {
         {
             url: "https://book.douban.com/subject/6895949/",
             title: "联合政府与一党训政 1944～1946年间国共政争",
-            star: "☆☆☆☆☆",
-            comment: "政治没有下限"
+            star: "☆☆☆☆☆"
         },
         {
             url: "https://book.douban.com/subject/26824237/",
