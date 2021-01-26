@@ -109,39 +109,48 @@ friends: [
 
 papers: [
     {
+        url: "http://www.vldb.org/pvldb/vol10/p1730-lin.pdf",
+        title: "PaxosStore:High-availability Storage Made Practical in WeChat"
+    },
+    {
+        url: "https://www.usenix.org/system/files/fast20-chen_jiqiang.pdf",
+        title: "HotRing: A Hotspot-Aware In-Memory Key-Value Store"
+    },
+    {
+        url: "https://lamport.azurewebsites.net/pubs/paxos-simple.pdf",
+        title: "Paxos Made Simple"
+    },
+    {
+        url: "https://raft.github.io/raft.pdf",
+        title: "In Search of an Understandable Consensus Algorithm"
+    },
+    {
         url: "https://chenjiayang.me/2019/12/21/read-dynamo-again/",
-        title: "重读 Amazon Dynamo 论文有感",
-        desc: "最近重新阅读了 Dynamo 的论文，和初次阅读又有了其他不同的感受"
+        title: "重读 Amazon Dynamo 论文有感"
     },
     {
         url: "https://chenjiayang.me/2018/07/20/paper-chubby/",
-        title: "The Chubby lock service for loosely-coupled distributed systems",
-        desc: "Google Chubby 分布式锁服务，Zookeeper 的理论来源"
+        title: "The Chubby lock service for loosely-coupled distributed systems"
     },
     {
         url: "https://chenjiayang.me/2018/07/27/paper-spanner/",
-        title: "Spanner: Google’s Globally-Distributed Database",
-        desc: "Google Spanner 全球分布式数据库，TiDB 的理论来源"
+        title: "Spanner: Google’s Globally-Distributed Database"
     },
     {
         url: "https://chenjiayang.me/2018/08/05/paper-Dynamo/",
-        title: "Dynamo: Amazon’s Highly Available Key-value Store",
-        desc: "Amazon 的大型高可用 KV 存储系统 Dynamo"
+        title: "Dynamo: Amazon’s Highly Available Key-value Store"
     },
     {
         url: "https://chenjiayang.me/2018/08/11/paper-megastore/",
-        title: "Megastore: Providing Scalable, Highly Available Storage for Interactive Services",
-        desc: "Google Megastore 可拓展、高可用存储"
+        title: "Megastore: Providing Scalable, Highly Available Storage for Interactive Services"
     },
     {
         url: "https://chenjiayang.me/2018/09/02/paper-cassandra/",
-        title: "Cassandra - A Decentralized Structured Storage System",
-        desc: "Facebook 开源分布式 NoSQL 数据库系统"
+        title: "Cassandra - A Decentralized Structured Storage System"
     },
     {
         url: "https://chenjiayang.me/2018/11/06/paper-surviva/",
-        title: "Survivability of Cloud Databases - Factors and Prediction",
-        desc: "SIGMOD 18 微软 Azure 团队"
+        title: "Survivability of Cloud Databases - Factors and Prediction"
     }
 ]
 
