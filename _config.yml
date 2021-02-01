@@ -157,6 +157,12 @@ papers: [
 books: {
     "2021": [
         {
+            url: "https://book.douban.com/subject/1418776/",
+            title: "美国反对美国",
+            star: "☆☆☆☆☆",
+            comment: "无愧三届帝师"
+        },
+        {
             url: "https://book.douban.com/subject/34672176/",
             title: "呼吸",
             star: "☆☆☆☆",
