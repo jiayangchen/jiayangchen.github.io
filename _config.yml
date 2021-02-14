@@ -157,6 +157,12 @@ papers: [
 books: {
     "2021": [
         {
+            url: "https://book.douban.com/subject/35221197/",
+            title: "破茧 隔离、信任与未来",
+            star: "☆☆☆",
+            comment: "一般"
+        },
+        {
             url: "https://book.douban.com/subject/1418776/",
             title: "美国反对美国",
             star: "☆☆☆☆☆",
