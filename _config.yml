@@ -157,6 +157,18 @@ papers: [
 books: {
     "2021": [
         {
+            url: "https://book.douban.com/subject/35025444/",
+            title: "血色浪漫",
+            star: "☆☆☆☆☆",
+            comment: "小说当不得真"
+        },
+        {
+            url: "https://book.douban.com/subject/35335514/",
+            title: "文城",
+            star: "☆☆☆",
+            comment: "余华新书，一般"
+        },
+        {
             url: "https://book.douban.com/subject/35102294/",
             title: "不拘一格 网飞的自由与责任工作法",
             star: "☆☆☆☆☆",
@@ -277,16 +289,34 @@ books: {
         {
             url: "https://book.douban.com/subject/30460837/",
             title: "近代中国人物论",
-            star: "☆☆"
+            star: "☆☆",
+            comment: "枯燥"
         },
         {
             url: "https://book.douban.com/subject/34888158/",
             title: "中国经济2020",
-            star: "☆☆☆"
+            star: "☆☆☆",
+            comment: "流水账回顾"
         },
         {
             url: "https://book.douban.com/subject/34434309/",
             title: "82年生的金智英",
+            star: "☆☆☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/30169979/",
+            title: "战后日本经济史",
+            star: "☆☆☆☆☆",
+            comment: "论点扎实，推荐"
+        },
+        {
+            url: "https://book.douban.com/subject/33440205/",
+            title: "你当像鸟飞往你的山",
+            star: "☆☆☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/10575976/",
+            title: "中国近代史",
             star: "☆☆☆☆☆"
         }
     ],
