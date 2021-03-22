@@ -157,6 +157,12 @@ papers: [
 books: {
     "2021": [
         {
+            url: "https://book.douban.com/subject/35166857/",
+            title: "风声",
+            star: "☆☆☆☆☆",
+            comment: "只因民族已到存亡之际，我辈只能奋不顾身，挽救于万一"
+        },
+        {
             url: "https://book.douban.com/subject/35025444/",
             title: "血色浪漫",
             star: "☆☆☆☆☆",
