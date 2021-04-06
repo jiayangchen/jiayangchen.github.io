@@ -157,6 +157,11 @@ papers: [
 books: {
     "2021": [
         {
+            url: "https://book.douban.com/subject/35398543/",
+            title: "云上的中国 激荡的数智化未来",
+            star: "☆☆☆"
+        },
+        {
             url: "https://book.douban.com/subject/35166857/",
             title: "风声",
             star: "☆☆☆☆☆",
