@@ -364,6 +364,18 @@ books: {
 # Photos
 photos: [
     {
+        url: "http://ww1.sinaimg.cn/large/c3beb895gy1gpdjgofvguj20go0b7k2v.jpg",
+        title: "路牌",
+        date: "2021.04",
+        location: "愚园路"
+    },
+    {
+        url: "http://ww1.sinaimg.cn/large/c3beb895gy1gpdjfj3dudj20rs0kun57.jpg",
+        title: "水墨倒影",
+        date: "2021.03",
+        location: "苏州博物馆"
+    },
+    {
         url: "http://ww1.sinaimg.cn/large/c3beb895gy1gjj6ykk3k8j22ia1xlb2a.jpg",
         title: "三个必胜纪念馆",
         date: "2020.10",
