@@ -158,6 +158,12 @@ books: {
     "2021": [
         {
             url: "https://book.douban.com/subject/35398543/",
+            title: "中国经济2021",
+            star: "☆☆☆",
+            comment: "也不好意思说读吧，就是翻过去……反正每年出一本"
+        },
+        {
+            url: "https://book.douban.com/subject/35398543/",
             title: "云上的中国 激荡的数智化未来",
             star: "☆☆☆"
         },
