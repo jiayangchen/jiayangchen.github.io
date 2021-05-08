@@ -157,6 +157,17 @@ papers: [
 books: {
     "2021": [
         {
+            url: "https://book.douban.com/subject/35216962/",
+            title: "抚顺故事集",
+            star: "☆☆☆☆"
+        },
+        {
+            url: "https://book.douban.com/subject/35174681/",
+            title: "一往无前 雷军亲述小米热血10年",
+            star: "☆☆",
+            comment: "年度最差候选，呵呵哒"
+        },
+        {
             url: "https://book.douban.com/subject/35398543/",
             title: "中国经济2021",
             star: "☆☆☆",
