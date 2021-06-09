@@ -157,6 +157,12 @@ papers: [
 books: {
     "2021": [
         {
+            url: "https://book.douban.com/subject/35233508/",
+            title: "應許之地：歐巴馬回憶錄",
+            star: "☆☆☆",
+            comment: "真是期待川宝的回忆录啊"
+        },
+        {
             url: "https://book.douban.com/subject/35216962/",
             title: "抚顺故事集",
             star: "☆☆☆☆"
@@ -233,7 +239,8 @@ books: {
         {
             url: "https://book.douban.com/subject/6895949/",
             title: "联合政府与一党训政 1944～1946年间国共政争",
-            star: "☆☆☆☆☆"
+            star: "☆☆☆☆☆",
+            comment: "一书理清所有时间线"
         },
         {
             url: "https://book.douban.com/subject/26824237/",
