@@ -157,6 +157,17 @@ papers: [
 books: {
     "2021": [
         {
+            url: "https://book.douban.com/subject/20424526/",
+            title: "邓小平时代",
+            star: "☆☆☆☆☆",
+            comment: "三过书架没拿，以为长篇很枯燥结果打开就停不下来"
+        },
+        {
+            url: "https://book.douban.com/subject/35374447/",
+            title: "请照顾好我妈妈",
+            star: "☆☆☆☆☆"
+        },
+        {
             url: "https://book.douban.com/subject/35233508/",
             title: "應許之地：歐巴馬回憶錄",
             star: "☆☆☆",
