@@ -54,7 +54,7 @@ tags:
 
 `Redis` 集群也是 `NoSQL` 数据库，它是怎么解决哈希映射问题的呢？它启动时就划分好了 `16384` 个桶，然后再将这些桶分配给节点占有，数据是固定地往这 `16384` 个桶里放，至于节点的增减操作，那就是某些桶的重新分配，缩小了数据流动的范围。
 
-![DX-20191221@2x.png](http://ww1.sinaimg.cn/large/c3beb895gy1ga4aelq7gyj212u0o8gp3.jpg)
+![VjER6.png](https://ss.im5i.com/2021/08/17/VjER6.png)
 
 #### Dynamo 的数据分片
 
@@ -64,13 +64,13 @@ tags:
 
 > 下图蓝色小圆 ABCD 的代表四个实际节点，橙色的小圆代表数据，他们顺时针落在第一个碰到的节点上
 
-![DX-20191221@2x.png](http://ww1.sinaimg.cn/large/c3beb895gy1ga4avglaf8j20vr0rajuu.jpg)
+![VjU48.png](https://ss.im5i.com/2021/08/17/VjU48.png)
 
 #### 一致性哈希的改进
 
 一致性哈希是存在缺点的，如果仅仅是直接将每个节点映射到一个圆环上，可能造成节点间复杂的范围有大有小，造成数据分布和机器负载不均衡。
 
-![DX-20191221@2x.png](http://ww1.sinaimg.cn/large/c3beb895gy1ga4ayyzxu7j20uv0u3wio.jpg)
+![VjtKU.png](https://ss.im5i.com/2021/08/17/VjtKU.png)
 
 因此一致性哈希有个优化举措，就是引入**虚拟节点**，其实就是我再引入一个中间层解耦，虚拟节点平均落在圆环上，然后实际节点的映射跟某几个虚拟节点挂钩，表示我这台物理节点实际负责这些虚拟节点的数据范围，从而达到平衡负载的作用。
 

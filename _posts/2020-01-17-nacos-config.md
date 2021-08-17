@@ -45,7 +45,7 @@ tags:
 
 这里省略了许多细节问题，例如配置分层设计，权限校验，客户端长轮询的间隔设置，服务端每次查询都需要访问 `MySQL` 么，配置变更是主动推送还是等定时轮询触发等，还有就是运维高可用方面的工作（私以为这个是配置中心的精华），例如节点跨地域部署，网络分区时配置如何保证可写可推送变更等。**真正实现一个高质量的配置中心，还是需要长时间打磨的。**
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895gy1gb0uqsf1usj20yy0k8gnb.jpg)
+![VjK4y.png](https://ss.im5i.com/2021/08/17/VjK4y.png)
 
 ## Nacos 使用示例
 
@@ -95,11 +95,11 @@ try {
 
 `Nacos` 官方给出了这样的设计图：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895gy1gb0ur3ajvij20j40g6acc.jpg)
+![VjVGO.png](https://ss.im5i.com/2021/08/17/VjVGO.png)
 
 `dataId` 可以理解为用户自定义的配置健，`group` 可以理解为配置分组名称，这个属于配置层级设计的概念。简单来说，配置中心会通过层次设计，来支持不同的分区，以此区分不同的环境、不同的分组、甚至不同的开发者，满足在开发过程中灰度发布、测试等需求。因此怎样设计都可以，只要有含义就好，例如下图也不是不可以。
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895gy1gb0urct2p9j215g0nx77g.jpg)
+![VjdHR.png](https://ss.im5i.com/2021/08/17/VjdHR.png)
 
 ## Nacos 客户端解析
 
@@ -107,7 +107,7 @@ try {
 
 获取配置的主要方法是 `NacosConfigService` 类的 `getConfigInner` 方法，通常情况下该方法直接从本地文件中取得配置的值，如果本地文件不存在或者内容为空，则再通过 `HTTP GET` 方法从远端拉取配置，并保存到本地快照中。
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895gy1gb0urjrehxj20zw0f60ty.jpg)
+![VjfLd.png](https://ss.im5i.com/2021/08/17/VjfLd.png)
 
 当通过 `HTTP` 获取远端配置时，`Nacos` 提供了两种熔断策略，一是超时时间，二是最大重试次数，默认重试三次。
 
@@ -124,7 +124,7 @@ iconfig.getConfigAndSignListener(dataId, group, 1000, ml);
 
 所有的 `CacheData` 都保存在 `ClientWorker` 类中的原子 `cacheMap` 中，其内部的核心成员有：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895gy1gb0urrbhl0j20xe0hcdgr.jpg)
+![Vjrq4.png](https://ss.im5i.com/2021/08/17/Vjrq4.png)
 
 其中，`content` 是配置内容，`MD5` 值是用来检测配置是否发生变更的关键，内部还维护着一个若干监听器组成的数组，一旦发生变更则依次回调这些监听器。
 
@@ -132,7 +132,7 @@ iconfig.getConfigAndSignListener(dataId, group, 1000, ml);
 
 `ClientWorker` 通过其下的两个线程池完成配置长轮询的工作，一个是单线程的 `executor`，每隔 `10ms` 按照每 `3000` 个配置项为一批次捞取待轮询的 `cacheData` 实例，将其包装成为一个 `LongPollingTask` 提交进入第二个线程池 `executorService` 处理。
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895gy1gb0us3u1lwj215g0m8dlg.jpg)
+![VjyEW.png](https://ss.im5i.com/2021/08/17/VjyEW.png)
 
 该长轮询任务内部主要分为四步：
 
@@ -157,7 +157,7 @@ iconfig.getConfigAndSignListener(dataId, group, 1000, ml);
 
 因为服务端并不是针对每次配置查询都去访问 `MySQL` 的，而是会依赖 `dump` 功能在本地文件中将配置缓存起来。因此当单台机器保存完毕配置之后，需要通知其他机器刷新内存和本地磁盘中的文件内容，因此它会发布一个名为 `ConfigDataChangeEvent` 的事件，这个事件会通过 `HTTP` 调用通知所有集群节点（包括自身），触发本地文件和内存的刷新。
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895gy1gb0usd7e9hj20yk0nw78a.jpg)
+![VjBZG.png](https://ss.im5i.com/2021/08/17/VjBZG.png)
 
 ### 处理长轮询
 
@@ -165,7 +165,7 @@ iconfig.getConfigAndSignListener(dataId, group, 1000, ml);
 
 > 为什么比客户端 `30s` 的超时时间提前 `500ms` 返回是为了最大程度上保证客户端不会因为网络延时造成超时
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895gy1gb0usmncmgj215g0k90y3.jpg)
+![Vjc1z.png](https://ss.im5i.com/2021/08/17/Vjc1z.png)
 
 这里需要注意的是，在 `ClientLongPolling` 任务被提交进入线程池待执行的同时，服务端也通过一个队列 `allSubs` 保存了所有正在被夯住的轮询请求，这是因为在配置项被夯住的期间内，如果用户通过管理平台操作了配置项变更、或者服务端该节点收到了来自其他节点的 `dump` 刷新通知，那么都应立即取消夯住的任务，及时通知客户端数据发生了变更。
 
@@ -175,7 +175,7 @@ iconfig.getConfigAndSignListener(dataId, group, 1000, ml);
 
 因此完整的流程如下，如果非接收请求的节点，那么忽略第一步持久化配置后开始：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895gy1gb0ustqz4uj215g075gnl.jpg)
+![Vjsr5.png](https://ss.im5i.com/2021/08/17/Vjsr5.png)
 
 ## 全文总结
 

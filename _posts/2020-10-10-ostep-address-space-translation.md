@@ -17,7 +17,7 @@ tags:
 
 早期的系统没有提供很好的抽象，机器的物理内存中的内容通常如下图所示：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3g3xw7hj212i0tgdht.jpg)
+![VH828.png](https://ss.im5i.com/2021/08/17/VH828.png)
 
 操作系统占据了从物理内存起始位置开始到 `64 KB` 的一段空间，剩余的空间用来存放当前运行的程序的代码、数据等信息。随着机器变得越累越贵，人们期望高效的共享机器的计算资源，`multiprogramming` 诞生，意为多个进程可以同时准备运行，然后 `OS` 在它们之间进行切换（例如当某个进程需要等待 `IO` 输入的时候），这种效率上的提升在当时非常重要，因为机器实在非常昂贵。
 
@@ -25,7 +25,7 @@ tags:
 
 例如下图中有三个进程 `ABC`，分别占据 `64KB` 的内存空间，假设我们仅有一个核，那当 `OS` 选择进程 `A` 运行时，`B` 和 `C` 就在内存中等待被调度。
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3i9gh6vj213y0x0n0v.jpg)
+![VHAaU.png](https://ss.im5i.com/2021/08/17/VHAaU.png)
 
 随着 `time sharing` 技术的流行，进程需要在物理内存中各自占据一块地盘保存数据，这时候如何保障隔离性就很关键，严格限制进程 `A` 不能访问到进行 `B` 的数据。
 
@@ -33,7 +33,7 @@ tags:
 
 为了达到这个目的，`OS` 必须提供一个简单易懂的抽象，我们称之为地址空间。下图是一个例子，该地址空间属于某个进程，大小为 `16 KB`，其中头部存储进程的 `code`，堆和栈分别位于空间的两端并同时相向扩张，其中栈上用来存放函数调用关系、返回地址、本地变量等；堆里存储各种需要动态分配的内容，例如 `java` 中 `new` 出来的对象。
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3ir86n2j213y0xmjvh.jpg)
+![VHeGw.png](https://ss.im5i.com/2021/08/17/VHeGw.png)
 
 当然这张图仅仅是个抽象，真正的物理内存中该进程的起始地址肯定不是 `0` 而是某个具体的物理地址，那么问题来了，`OS` 怎么抽象物理内存，让进程感觉自己就是从 `0` 到 `16 KB`，好像独占物理内存似的运行呢？例如当进程 `A` 需要从起始位置 `load` 代码，那么 `OS` 需要定位到实际物理内存中的起始位置。虚拟化内存有三个目标，第一是足够透明，第二是足够高效，第三是安全性，实现这些的机制叫做地址翻译。
 
@@ -43,15 +43,15 @@ tags:
 
 我们会先假设进程的地址空间是连续的并且都不是很大，讲清楚原理之后我们再进一步深入一些页表机制。我们看下面的 `C` 代码：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3j2rzrfj215g07975m.jpg)
+![VHz5Z.png](https://ss.im5i.com/2021/08/17/VHz5Z.png)
 
 它会被编译期翻译为这样的汇编：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3j9dx36j215g05tgo4.jpg)
+![VH0AJ.png](https://ss.im5i.com/2021/08/17/VH0AJ.png)
 
 假设它的地址空间如下：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gjk3jg1fzdj20ik0te0ug.jpg)
+![VHaq1.png](https://ss.im5i.com/2021/08/17/VHaq1.png)
 
 那么它所做的操作顺序有：
 

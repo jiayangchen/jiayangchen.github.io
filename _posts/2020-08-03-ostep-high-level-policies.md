@@ -22,7 +22,7 @@ tags:
 
 那假如我们把 IO 考虑进来呢，进程通常需要 IO 操作，当某个进程等待 IO 完毕时将 CPU 让给其他进程，最大化保证 CPU 处于满载运行状态，例如下图，但可惜的是还是没解决问题。
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1ghdexizonpj215g0s3783.jpg)
+![VH4sn.png](https://ss.im5i.com/2021/08/17/VH4sn.png)
 
 因为上述内容基于一个“不可能”的假设：操作系统知晓进程允许时间，而实际上操作系统是很难知晓一个任务的具体运行时长的。为了解决这个问题，我们介绍现代操作系统常用的思路，多级反馈队列，核心思想是能根据当下的情况预测未来的行为。
 
@@ -36,11 +36,11 @@ tags:
 
 例如下图是一个 MLFQ 的例子，由于 AB 两个任务优先级最高，调度器会让二者交易运行，C 和 D 的优先级较低，调度器会先将二者晾在一边。
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1ghdexvb7fpj20zk0mw402.jpg)
+![VHpIl.png](https://ss.im5i.com/2021/08/17/VHpIl.png)
 
 下面细述如何调整优先级，由三条规则控制，当一个新任务加入进来时，先默认处于最高优先级的队列中；当一个任务运行一个时间分片后还未结束的，其优先级开始降低；当一个任务在时间分片中途释放了 CPU，则其当前优先级不变。下面通过例子看看：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1ghdey2wfwfj20ze0iqgmi.jpg)
+![VH7k7.png](https://ss.im5i.com/2021/08/17/VH7k7.png)
 
 这是个运行时间很长的任务，它刚进来时先处于 Q2，优先级最高，运行完毕一个时间分片后降级到 Q1，再然后继续降级到 Q0，优先级最低的队列后一直处于 Q0 知道运行完毕。
 
@@ -58,7 +58,7 @@ tags:
 
 CPU Cache 的存在会带来缓存一致性问题，因为 CPU 总是先更新 Cache 的数据，写回内存是慢操作，会之后再进行不是同步进行的。硬件通过总线窥探技术（bus snooping），CPU 通过连接到内存的总线监听数据更新，当监听到某个数据更新时，让自己缓存中的数据过期强制从内存中拉取。
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1ghdeybqgb6j20kw0dsjsd.jpg)
+![VHOl2.png](https://ss.im5i.com/2021/08/17/VHOl2.png)
 
 有了硬件保证用户代码还是需要关心并发问题，通常要使用锁来保证并发访问共享数据的一致性，否则在多核之间访问共享数据通常不会得到期望的结果。
 
@@ -66,19 +66,19 @@ CPU Cache 的存在会带来缓存一致性问题，因为 CPU 总是先更新 C
 
 有了上述的基础，我们下面叙述如何构建一个多核调度器，首先想到的解决方案很简单，我们复用下单核下的调度策略，将所有的任务塞进单个队列里，一个个取出来就行了，这种方案叫 SQMS，全程 singlequeue multiprocessor scheduling，但缺点是低效而且无法避免 cache affinity 问题，如下图：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1ghdeykuqu4j215g0l943h.jpg)
+![VHk9P.png](https://ss.im5i.com/2021/08/17/VHk9P.png)
 
 由于每个任务都允许一个时间分片，因此无法保证单个任务被同一个 CPU 调度到，从而无法避免 cache affinity 问题。有的 SQMS 用一些特殊的策略来尽可能保证单个任务运行在同一个 CPU 上，实在不行的情况下才换核执行：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1ghdeysdtn9j21560d6dgy.jpg)
+![Vj1aD.png](https://ss.im5i.com/2021/08/17/Vj1aD.png)
 
 为了解决 SQMS 的缺点，诞生了 MQMS，全程叫 multi-queue multiprocessor scheduling，思想就是为每个 CPU 分配一个调度队列，假设两个队列 Q0 和 Q1 分别分配给两个 CPU：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1ghdeyz63jpj214m04pmxb.jpg)
+![VjQGj.png](https://ss.im5i.com/2021/08/17/VjQGj.png)
 
 每个队列中有两个任务，现在 CPU 采用 RR 的方式来执行两个任务：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1ghdez69vwjj215g080jse.jpg)
+![VjhHS.png](https://ss.im5i.com/2021/08/17/VjhHS.png)
 
 MQMS 很好地解决了扩展性和 cache affinity 的问题，但缺点在于无法做到负载均衡（load imbalance），如果 Q0 的两个任务很快执行完成了，Q1 的两个任务缺很慢，那么此时 CPU0 将处于空闲状态，CPU 1 反而要执行两个任务，这显然不太合理，我们浪费了 CPU0 的计算资源。
 

@@ -42,7 +42,7 @@ tags:
 
 我们现在知道进程是怎么产生的、怎么运行的了，下面我们看看进程的状态。简单来说，进程有三种状态：`Running`、`Ready` 和 `Block`，不需要把他们跟实际 `Unix` 系统或者 `Java` 虚拟机中的线程状态对应起来，这只是理论概念上的三种状态，它们之间的转换关系如下图：
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gh00bukasqj20s00ff0vg.jpg)
+![VjwAL.png](https://ss.im5i.com/2021/08/17/VjwAL.png)
 
 #我们可以看出，进程可以随着 `CPU` 调度情况在 `Running` 和 `Ready` 之间进行转换，但一个进程处于 `Block` 状态时，`CPU` 会等到某些事件发生之后，才将它唤醒变为 `Ready` 状态，再次等待 `CPU` 调度到它去执行。
 
@@ -76,5 +76,5 @@ tags:
 
 下图展现了从启动到完全两个进程间切换的时间轴，横轴分别是操作系统、硬件和用户程序，纵轴是时间流向。
 
-![undefined](http://ww1.sinaimg.cn/large/c3beb895ly1gh00c49alnj215g10dk0k.jpg)
+![Vjqqt.png](https://ss.im5i.com/2021/08/17/Vjqqt.png)
 
