@@ -157,6 +157,24 @@ papers: [
 books: {
     "2021": [
         {
+            url: "https://book.douban.com/subject/35512975/",
+            title: "伊朗四千年",
+            star: "☆☆☆☆☆",
+            comment: "中东的复杂性蓝星第一"
+        },
+        {
+            url: "https://book.douban.com/subject/35426737/",
+            title: "吴军数学通识讲义 : 原来数学可以这样用",
+            star: "☆☆☆☆",
+            comment: "还可以，当做知识回顾了"
+        },
+        {
+            url: "https://book.douban.com/subject/34815132/",
+            title: "圆圈正义 作为自由前提的信念",
+            star: "☆☆☆",
+            comment: "一般般"
+        },
+        {
             url: "https://book.douban.com/subject/20424526/",
             title: "邓小平时代",
             star: "☆☆☆☆☆",
@@ -398,6 +416,12 @@ books: {
 
 # Photos
 photos: [
+    {
+        url: "https://ss.im5i.com/2021/09/17/lvt1s.md.jpg",
+        title: "傍晚的十字路口",
+        date: "2021.09",
+        location: "北新泾"
+    },
     {
         url: "https://ss.im5i.com/2021/08/17/VTVY7.png",
         title: "路牌",
