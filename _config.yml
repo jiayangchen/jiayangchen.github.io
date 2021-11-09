@@ -157,6 +157,35 @@ papers: [
 books: {
     "2021": [
         {
+            url: "https://book.douban.com/subject/35562179/",
+            title: "天堂旅行团",
+            star: "☆☆☆",
+            comment: "张嘉佳可不可以写一些开心的书啊"
+        },
+        {
+            url: "https://book.douban.com/subject/35581077/",
+            title: "了不起的中国画 清宫旧藏追踪录",
+            star: "☆☆☆☆☆",
+            comment: "力荐，至少可以入门怎么鉴赏"
+        },
+        {
+            url: "https://book.douban.com/subject/35582002/",
+            title: "我的灵魂骑在纸背上",
+            star: "☆☆☆☆☆",
+            comment: "怎么学会这种随便写写就这么感人的文笔啊"
+        },
+        {
+            url: "https://book.douban.com/subject/35578740/",
+            title: "中国的选择 中美博弈与战略抉择",
+            star: "☆☆☆☆☆",
+            comment: "力荐"
+        },
+        {
+            url: "https://book.douban.com/subject/35486968/",
+            title: "在人间：肿瘤科女医生亲历记录",
+            star: "☆☆☆"
+        },
+        {
             url: "https://book.douban.com/subject/35512975/",
             title: "伊朗四千年",
             star: "☆☆☆☆☆",
@@ -417,8 +446,26 @@ books: {
 # Photos
 photos: [
     {
+        url: "https://ss.im5i.com/2021/11/09/JBnHR.md.jpg",
+        title: "学走路",
+        date: "2021.11",
+        location: "陆家嘴中央绿地"
+    },
+    {
+        url: "https://ss.im5i.com/2021/11/09/JBoLd.md.jpg",
+        title: "咖啡节",
+        date: "2021.11",
+        location: "陆家嘴中央绿地"
+    },
+    {
+        url: "https://ss.im5i.com/2021/11/09/JBIq4.md.jpg",
+        title: "格栅建筑",
+        date: "2021.10",
+        location: "苏州美术馆"
+    },
+    {
         url: "https://ss.im5i.com/2021/09/17/lvt1s.md.jpg",
-        title: "傍晚的十字路口",
+        title: "十字路口",
         date: "2021.09",
         location: "北新泾"
     },
