@@ -21,8 +21,10 @@ header-img: "img/design_patterns.jpg"
 
 <div class="container">
     <div class="row">
+        <span style="margin-left: 2%;color: rgb(168, 172, 172);font-size:18px;font-weight: lighter;">最新的阅读记录可以访问 <a href="https://www.douban.com/people/136993305/?_i=8501164nrr92Gg,8501185nrr92Gg" target="_blank" style="color:rgb(6, 197, 245)">豆瓣主页</a></span>
+    </div>
+    <div class="row" style="margin-top: 20px;">
         <div class="col-md-6">
-            <h3 style="margin-bottom: 20px;">2021 书籍阅读</h3>
             {% for book in site.books.2021 %}
             <div class="row">
                 <a href="{{book.url}}" target="_blank" style="color: rgb(6, 197, 245)">《{{book.title}}》</a><span style="margin-left: 2%;color: rgb(168, 172, 172)">{{book.star}}</span>
@@ -57,7 +59,6 @@ header-img: "img/design_patterns.jpg"
             {% endfor %} -->
         </div>
         <div class="col-md-6">
-            <h3 style="margin-bottom: 20px;">2020 书籍阅读</h3>
             {% for book in site.books.2020 %}
             <div class="row">
                 <a href="{{book.url}}" target="_blank" style="color: rgb(6, 197, 245)">《{{book.title}}》</a><span style="margin-left: 2%;color: rgb(168, 172, 172)">{{book.star}}</span>
