@@ -53,7 +53,7 @@ kramdown:
   footnote_backlink:         "&#8617;&#xfe0e;"
 
 # Livere settings
-livere_userid: MTAyMC8zMjgxNS85Mzc2
+#livere_userid: MTAyMC8zMjgxNS85Mzc2
 # Disqus settings
 #disqus_username: jiayangchen
 
