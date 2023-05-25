@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "红尘烟火 ——《碎片》征文作品"
-subtitle: "为了投稿《碎片》微文学大赛，修改了《滚滚红尘》影评，目前文章进入了复赛阶段，同时也在简书首页得到了编辑推荐"
+title: "红尘烟火——《滚滚红尘》影评"
+subtitle: "《碎片》征稿"
 date: 2016-12-09
 author: "ChenJY"
 header-img: "img/hongchen.jpg"
