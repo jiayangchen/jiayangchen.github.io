@@ -5,8 +5,8 @@ header-img: img/bg1.jpg
 email: Chen.Jiayang@foxmail.com
 description: "我的肩上是风，风上是闪烁的星辰。—— 北岛《结局或开始》"
 keyword: "博客,Java,Redis,Spring,分布式系统"
-url: "http://chenjiayang.me"              # your host, for absolute URL
-baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+url: "https://jiayangchen.github.io"    # your host, for absolute URL
+baseurl: ""                             # empty: this is a user site at the domain root
 
 # SNS settings
 RSS: true
@@ -22,13 +22,13 @@ csdn_username: chen_kkw
 highlighter: rouge
 permalink: pretty
 
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md","Gemfile","Gemfile.lock","vendor",".bundle",".github"]
 anchorjs: false                          # if you want to customize anchor. check out line:181 of `post.html`
 
 
-# Gems
-# from PR#40, to support local preview for Jekyll 3.0
-gems: [jekyll-paginate]
+# Plugins
+# `plugins` is the Jekyll 3.5+ name for the former `gems` key.
+plugins: [jekyll-paginate]
 paginate: 5
 port: 4001
 
@@ -125,31 +125,31 @@ papers: [
         title: "In Search of an Understandable Consensus Algorithm"
     },
     {
-        url: "https://chenjiayang.me/2019/12/21/read-dynamo-again/",
+        url: "/2019/12/21/read-dynamo-again/",
         title: "重读 Amazon Dynamo 论文有感"
     },
     {
-        url: "https://chenjiayang.me/2018/07/20/paper-chubby/",
+        url: "/2018/07/20/paper-chubby/",
         title: "The Chubby lock service for loosely-coupled distributed systems"
     },
     {
-        url: "https://chenjiayang.me/2018/07/27/paper-spanner/",
+        url: "/2018/07/27/paper-spanner/",
         title: "Spanner: Google’s Globally-Distributed Database"
     },
     {
-        url: "https://chenjiayang.me/2018/08/05/paper-Dynamo/",
+        url: "/2018/08/05/paper-Dynamo/",
         title: "Dynamo: Amazon’s Highly Available Key-value Store"
     },
     {
-        url: "https://chenjiayang.me/2018/08/11/paper-megastore/",
+        url: "/2018/08/11/paper-megastore/",
         title: "Megastore: Providing Scalable, Highly Available Storage for Interactive Services"
     },
     {
-        url: "https://chenjiayang.me/2018/09/02/paper-cassandra/",
+        url: "/2018/09/02/paper-cassandra/",
         title: "Cassandra - A Decentralized Structured Storage System"
     },
     {
-        url: "https://chenjiayang.me/2018/11/06/paper-surviva/",
+        url: "/2018/11/06/paper-surviva/",
         title: "Survivability of Cloud Databases - Factors and Prediction"
     }
 ]
